@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  	<script type="text/javascript">
+    	function imprimirAlgo(){
+    		alert("Paton conduccion");
+    	}
+  	</script>
+	<head>
+		<title>Create Devices - Smart Home</title>
+	</head>
+	<body>
+		<div class="parent">
+			<h1 class="title">Create Devices</h1>
+			<h3>Name</h3>
+            <input type="text" style="width:200;"/>
+            <h3>Type</h3>
+            <select id="comboDpto" onchange="onSelectChange()">
+              <option value=""></option>
+              <option value="Air Conditioner">Air Conditioner</option>
+              <option value="Light">Light</option>
+              <option value="Doors">Doors</option>
+              <option value="Alarma">Alarm</option>
+              <option value="Courtines">Courtines</option>
+              <option value="Timer">Timer</option>
+              <option value="Oven">Oven</option>
+            </select>
+			<button type="button" onclick="imprimirAlgo()">
+				<img class="logo"  style="height:100px;width:100px" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
+			</button>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+
+.parent {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.header {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	height: 100px;
+}
+
+.search-bar {
+	height: 20px;
+	width: 700px;
+}
+
+.search-logo {
+	height: 20px;
+	width: 20px;
+}
+
+.nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.logo {
+	height: 76px;
+	width: 330px;
+}
+
+.wizard {
+	display: flex;
+	flex-direction: row;
+}
+
+.preview-icon {
+	height: 50px;
+	margin-left: 10px;
+	width: 50px;
+}
+
+.add-button {
+	height: 100px;
+	margin: 5px;
+	width: 100px;
+}
+
+.add-button-icon {
+	height: 100px;
+	width: 100px;
+}

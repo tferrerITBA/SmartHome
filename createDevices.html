@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html>
-  	<script type="text/javascript">
-    	function imprimirAlgo(){
-    		alert("Paton conduccion");
-    	}
-  	</script>
+	<script type="text/javascript">
+		function imprimirAlgo(){
+			alert("Paton conduccion");
+		}
+	</script>
 	<head>
 		<title>Create Devices - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="equalizer.css">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 	</head>
 	<body>
 		<div class="parent">
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="home.html">Home</a>
+					<a class="nav-link" href="devices.html">Devices</a>
+					<a class="nav-link" href="rooms.html">Rooms</a>
+					<a class="nav-link" href="routines.html">Routines</a>
+				</div>
+				<div class="search">
+					<input class="search-bar" type="text" placeholder="Search..." />
+					<button class="search-button" type="search-button" onclick="imprimirAlgo()">
+						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
+					</button>
+				</div>  
+			</div>
 			<h1 class="title">Create Devices</h1>
-			<h3>Name</h3>
-            <input type="text" style="width:200;"/>
-            <h3>Type</h3>
-            <select id="comboDpto" onchange="onSelectChange()">
-              <option value=""></option>
-              <option value="Air Conditioner">Air Conditioner</option>
-              <option value="Light">Light</option>
-              <option value="Doors">Doors</option>
-              <option value="Alarma">Alarm</option>
-              <option value="Courtines">Courtines</option>
-              <option value="Timer">Timer</option>
-              <option value="Oven">Oven</option>
-            </select>
-			<button type="button" onclick="imprimirAlgo()">
-				<img class="logo"  style="height:100px;width:100px" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
+			<div class="p-margin">
+				<h3>Name</h3>
+				<input type="text" style="border-style: solid; width:200; border-width:2px;height: 29px;padding-left: 6px; padding-right: 6px;"/>
+				<br><h3>Type</h3>
+				<select id="comboDpto" onchange="onSelectChange()" style="border-style: solid; width:200px; border-width:2px;height: 29px;padding-left: 6px; padding-right: 6px;">
+					<option value=""></option>
+					<option value="Air Conditioner">Air Conditioner</option>
+					<option value="Light">Light</option>
+					<option value="Doors">Doors</option>
+					<option value="Alarma">Alarm</option>
+					<option value="Courtines">Courtines</option>
+					<option value="Timer">Timer</option>
+					<option value="Oven">Oven</option>
+				</select>
+			</div>
+			<button type="button" onclick="imprimirAlgo()" style="border-style: solid; width:200; border-width:2px;">
+				<img class="logo"  style="height:100px;width:100px;background-color: black" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
 			</button>
 		</div>
 	</body>

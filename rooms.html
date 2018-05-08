@@ -7,22 +7,41 @@
   	</script>
 	<head>
 		<title>Rooms - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 	</head>
 	<body>
 		<div class="parent">
-			<h1 class="title">Rooms</h1>
-			<h3>No rooms found</h3>
-			<div class="wizard" style="display: flex; flex-direction= row">
-				<p>If you want to add a room press</p>
-				<img class="logo" style="height:50px;width:50px; margin-left:10px;" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="home.html">Home</a>
+					<a class="nav-link" href="devices.html">Devices</a>
+					<a class="nav-link" href="rooms.html">Rooms</a>
+					<a class="nav-link" href="routines.html">Routines</a>
+				</div>
+				<div class="search">
+					<input class="search-bar" type="text" placeholder="Search..." />
+					<button class="search-button" type="search-button" onclick="imprimirAlgo()">
+						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
+					</button>
+				</div>	
 			</div>
-			<button type="button" onclick="imprimirAlgo()">
-				<img class="logo"  style="height:100px;width:100px" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
+			<h1 class="title">Rooms</h1>
+			<div class="no-rooms">
+				<h3><b>No rooms found<b></h3>
+				<div class="wizard">
+					<p>If you want to add a room you should press the</p>
+					<div class="add-button orientative">
+						<img class="orientative-icon" src="assets/PlusButton.png" alt="add device icon"/>
+					</div>
+					<p>button.</p>
+				</div>
+			</div>
+			<button class="add-button" type="button" onclick="imprimirAlgo()">
+				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>
 			</button>
 		</div>
 	</body>
 </html>
-
-

@@ -1,1 +1,15 @@
 {"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
+{"_id":"bb4b7d9c366ef5d6","name":"kitchen","meta":"{}"}
+{"_id":"bb4b7d9c366ef5d6","name":"banio","meta":"{}"}
+{"_id":"46046a7cb3d9e932","name":"kitchen 230","meta":"{ size: \"9m2\" }"}
+{"$$deleted":true,"_id":"46046a7cb3d9e932"}
+{"_id":"cd6ecdcf271fca00","name":"kitchen 220","meta":"{ size: \"9m2\" }"}
+{"_id":"cd6ecdcf271fca00","name":"kitchen 220","meta":"{ size: \"6m2\" }"}
+{"_id":"cd6ecdcf271fca00","name":"kitchen 220","meta":"{ size: \"6m2\" }"}
+{"$$deleted":true,"_id":"cd6ecdcf271fca00"}
+{"_id":"09caf25bbc545053","name":"kitchen 120","meta":"{ size: \"9m2\" }"}
+{"$$deleted":true,"_id":"09caf25bbc545053"}
+{"_id":"cb6f74d78c542e0f","name":"kitchen 83","meta":"{ size: \"9m2\" }"}
+{"_id":"cb6f74d78c542e0f","name":"kitchen 83","meta":"{ size: \"6m2\" }"}
+{"_id":"cb6f74d78c542e0f","name":"kitchen 83","meta":"{ size: \"6m2\" }"}
+{"_id":"cb6f74d78c542e0f","name":"kitchen 83","meta":"{ size: \"6m2\" }"}

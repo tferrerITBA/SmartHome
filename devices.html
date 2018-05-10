@@ -29,17 +29,19 @@
 				</div>	
 			</div>
 			<h1 class="title">Devices</h1>
-			<div class="no-devices" v-show="devices == 0">
-				<h3><b>No devices found<b></h3>
-				<div class="wizard">
-					<p>If you want to add a device you should press the</p>
-					<div class="add-button orientative">
-						<img class="orientative-icon" src="assets/PlusButton.png" alt="add device icon"/>
+			<div class="margin-text">
+				<div v-show="deviceQty == 0">
+					<h3><b>No devices found<b></h3>
+					<div class="wizard">
+						<p>If you want to add a device you should press the</p>
+						<div class="add-button orientative">
+							<img class="orientative-icon" src="assets/PlusButton.png" alt="add device icon"/>
+						</div>
+						<p>button.</p>
 					</div>
-					<p>button.</p>
 				</div>
 			</div>
-			<button class="add-button" type="button" onclick="location.href='createDevices.html';">
+			<button class="add-button" type="button" onclick="location.href='createDevice.html';">
 				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>
 			</button>
 		</div>

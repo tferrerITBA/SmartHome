@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<script type="text/javascript">
-		function imprimirAlgo(){
-			alert("Paton conduccion");
-		}
-	</script>
 	<head>
-		<title>Create Devices - Smart Home</title>
+		<title>Create Device - Smart Home</title>
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 	</head>
 	<body>
-		<div class="parent">
+		<div class="parent" id="app">
 			<div class="nav">
 				<a class="logo" href="home.html"></a>
 				<div>
@@ -28,25 +23,27 @@
 					</button>
 				</div>  
 			</div>
-			<h1 class="title">Create Devices</h1>
-			<div class="p-margin">
-				<h3>Name</h3>
-				<input type="text" style="border-style: solid; width:200; border-width:2px;height: 29px;padding-left: 6px; padding-right: 6px;"/>
-				<br><h3>Type</h3>
-				<select id="comboDpto" onchange="onSelectChange()" style="border-style: solid; width:200px; border-width:2px;height: 29px;padding-left: 6px; padding-right: 6px;">
-					<option value=""></option>
+			<h1 class="title">Create Device</h1>
+			<div class="margin-text">
+				<h3 class="field-name">Name</h3>
+				<input id="deviceName" type="text" class="input-text"/><br>
+				<h3 class="field-name">Type</h3>
+				<select id="deviceType" class="select-input">
+					<option value="">Choose one</option>
 					<option value="Air Conditioner">Air Conditioner</option>
 					<option value="Light">Light</option>
-					<option value="Doors">Doors</option>
-					<option value="Alarma">Alarm</option>
+					<option value="Door">Door</option>
+					<option value="Alarm">Alarm</option>
 					<option value="Courtines">Courtines</option>
 					<option value="Timer">Timer</option>
 					<option value="Oven">Oven</option>
 				</select>
 			</div>
-			<button type="button" onclick="imprimirAlgo()" style="border-style: solid; width:200; border-width:2px;">
-				<img class="logo"  style="height:100px;width:100px;background-color: black" src="https://images.vexels.com/media/users/3/135544/isolated/preview/23724deafa9e7ec5830d49438d3e3f9f-colorido-bot-n-m-s-agregar-icono-by-vexels.png" alt="device button"/>
-			</button>
+			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
+			<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
 		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="vue.js"></script>
 	</body>
 </html>

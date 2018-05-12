@@ -177,3 +177,52 @@
 .name-input {
 		width: 500px;
 }
+
+.device {
+	height: 70px;
+	width: 60%;
+	background-color: #C1C1C1;
+	display: flex;
+	align-content: center;
+	border: 2px #555 solid;
+	border-radius: 15px;
+	justify-content: space-between;
+}
+
+.device:hover {
+	background-color: #D6D6D6;
+}
+
+.item-description {
+	display: flex;
+}
+
+.item-icon {
+	background-color: white;
+	border-radius: 20%;
+	padding: 5px;
+	height: 50px;
+	width: 50px;
+	margin: 0 10px;
+}
+
+.item-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.item-name {
+	font-size: 26px;
+	line-height: 32px;
+}
+
+.item-categ {
+	font-size: 13px;
+}
+
+.next-arrow {
+	height: 50px;
+	width: 45px;
+	transform: rotate(270deg);
+}

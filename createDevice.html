@@ -18,7 +18,7 @@
 				</div>
 				<div class="search">
 					<input class="search-bar" type="text" placeholder="Search..." />
-					<button class="search-button" type="search-button" onclick="imprimirAlgo()">
+					<button class="search-button" type="search-button" onclick="">
 						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
 					</button>
 				</div>  
@@ -29,14 +29,13 @@
 				<input id="deviceName" type="text" class="input-text"/><br>
 				<h3 class="field-name">Type</h3>
 				<select id="deviceType" class="select-input">
-					<option value="">Choose one</option>
 					<option value="Air Conditioner">Air Conditioner</option>
 					<option value="Light">Light</option>
-					<option value="Door">Door</option>
 					<option value="Alarm">Alarm</option>
+					<option value="Oven">Oven</option>
 					<option value="Courtines">Courtines</option>
 					<option value="Timer">Timer</option>
-					<option value="Oven">Oven</option>
+					<option value="Door">Door</option>
 				</select>
 			</div>
 			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>

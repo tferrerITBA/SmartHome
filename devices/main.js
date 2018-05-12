@@ -1,6 +1,18 @@
 var device;
 
 $(document).ready(function() {
+
+  api.device.getAll()
+    .done((data, textStatus, jqXHR) => {
+      console.log(data);
+      $("#result").val(JSON.stringify(data, null, 2));
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      $("#result").val("Request failed: " + jqXHR.responseText);
+    })
+
+
+
   $("#post").on("click", function() {
     var index = Math.floor(Math.random() * (999 - 1) + 1)
     room = new api.model.room(null, "kitchen " + index, "{ size: \"9m2\" }");

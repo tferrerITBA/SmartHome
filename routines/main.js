@@ -1,6 +1,17 @@
 var routine;
 
 $(document).ready(function() {
+  api.routines.getAll()
+      .done((data, textStatus, jqXHR) => {
+        var index;
+        for(index = 0; index < data.routines.length; index++){
+          console.log(data.routines[index].id);
+        }
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR.responseText);
+      })
+
   $("#post").on("click", function() {
     var index = Math.floor(Math.random() * (999 - 1) + 1)
     room = new api.model.room(null, "kitchen " + index, "{ size: \"9m2\" }");

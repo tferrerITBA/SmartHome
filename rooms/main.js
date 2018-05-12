@@ -1,6 +1,17 @@
 var room;
 
 $(document).ready(function() {
+  api.room.getAll()
+      .done((data, textStatus, jqXHR) => {
+        var index;
+        for(index = 0; index < data.rooms.length; index++){
+          console.log(data.rooms[index].id);
+        }
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR.responseText);
+      })
+
   $("#post").on("click", function() {
     var index = Math.floor(Math.random() * (999 - 1) + 1)
     room = new api.model.room(null, "kitchen " + index, "{ size: \"9m2\" }");

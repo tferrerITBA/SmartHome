@@ -1,49 +1,61 @@
 var device;
 
 $(document).ready(function() {
-  $("#post").on("click", function() {
-    var index = Math.floor(Math.random() * (999 - 1) + 1)
-    room = new api.model.room(null, "kitchen " + index, "{ size: \"9m2\" }");
+  api.device.getAll()
+    .done((data, textStatus, jqXHR) => {
+      var index;
+      for(index = 0; index < data.devices.length; index++){
+        console.log(data.devices[index].id);
+      }
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR.responseText);
+    })
 
-    api.room.add(room)
+  $("#createDevice").on("click", function() {
+    var name = $("#name").val();
+    var type = $("#type").val().id;
+    device = new api.model.device(null, type, name, "{ state: {}, actions: {} }");
+
+    api.device.add(room)
       .done((data, textStatus, jqXHR) => {
         room.id = data.room.id;
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
-  $("#put").on("click", function() {
-    room.meta = "{ size: \"6m2\" }";
+  $("#modifyDevice").on("click", function() {
+    device.meta = "{ state: {}, actions: {} }";
 
-    api.room.modify(room)
+    api.device.modify(device)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
-  $("#delete").on("click", function() {
-    api.room.delete(room.id)
+  $("#deleteDevice").on("click", function() {
+    api.device.delete(device.id)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
-  $("#get").on("click", function() {
-    api.room.get(room.id)
+  $("#getDevice").on("click", function() {
+    api.device.get(device.id)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 

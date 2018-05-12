@@ -176,3 +176,19 @@ api.routine = class {
     });
   }
 }
+
+api.deviceType = class {
+  static get url() {
+    return api.baseUrl + "devicetypes/";
+  }
+
+  static getTypes() {
+   return $.ajax({
+      url: api.deviceType.url,
+      method: "GET",
+      dataType: "json",
+      timeout: api.timeout
+    });
+  }
+
+}

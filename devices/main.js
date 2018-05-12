@@ -1,18 +1,4 @@
-var room;
-
-function enableButtons() {
-  $("#post").prop('disabled', true);
-  $("#put").prop('disabled', false);
-  $("#delete").prop('disabled', false);
-  $("#get").prop('disabled', false);
-}
-
-function disableButtons() {
-  $("#post").prop('disabled', false);
-  $("#put").prop('disabled', true);
-  $("#delete").prop('disabled', true);
-  $("#get").prop('disabled', true);
-}
+var device;
 
 $(document).ready(function() {
   $("#post").on("click", function() {
@@ -23,7 +9,6 @@ $(document).ready(function() {
       .done((data, textStatus, jqXHR) => {
         room.id = data.room.id;
         $("#result").val(JSON.stringify(data, null, 2));
-        enableButtons();
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         $("#result").val("Request failed: " + jqXHR.responseText);
@@ -36,7 +21,6 @@ $(document).ready(function() {
     api.room.modify(room)
       .done((data, textStatus, jqXHR) => {
         $("#result").val(JSON.stringify(data, null, 2));
-        enableButtons();
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         $("#result").val("Request failed: " + jqXHR.responseText);
@@ -47,7 +31,6 @@ $(document).ready(function() {
     api.room.delete(room.id)
       .done((data, textStatus, jqXHR) => {
         $("#result").val(JSON.stringify(data, null, 2));
-        disableButtons();
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         $("#result").val("Request failed: " + jqXHR.responseText);
@@ -58,12 +41,10 @@ $(document).ready(function() {
     api.room.get(room.id)
       .done((data, textStatus, jqXHR) => {
         $("#result").val(JSON.stringify(data, null, 2));
-        enableButtons();
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         $("#result").val("Request failed: " + jqXHR.responseText);
       })
   });
 
-  disableButtons();
 });

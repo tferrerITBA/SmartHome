@@ -1,4 +1,2 @@
-{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}
-{"_id":"df2aa43b08d90d89","name":"table lamp","typeId":"go46xmbqeomjrsjr","state":{"status":"off","color":"FFFFFF","brightness":100},"meta":"{}"}
-{"$$deleted":true,"_id":"df2aa43b08d90d89"}
 {"_id":"291e2022d7bfaca4","name":"table lamp","typeId":"go46xmbqeomjrsjr","state":{"status":"off","color":"FFFFFF","brightness":100},"meta":"{}"}
+{"$$indexCreated":{"fieldName":"name","unique":true,"sparse":false}}

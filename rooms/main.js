@@ -13,48 +13,48 @@ $(document).ready(function() {
       })
 
   $("#post").on("click", function() {
-    var index = Math.floor(Math.random() * (999 - 1) + 1)
-    room = new api.model.room(null, "kitchen " + index, "{ size: \"9m2\" }");
+    var name = $("#name").val();
+    room = new api.model.room(null, name, "{}");
 
     api.room.add(room)
       .done((data, textStatus, jqXHR) => {
         room.id = data.room.id;
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
   $("#put").on("click", function() {
-    room.meta = "{ size: \"6m2\" }";
+    room.meta = "{}";
 
     api.room.modify(room)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
   $("#delete").on("click", function() {
     api.room.delete(room.id)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 
   $("#get").on("click", function() {
     api.room.get(room.id)
       .done((data, textStatus, jqXHR) => {
-        $("#result").val(JSON.stringify(data, null, 2));
+        console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
-        $("#result").val("Request failed: " + jqXHR.responseText);
+        console.log(jqXHR.responseText);
       })
   });
 

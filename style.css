@@ -106,7 +106,7 @@
 	border: 2px solid;
 	height: 29px;
 	padding: 0 6px;
-	width: 200px;
+	width: 300px;
 }
 
 .select-input {
@@ -125,7 +125,7 @@
 	color: white;
 	font-size: 24px;
 	height: 50px;
-	position: absolute;
+	position: fixed;
 	width: 150px;
 
 	-webkit-transition-duration: 0.4s;
@@ -164,20 +164,6 @@
 	margin-top: 20px;
 }
 
-.list-container {
-	height: 200px;
-	width: 500px;
-	align-self: center;
-	margin-top: 20px;
-	border-color: gray;
-	z-index: 3;
-	background-color: lightgray;
-}
-
-.name-input {
-		width: 500px;
-}
-
 .device {
 	height: 70px;
 	width: 60%;
@@ -187,6 +173,7 @@
 	border: 2px #555 solid;
 	border-radius: 15px;
 	justify-content: space-between;
+	margin: 10px 0;
 }
 
 .device:hover {
@@ -217,7 +204,7 @@
 	line-height: 32px;
 }
 
-.item-categ {
+.item-subtext {
 	font-size: 13px;
 }
 
@@ -225,4 +212,31 @@
 	height: 50px;
 	width: 45px;
 	transform: rotate(270deg);
+}
+
+.room-icon {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	margin: 0 10px;
+}
+
+.list-container {
+	height: 230px;
+	width: 250px;
+	align-self: center;
+	border-color: gray;
+	z-index: 3;
+	background-color: lightgray;
+}
+
+.icon-selection {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+}
+
+.icon-button {
+	display: flex;
+	align-items: center;
 }

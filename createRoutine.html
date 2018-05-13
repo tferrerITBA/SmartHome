@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Routine - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="equalizer.css">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="home.html">Home</a>
+					<a class="nav-link" href="devices.html">Devices</a>
+					<a class="nav-link" href="rooms.html">Rooms</a>
+					<a class="nav-link" href="routines.html">Routines</a>
+				</div>
+				<div class="search">
+					<input class="search-bar" type="text" placeholder="Search..."/>
+					<button class="search-button" type="search-button" onclick="">
+						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
+					</button>
+				</div>
+			</div>
+			<h1 class="title">Create Routine</h1>
+			<div class="margin-text">
+				<h3 class="field-name">Name</h3>
+				<input id="deviceName" type="text" class="input-text"/><br>
+				<h3 class="field-name">Actions</h3>
+		      	<div class="list-container"></div>
+		    </div>
+			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='routines.html';">Create</button>
+			<button class="option-button cancel" type="button" onclick="location.href='routines.html';">Cancel</button>
+		</div>
+	</body>
+</html>

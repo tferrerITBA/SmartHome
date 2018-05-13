@@ -5,7 +5,7 @@ $(document).ready(function() {
     .done((data, textStatus, jqXHR) => {
       var index;
       for(index = 0; index < data.devices.length; index++){
-        console.log(data.devices[index].id);
+        // console.log(data.devices[index].id);
       }
     })
     .fail((jqXHR, textStatus, errorThrown) => {
@@ -13,17 +13,23 @@ $(document).ready(function() {
     })
 
   $("#createDevice").on("click", function() {
-    // var name = $("#name").val();
-    // var type = $("#type").val().id;
-    var name = "Cortin";
-    var type = "eu0v2xgprrhhg41g";
-    device = new api.model.device(null, type, name, "{}");
-
-    api.device.add(device)
+    api.deviceType.getTypes()
       .done((data, textStatus, jqXHR) => {
-        debugger;
-        room.id = data.device.id;
-        console.log(data);
+        var deviceName = $("#deviceName").val();
+        var deviceType = $("#deviceType").val();
+        var deviceIdType = data.devices.filter(
+          function(device){
+            return device.name === deviceType;
+          })[0].id;
+        device = new api.model.device(null, deviceIdType, deviceName, "{}");
+        api.device.add(device)
+          .done((data, textStatus, jqXHR) => {
+            room.id = data.device.id;
+            console.log(data);
+          })
+          .fail((jqXHR, textStatus, errorThrown) => {
+            console.log(jqXHR.responseText);
+          })
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log(jqXHR.responseText);
@@ -53,6 +59,7 @@ $(document).ready(function() {
   });
 
   $("#getDevice").on("click", function() {
+    debugger;
     api.device.get(device.id)
       .done((data, textStatus, jqXHR) => {
         console.log(data);

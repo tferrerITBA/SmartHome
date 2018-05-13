@@ -13,13 +13,16 @@ $(document).ready(function() {
     })
 
   $("#createDevice").on("click", function() {
-    var name = $("#name").val();
-    var type = $("#type").val().id;
-    device = new api.model.device(null, type, name, "{ state: {}, actions: {} }");
+    // var name = $("#name").val();
+    // var type = $("#type").val().id;
+    var name = "Cortin";
+    var type = "eu0v2xgprrhhg41g";
+    device = new api.model.device(null, type, name, "{}");
 
-    api.device.add(room)
+    api.device.add(device)
       .done((data, textStatus, jqXHR) => {
-        room.id = data.room.id;
+        debugger;
+        room.id = data.device.id;
         console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {

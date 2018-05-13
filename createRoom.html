@@ -47,10 +47,19 @@
 		      		</div>
 		      	</form>
 				<h3 class="field-name">Devices</h3>
-		      	<div class="list-container">
-		      		<input type="checkbox" name="device"/>Device 1
-		      		<input type="checkbox" name="device"/>Device 2
-		      		<input type="checkbox" name="device"/>Device 3
+		      	<div class="device-selection">
+		      		<div class="device-option">
+			      		<input type="checkbox" name="device"/>
+			      		<p class="device-option-text">Device 1</p>
+		      		</div>
+		      		<div class="device-option">
+		      			<input type="checkbox" name="device"/>
+		      			<p class="device-option-text">Device 2</p>
+		      		</div>
+		      		<div class="device-option">
+		      			<input type="checkbox" name="device"/>
+		      			<p class="device-option-text">Device 3</p>
+		      		</div>
 		      	</div>
 		    </div>
 			<button class="option-button create" type="button" v-on:click="addDevice()">Create</button>

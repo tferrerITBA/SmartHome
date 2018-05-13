@@ -15,6 +15,16 @@ $(document).ready(function() {
   $(function(){
     $('button').click(function(){
       console.log($(this).attr('id'));
+      if (id  === undefined) {
+        api.rooms.get($(this).attr('id'))
+        .done((data, textStatus, jqXHR) => {
+          room = data.room;
+          console.log(data);
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+          console.log(jqXHR.responseText);
+        });
+      }
     });
   });
 

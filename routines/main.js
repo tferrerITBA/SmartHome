@@ -15,6 +15,16 @@ $(document).ready(function() {
   $(function(){
     $('button').click(function(){
       console.log($(this).attr('id'));
+      if (id  === undefined) {
+        api.device.get($(this).attr('id'))
+        .done((data, textStatus, jqXHR) => {
+          routine = data.routine;
+          console.log(data);
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+          console.log(jqXHR.responseText);
+        });
+      }
     });
   });
 

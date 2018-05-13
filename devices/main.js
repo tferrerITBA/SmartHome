@@ -3,10 +3,9 @@ var device;
 $(document).ready(function() {
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
-      var index;
-      for(index = 0; index < data.devices.length; index++){
-        // console.log(data.devices[index].id);
-      }
+      data.devices.forEach(function(device){
+        // console.log(device.id);
+      })
     })
     .fail((jqXHR, textStatus, errorThrown) => {
       console.log(jqXHR.responseText);
@@ -15,6 +14,16 @@ $(document).ready(function() {
   $(function(){
     $('button').click(function(){
       console.log($(this).attr('id'));
+      if (id  === undefined) {
+        api.device.get($(this).attr('id'))
+        .done((data, textStatus, jqXHR) => {
+          device = data.device;
+          console.log(data);
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+          console.log(jqXHR.responseText);
+        });
+      }
     });
   });
 

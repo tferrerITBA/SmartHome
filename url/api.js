@@ -214,6 +214,17 @@ api.routine = class {
       timeout: api.timeout
     });
   }
+
+  static execute(routineId) {
+   return $.ajax({
+      url: api.routine.url + id + "/execute",
+      method: "PUT",
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
+      timeout: api.timeout,
+      data: JSON.stringify({})
+    });
+  }
 }
 
 api.deviceType = class {

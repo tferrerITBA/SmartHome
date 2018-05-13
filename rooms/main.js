@@ -5,7 +5,7 @@ $(document).ready(function() {
       .done((data, textStatus, jqXHR) => {
         var index;
         for(index = 0; index < data.rooms.length; index++){
-          console.log(data.rooms[index].id);
+          // console.log(data.rooms[index].id);
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
@@ -15,7 +15,8 @@ $(document).ready(function() {
   $("#post").on("click", function() {
     var name = $("#name").val();
     room = new api.model.room(null, name, "{}");
-
+    var selected = $("#checkboxes").children("input:checked");
+    debugger;
     api.room.add(room)
       .done((data, textStatus, jqXHR) => {
         room.id = data.room.id;

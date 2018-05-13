@@ -24,7 +24,7 @@ $(document).ready(function() {
         device = new api.model.device(null, deviceIdType, deviceName, "{}");
         api.device.add(device)
           .done((data, textStatus, jqXHR) => {
-            room.id = data.device.id;
+            device.id = data.device.id;
             console.log(data);
           })
           .fail((jqXHR, textStatus, errorThrown) => {

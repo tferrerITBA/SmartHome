@@ -5,17 +5,18 @@ $(document).ready(function() {
       .done((data, textStatus, jqXHR) => {
         var index;
         for(index = 0; index < data.routines.length; index++){
-          console.log(data.routines[index].id);
+          //console.log(data.routines[index].id);
         }
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log(jqXHR.responseText);
       })
 
-  $("#post").on("click", function() {
+  $("#createRoutine").on("click", function() {
     var name = $("#result").val();
     routine = new api.model.room(null, name, "{}", "{}");
-
+    var selected = $("#checkboxes").children("input:checked");
+    debugger;
     api.routine.add(room)
       .done((data, textStatus, jqXHR) => {
         routine.id = data.routine.id;

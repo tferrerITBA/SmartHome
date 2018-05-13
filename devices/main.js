@@ -12,40 +12,24 @@ $(document).ready(function() {
       console.log(jqXHR.responseText);
     })
 
-  $("#createDevice").on("click", function() {
-    api.deviceType.getTypes()
-      .done((data, textStatus, jqXHR) => {
-        var deviceName = $("#deviceName").val();
-        var deviceType = $("#deviceType").val();
-        var deviceIdType = data.devices.filter(
-          function(device){
-            return device.name === deviceType;
-          })[0].id;
-        device = new api.model.device(null, deviceIdType, deviceName, "{}");
-        api.device.add(device)
-          .done((data, textStatus, jqXHR) => {
-            device.id = data.device.id;
-            console.log(data);
-          })
-          .fail((jqXHR, textStatus, errorThrown) => {
-            console.log(jqXHR.responseText);
-          })
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        console.log(jqXHR.responseText);
-      })
+  $(function(){
+    $('button').click(function(){
+      console.log($(this).attr('id'));
+    });
   });
 
   $("#modifyDevice").on("click", function() {
-    device.meta = "{ state: {}, actions: {} }";
-
-    api.device.modify(device)
+    var name = $("#name").val();;
+    if (name !== "") {
+      device.name = name;
+      api.device.modify(device)
       .done((data, textStatus, jqXHR) => {
         console.log(data);
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log(jqXHR.responseText);
       })
+    }
   });
 
   $("#deleteDevice").on("click", function() {

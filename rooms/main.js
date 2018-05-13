@@ -12,6 +12,12 @@ $(document).ready(function() {
         console.log(jqXHR.responseText);
       })
 
+  $(function(){
+    $('button').click(function(){
+      console.log($(this).attr('id'));
+    });
+  });
+
   $("#createRoom").on("click", function() {
     var name = $("#roomName").val();
     var icon = $('input[name="icon"]:checked').val();

@@ -12,6 +12,12 @@ $(document).ready(function() {
         console.log(jqXHR.responseText);
       })
 
+  $(function(){
+    $('button').click(function(){
+      console.log($(this).attr('id'));
+    });
+  });
+
   $("#createRoutine").on("click", function() {
     var name = $("#result").val();
     routine = new api.model.room(null, name, "{}", "{}");

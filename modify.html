@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Create Device - Smart Home</title>
+		<title>Modify - Smart Home</title>
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
@@ -17,32 +17,18 @@
 					<a class="nav-link" href="routines.html">Routines</a>
 				</div>
 				<div class="search">
-					<input class="search-bar" type="text" placeholder="Search..." />
+					<input class="search-bar" type="text" placeholder="Search..."/>
 					<button class="search-button" type="search-button" onclick="">
 						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
 					</button>
-				</div>  
+				</div>	
 			</div>
-			<h1 class="title">Create Device</h1>
+			<h1 class="title">Modify</h1>
 			<div class="margin-text">
 				<h3 class="field-name">Name</h3>
 				<input id="deviceName" type="text" class="input-text"/>
-				<h3 class="field-name">Type</h3>
-				<select id="deviceType" class="select-input">
-					<option value="Air Conditioner">Air Conditioner</option>
-					<option value="Light">Light</option>
-					<option value="Alarm">Alarm</option>
-					<option value="Oven">Oven</option>
-					<option value="Courtines">Courtines</option>
-					<option value="Timer">Timer</option>
-					<option value="Door">Door</option>
-				</select>
 			</div>
 			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
 			<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
-		</div>
-
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-		<script src="vue.js"></script>
 	</body>
 </html>

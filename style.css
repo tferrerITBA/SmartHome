@@ -26,7 +26,7 @@
 	width: 24px;
 }
 
-.logo {
+.logo::before {
 	content: url(assets/SmartHomeLogo.png);
 	display: flex;
 	height: 57px;
@@ -45,7 +45,7 @@
 	background-color: #4CAF50;
 	border-radius: 50%;
 	bottom: 60px;
-	display: flex;
+	display: -webkit-flex;
 	height: 72px;
 	justify-content: center;
 	right: 60px;
@@ -59,6 +59,7 @@
 }
 
 .orientative {
+	display: flex;
 	height: 24px;
 	margin: 0px 10px;
 	position: static;
@@ -169,6 +170,7 @@
 	width: 60%;
 	background-color: #C1C1C1;
 	display: flex;
+	flex-flow: row wrap;
 	align-content: center;
 	border: 2px #555 solid;
 	border-radius: 15px;

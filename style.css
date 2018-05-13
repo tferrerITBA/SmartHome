@@ -222,12 +222,13 @@
 }
 
 .list-container {
+	display: flex;
+	flex-flow: column wrap;
 	height: 230px;
 	width: 250px;
 	align-self: center;
 	border-color: gray;
 	z-index: 3;
-	background-color: lightgray;
 }
 
 .icon-selection {

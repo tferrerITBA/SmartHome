@@ -62,6 +62,15 @@ api.room = class {
       timeout: api.timeout
     });
   }
+
+  static getDevices(roomId) {
+    return $.ajax({
+      url: api.room.url + roomId + "/devices",
+      method: "GET",
+      dataType: "json",
+      timeout: api.timeout
+    });
+  }
 }
 
 
@@ -71,7 +80,6 @@ api.device = class {
   }
 
   static add(device) {
-
    return $.ajax({
       url: api.device.url,
       method: "POST",
@@ -117,6 +125,37 @@ api.device = class {
       method: "GET",
       dataType: "json",
       timeout: api.timeout
+    });
+  }
+
+  static addDeviceToRoom(deviceId, roomId) {
+   return $.ajax({
+      url: api.device.url + deviceId + "/rooms/" + roomId,
+      method: "POST",
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
+      timeout: api.timeout,
+      data: JSON.stringify(device)
+    });
+  }
+
+  static deleteDeviceFromRoom(id) {
+   return $.ajax({
+      url: api.device.url + id + "/rooms",
+      method: "DELETE",
+      dataType: "json",
+      timeout: api.timeout
+    });
+  }
+
+  static executeAction(id, actionName) {
+   return $.ajax({
+      url: api.device.url + id + "/" + actionName,
+      method: "PUT",
+      dataType: "json",
+      contentType: "application/json; charset=utf-8",
+      timeout: api.timeout,
+      data: JSON.stringify(device)
     });
   }
 }
@@ -191,4 +230,12 @@ api.deviceType = class {
     });
   }
 
+  static getTypeById(id) {
+   return $.ajax({
+      url: api.deviceType.url + id,
+      method: "GET",
+      dataType: "json",
+      timeout: api.timeout
+    });
+  }
 }

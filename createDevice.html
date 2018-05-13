@@ -5,6 +5,10 @@
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="./devices/main.js"></script>
+		<script src="./url/api.js"></script>
+		<script src="./url/device.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
@@ -21,7 +25,7 @@
 					<button class="search-button" type="search-button" onclick="">
 						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
 					</button>
-				</div>  
+				</div>
 			</div>
 			<h1 class="title">Create Device</h1>
 			<div class="margin-text">
@@ -29,16 +33,17 @@
 				<input id="deviceName" type="text" class="input-text"/>
 				<h3 class="field-name">Type</h3>
 				<select id="deviceType" class="select-input">
-					<option value="Air Conditioner">Air Conditioner</option>
-					<option value="Light">Light</option>
-					<option value="Alarm">Alarm</option>
-					<option value="Oven">Oven</option>
-					<option value="Courtines">Courtines</option>
-					<option value="Timer">Timer</option>
-					<option value="Door">Door</option>
+					<option value="ac">Air Conditioner</option>
+					<option value="lamp">Light</option>
+					<option value="alarm">Alarm</option>
+					<option value="oven">Oven</option>
+					<option value="blind">Courtines</option>
+					<option value="timer">Timer</option>
+					<option value="door">Door</option>
+					<option value="refrigerator">Refrigerator</option>
 				</select>
 			</div>
-			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
+			<button id="createDevice" class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
 			<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
 		</div>
 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Refrigerator - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
+		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="refrigerator.js"></script>
+		<script src="../main.js"></script>
+		<script src="../../url/api.js"></script>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="../../home.html">Home</a>
+					<a class="nav-link" href="../../devices.html">Devices</a>
+					<a class="nav-link" href="../../rooms.html">Rooms</a>
+					<a class="nav-link" href="../../routines.html">Routines</a>
+				</div>
+			</div>
+			<div class="device-title">
+				<img class="device-icon" src="../../assets/RefrigeratorIcon.png"/>
+				<h1 class="title-text">Refrigerator</h1>
+			</div>
+			<div class="action">
+				<h3 class="action-text">Set temperature (<sup>o</sup>C)</h3>
+				<div class="counter">
+   					<button class="counter-button" type="button" id="minus">
+   						<img class="counter-button-icon" src="../../assets/MinusButton.png" alt="increment"/>
+   					</button>
+ 					<input class="counter-input" name="quantity" value="2" readonly/>
+   					<button class="counter-button" type="button" id="plus">
+   						<img class="counter-button-icon" src="../../assets/PlusButton.png" alt="decrement"/>
+   					</button>
+				</div>
+			</div>
+      <div class="action">
+        <h3 class="action-text">Set freezer temperature (<sup>o</sup>C)</h3>
+        <div class="counter">
+            <button class="counter-button" type="button" id="freezMinus">
+              <img class="counter-button-icon" src="../../assets/MinusButton.png" alt="increment"/>
+            </button>
+          <input class="counter-input" name="freez-quantity" value="-8" readonly/>
+            <button class="counter-button" type="button" id="freezPlus">
+              <img class="counter-button-icon" src="../../assets/PlusButton.png" alt="decrement"/>
+            </button>
+        </div>
+      </div>
+			<div class="action">
+				<h3 class="action-text">Set mode</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input type="radio" name="mode" value="default"/>
+						<p class="radio-button-text">Default</p>
+					</div>
+  				<div class="radio-button">
+  					<input type="radio" name="mode" value="vacation"/>
+  					<p class="radio-button-text">Vacation</p>
+  				</div>
+  				<div class="radio-button">
+  					<input type="radio" name="mode" value="party"/>
+  					<p class="radio-button-text">Party</p>
+  				</div>
+  			</form>
+			</div>
+		</div>
+	</body>
+</html>

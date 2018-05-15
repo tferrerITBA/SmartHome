@@ -133,16 +133,17 @@ input:checked + .switch-slider:before {
 	background: url(../assets/ArrowDownIcon.png) no-repeat right center;
 	background-size: contain;
 	border: 2px solid;
-	height: 29px;
-	line-height: 22px;
+	height: 35px;
+	line-height: 28px;
 	padding: 0 6px;
 	width:150px;
 	margin-right: 10px;
+	font-size: 25px;
 }
 
 .color-preview {
-	width: 29px;
-	height: 29px;
+	width: 35px;
+	height: 35px;
 	border: 2px solid;
 	border-radius: 20%;
 }
@@ -204,4 +205,29 @@ input:checked + .switch-slider:before {
 .large-icon {
 	height: 35px;
 	width: 35px;
+}
+
+.oven-heat {
+	display: flex;
+	align-items: center;
+}
+
+.oven-heat-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 25px;
+	height: 30px;
+	width: 60px;
+	background-color: #D8D8D8;
+	margin-left: 15px;
+	color: #444444;
+}
+
+.oven::-webkit-slider-thumb {
+	background: #F44336;
+}
+
+.oven::-moz-range-thumb {
+	background: #F44336;
 }

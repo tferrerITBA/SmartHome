@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //device.name
+  //$(".title-text").text(device.name);
 
   $("#open-switch").on("click", function() {
     var status = $("#open-status").text()

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lamp - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
+		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="lamp.js"></script>
+		
+		
+	</head>
+	<body>
+		<div class="parent">
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="../../home.html">Home</a>
+					<a class="nav-link" href="../../devices.html">Devices</a>
+					<a class="nav-link" href="../../rooms.html">Rooms</a>
+					<a class="nav-link" href="../../routines.html">Routines</a>
+				</div>
+			</div>
+			<div class="device-title">
+				<img class="device-icon" src="../../assets/LampIcon.png">
+				<h1 class="title-text">Lamp</h1>
+			</div>
+			<div class="action">
+				<h3 class="action-text" id="on-status">Off</h3>
+				<label class="switch">
+  					<input type="checkbox" id="on-switch">
+  					<span class="switch-slider"></span>
+				</label>
+			</div>
+         <div class="action color">
+            <h3 class="action-text">Set color</h3>
+            <div class="color-selection">
+               <select id="color" class="color-select">
+                  <option value="FFFF00">Yellow</option>
+                  <option value="FFFFFF">White</option>
+                  <option value="FFA500">Orange</option>
+                  <option value="FF0000">Red</option>
+                  <option value="FF00FF">Magenta</option>
+                  <option value="0000FF">Blue</option>
+                  <option value="00FFFF">Cyan</option>
+                  <option value="00FF00">Lime</option> 
+               </select>
+               <div class="color-preview"></div>
+            </div>
+         </div>
+         <div class="action brightness">
+            <h3 class="action-text">Brightness</h3>
+            <div class="slider-container">
+               <input type="range" min="0" max="100" value="100" class="slider" id="brightness">
+            </div>
+         </div>
+		</div>
+	</body>
+</html>

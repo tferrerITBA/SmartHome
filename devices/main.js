@@ -2,7 +2,7 @@ var device;
 var acId = "li6cbv5sdlatti0j";
 
 $(document).ready(function() {
-  debugger;
+  //debugger;
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
       data.devices.forEach(function(device){

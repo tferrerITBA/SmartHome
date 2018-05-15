@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	
   //$(".title-text").text(device.name);
   var hexColor = $('#color :selected').val()
   $(".color-preview").css("background-color", "#" + hexColor);
@@ -36,8 +37,9 @@ $(document).ready(function() {
   });
 
   $("#brightness").on("mouseup", function() {
-    var brightness = $("#brightness").val()
-    //api.device.executeAction(device.id, "setBrightness(brightness)")
+    var brightness = $("#brightness").val();
+    var info = { brightness };
+    //api.device.executeAction(device.id, "setBrightness", info)
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {

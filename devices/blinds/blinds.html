@@ -3,8 +3,13 @@
 	<head>
 		<title>Blinds - Smart Home</title>
 		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
 		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="blinds.js"></script>
+		<script src="../main.js"></script>
+		<script src="../../url/api.js"></script>
 	</head>
 	<body>
 		<div class="parent">
@@ -17,15 +22,15 @@
 					<a class="nav-link" href="../../routines.html">Routines</a>
 				</div>
 			</div>
-			<div class="title">
+			<div class="device-title">
 				<img class="device-icon" src="../../assets/BlindsIcon.png">
 				<h1 class="title-text">Blinds</h1>
 			</div>
 			<div class="action">
-				<p class="action-text">Up</p>
+				<h3 class="action-text" id="open-status">Open</h3>
 				<label class="switch">
-  					<input type="checkbox">
-  					<span class="slider"></span>
+  					<input type="checkbox" id="open-switch">
+  					<span class="switch-slider"></span>
 				</label>
 			</div>
 		</div>

@@ -1,35 +1,4 @@
-.parent {
-	display: flex;
-	flex-direction: column;
-	font-family: 'Ubuntu', sans-serif;
-}
-
-.logo {
-	content: url(../assets/SmartHomeLogo.png);
-	display: flex;
-	height: 57px;
-	width: 114px;
-}
-
-.nav {
-	align-items: center;
-	background-color: #333;
-	display: flex;
-	flex-direction: row;
-}
-
-.nav-link {
-	color: #D8D8D8;
-	padding: 14px 16px;
-	text-align: center;
-	text-decoration: none;
-}
-
-.nav-link:hover {
-	color: white;
-}
-
-.title {
+.device-title {
 	display: flex;
 	align-items: center;
 	margin-top: 15px;
@@ -55,6 +24,7 @@
 .action {
 	display: flex;
 	align-items: center;
+	margin-bottom: 5px;
 	margin-left: 60px;
 	width: 450px;
 	height: 50px;
@@ -68,11 +38,7 @@
 	align-items: center;
 	height: 35px;
 	font-size: 30px;
-	padding-left: 15px;
-}
-
-.temp {
-	width: 565px;
+	margin: 5px 0;
 }
 
 .switch {
@@ -80,25 +46,24 @@
   	display: inline-block;
   	width: 60px;
   	height: 34px;
-  	margin-right: 10px;
 }
 
 .switch input {display:none;}
 
-.slider {
+.switch-slider {
   	position: absolute;
   	cursor: pointer;
   	top: 0;
   	left: 0;
   	right: 0;
   	bottom: 0;
-  	background-color: #ccc;
+  	background-color: #CCC;
   	border-radius: 34px;
   	-webkit-transition: .4s;
   	transition: .4s;
 }
 
-.slider:before {
+.switch-slider:before {
   	position: absolute;
   	content: "";
   	height: 26px;
@@ -111,11 +76,11 @@
   	transition: .4s;
 }
 
-input:checked + .slider {
+input:checked + .switch-slider {
   	background-color: #42CC36;
 }
 
-input:checked + .slider:before {
+input:checked + .switch-slider:before {
   	-webkit-transform: translateX(26px);
   	-ms-transform: translateX(26px);
   	transform: translateX(26px);
@@ -151,8 +116,97 @@ input:checked + .slider:before {
 	background-color: #D0D0D0;
 	border-radius: 8%;
 	color: #444444;
+	text-align: center;
 }
 
-sup {
-	font-size:small;
+.color-selection {
+	display: flex;
+}
+
+.color-select {
+	background: url(../assets/ArrowDownIcon.png) no-repeat right center;
+	background-size: contain;
+	border: 2px solid;
+	height: 29px;
+	line-height: 22px;
+	padding: 0 6px;
+	width:150px;
+	margin-right: 10px;
+}
+
+.color-preview {
+	width: 29px;
+	height: 29px;
+	border: 2px solid;
+	border-radius: 20%;
+}
+
+.slider-container {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 25px;
+    width: 210px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 18px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #42CC36;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #42CC36;
+    cursor: pointer;
+}
+
+.temp {
+	width: 575px;
+}
+
+.ac-mode {
+	width: 695px;
+}
+
+.v-swing {
+	width: 867px;
+}
+
+.h-swing {
+	width: 960px;
+}
+
+.fan-speed {
+	width: 882px;
+}
+
+.brightness {
+	width: 595px;
+}
+
+.color {
+	width: 580px;
 }

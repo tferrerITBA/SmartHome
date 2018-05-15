@@ -1,7 +1,8 @@
 var device;
-var selectedDeviceId;
+var acId = "li6cbv5sdlatti0j";
 
 $(document).ready(function() {
+  //debugger;
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
       data.devices.forEach(function(device){
@@ -20,6 +21,11 @@ $(document).ready(function() {
         .done((data, textStatus, jqXHR) => {
           device = data.device;
           console.log(data);
+          if(device.typeId === acId) {
+            //redirigir a html de ac
+          } else if(false) {
+
+          }
         })
         .fail((jqXHR, textStatus, errorThrown) => {
           console.log(jqXHR.responseText);

@@ -4,28 +4,6 @@
 	font-family: 'Ubuntu', sans-serif;
 }
 
-.search {
-	align-items: center;
-	display: flex;
-	margin-left: auto;
-}
-
-.search-bar {
-	height: 25px;
-	width: 300px;
-	padding: 0 6px;
-}
-
-.search-button {
-	margin-left: 5px;
-	margin-right: 10px;
-}
-
-.search-logo {
-	height: 24px;
-	width: 24px;
-}
-
 .logo {
 	content: url(assets/SmartHomeLogo.png);
 	display: flex;
@@ -58,6 +36,10 @@
 	width: 60px;
 }
 
+.add-button:hover {
+	background-color: #3C8C40;
+}
+
 .orientative {
 	display: flex;
 	height: 24px;
@@ -74,8 +56,10 @@
 .nav {
 	align-items: center;
 	background-color: #333;
+	box-shadow: 0 5px 10px #888888;
 	display: flex;
 	flex-direction: row;
+	z-index: 3;
 }
 
 .nav-link {
@@ -117,7 +101,7 @@
 	height: 29px;
 	line-height: 22px;
 	padding: 0 6px;
-	width:200px;
+	width:300px;
 }
 
 .option-button {
@@ -160,7 +144,8 @@
 .field-name {
 	align-items: center;
 	display: flex;
-	height: 25px;
+	font-size: 30px;
+	height: 35px;
 	margin-bottom: 5px;
 	margin-top: 20px;
 }
@@ -189,7 +174,6 @@
 .item-icon {
 	background-color: white;
 	border-radius: 20%;
-	padding: 5px;
 	height: 50px;
 	width: 50px;
 	margin: 0 10px;
@@ -234,15 +218,24 @@
 	margin-left: 15px;
 }
 
-.icon-selection {
+.radio-selection {
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
 }
 
-.icon-button {
+.radio-button {
 	display: flex;
 	align-items: center;
+	margin-right: 20px;
+}
+
+.radio-button-text {
+	align-items: center;
+	display: flex;
+	font-size: 25px;
+	height: 30px;
+	margin: 0 10px;
 }
 
 .device-selection {

@@ -3,11 +3,13 @@
 	<head>
 		<title>AC - Smart Home</title>
 		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
 		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="./counter.js"></script>
-		<script src="./main.js"></script>
+		<script src="ac.js"></script>
+		<script src="../main.js"></script>
+		<script src="../../url/api.js"></script>
 	</head>
 	<body>
 		<div class="parent">
@@ -20,28 +22,124 @@
 					<a class="nav-link" href="../../routines.html">Routines</a>
 				</div>
 			</div>
-			<div class="title">
+			<div class="device-title">
 				<img class="device-icon" src="../../assets/ACIcon.png">
 				<h1 class="title-text">Air Conditioner</h1>
 			</div>
 			<div class="action">
-				<p class="action-text">Off</p>
+				<h3 class="action-text" id="on-status">Off</h3>
 				<label class="switch">
-  					<input id="power" type="checkbox">
-  					<span class="slider"></span>
+  					<input type="checkbox" id="on-switch">
+  					<span class="switch-slider"></span>
 				</label>
 			</div>
 			<div class="action temp">
-				<p class="action-text">Set temperature (<sup>O</sup>C)</p>
+				<h3 class="action-text">Set temperature (<sup>o</sup>C)</h3>
 				<div class="counter">
    					<button class="counter-button" type="button" id="minus">
    						<img class="counter-button-icon" src="../../assets/MinusButton.png" alt="increment"/>
    					</button>
- 					<input class="counter-input" name="quantity" value="18" readonly>
+ 					<input class="counter-input" name="quantity" value="25" readonly>
    					<button class="counter-button" type="button" id="plus">
    						<img class="counter-button-icon" src="../../assets/PlusButton.png" alt="decrement"/>
    					</button>
 				</div>
+			</div>
+			<div class="action ac-mode">
+				<h3 class="action-text">Set mode</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input checked="checked" type="radio" name="mode" value="cool">
+						<p class="radio-button-text">Cool</p>
+					</div>
+      				<div class="radio-button">
+      					<input type="radio" name="mode" value="heat">
+      					<p class="radio-button-text">Heat</p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="mode" value="fan">
+      					<p class="radio-button-text">Fan</p>
+      				</div>
+      			</form>
+			</div>
+			<div class="action v-swing">
+				<h3 class="action-text">Set vertical swing</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input checked="checked" type="radio" name="v-swing" value="auto">
+						<p class="radio-button-text">Auto</p>
+					</div>
+      				<div class="radio-button">
+      					<input type="radio" name="v-swing" value="22">
+      					<p class="radio-button-text">22<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="v-swing" value="45">
+      					<p class="radio-button-text">45<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="v-swing" value="67">
+      					<p class="radio-button-text">67<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="v-swing" value="90">
+      					<p class="radio-button-text">90<sup>o</sup></p>
+      				</div>
+      			</form>
+			</div>
+			<div class="action h-swing">
+				<h3 class="action-text">Set horizontal swing</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input checked="checked" type="radio" name="h-swing" value="auto">
+						<p class="radio-button-text">Auto</p>
+					</div>
+      				<div class="radio-button">
+      					<input type="radio" name="h-swing" value="-90">
+      					<p class="radio-button-text">-90<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="h-swing" value="-45">
+      					<p class="radio-button-text">-45<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="h-swing" value="0">
+      					<p class="radio-button-text">0<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="h-swing" value="45">
+      					<p class="radio-button-text">45<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="h-swing" value="90">
+      					<p class="radio-button-text">90<sup>o</sup></p>
+      				</div>
+      			</form>
+			</div>
+			<div class="action fan-speed">
+				<h3 class="action-text">Set fan speed</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input checked="checked" type="radio" name="fan-speed" value="auto">
+						<p class="radio-button-text">Auto</p>
+					</div>
+      				<div class="radio-button">
+      					<input type="radio" name="fan-speed" value="25">
+      					<p class="radio-button-text">25<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="fan-speed" value="50">
+      					<p class="radio-button-text">50<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="fan-speed" value="75">
+      					<p class="radio-button-text">75<sup>o</sup></p>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="fan-speed" value="100">
+      					<p class="radio-button-text">100<sup>o</sup></p>
+      				</div>
+      			</form>
 			</div>
 		</div>
 	</body>

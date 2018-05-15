@@ -2,9 +2,12 @@
 <html>
 	<head>
 		<title>Devices - Smart Home</title>
-		<link rel="stylesheet" type="text/css" href="equalizer.css">
-		<link rel="stylesheet" type="text/css" href="style.css"/>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<div class="instances">
+			<styles></styles>
+			<ajaxapi></ajaxapi>
+		</div>
+		<script src="devices/main.js"></script>
+		<script src="url/api.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
@@ -16,12 +19,6 @@
 					<a class="nav-link" href="rooms.html">Rooms</a>
 					<a class="nav-link" href="routines.html">Routines</a>
 				</div>
-				<div class="search">
-					<input class="search-bar" type="text" placeholder="Search..."/>
-					<button class="search-button" type="search-button" onclick="">
-						<img class="search-logo" src="assets/SearchIcon.svg" alt="search"/>
-					</button>
-				</div>	
 			</div>
 			<h1 class="title">Devices</h1>
 			<div class="margin-text">
@@ -43,15 +40,14 @@
 							<p class="item-subtext">LAMP</p>
 						</div>
 					</div>
-					<!--<img class="next-arrow" src="assets/ArrowDownIcon.png"/>-->
 				</button>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createDevice.html';">
 				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>
 			</button>
 		</div>
-
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="vue.js"></script>
+		<script src="components.js"></script>
 	</body>
 </html>

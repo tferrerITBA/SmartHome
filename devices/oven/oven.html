@@ -35,14 +35,11 @@
 			</div>
 			<div class="action">
 				<h3 class="action-text">Set temperature (<sup>o</sup>C)</h3>
-				<div class="counter">
-   					<button class="counter-button" type="button" id="minus">
-   						<img class="counter-button-icon" src="../../assets/MinusButton.png" alt="increment"/>
-   					</button>
- 					<input class="counter-input" name="quantity" value="180" readonly>
-   					<button class="counter-button" type="button" id="plus">
-   						<img class="counter-button-icon" src="../../assets/PlusButton.png" alt="decrement"/>
-   					</button>
+				<div class="oven-heat">
+               <div class="slider-container">
+                  <input type="range" min="90" max="230" value="90" class="slider" id="temperature">
+               </div>
+ 					<p class="oven-heat-text" id="heat-text"></p>
 				</div>
 			</div>
 			<div class="action">

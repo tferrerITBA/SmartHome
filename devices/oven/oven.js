@@ -3,7 +3,7 @@ $(document).ready(function() {
   //$(".title-text").text(device.name);
 
   $("#on-switch").on("click", function() {
-    var status = $("#on-status").text()
+    var status = $("#on-status").text();
     if(status === "On") {
       //api.device.executeAction(device.id, "turnOff")
       //.done((data, textStatus, jqXHR) => {
@@ -23,28 +23,26 @@ $(document).ready(function() {
     }
   });
 
-  $("#minus").on("click", function() {
-    var temp = parseInt($('input[name=quantity]').val());
-    if(temp > 90) {
-      temp--;
-    }
-    //api.device.executeAction(device.id, "setTemperature(temp)")
+  $("#temperature").on("mousedown", function() {
+    var temp = $("#temperature").val();
+    $("#heat-text").text(temp);
+  });
+
+  $("#temperature").on("mouseup", function() {
+    var temp = $("#temperature").val();
+    //api.device.executeAction(device.id, "setTemperature", info)
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=quantity]').val(temp);
+      $("#heat-text").text(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
     //})
   });
 
-  $("#plus").on("click", function() {
-    var temp = parseInt($('input[name=quantity]').val());
-    if(temp < 230) {
-      temp++;
-    }
-    //api.device.executeAction(device.id, "setTemperature(temp)")
+  $('input[name=heat]').on("change", function() {
+    var state = $("form input[name='heat']:checked").val();
+    //api.device.executeAction(device.id, "setHeat(state)")
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=quantity]').val(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);

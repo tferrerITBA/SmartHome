@@ -38,7 +38,6 @@ $(document).ready(function() {
 
   $("#brightness").on("mouseup", function() {
     var brightness = $("#brightness").val();
-    var info = { brightness };
     //api.device.executeAction(device.id, "setBrightness", info)
     //.done((data, textStatus, jqXHR) => {
     //})

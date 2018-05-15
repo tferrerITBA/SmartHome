@@ -77,8 +77,7 @@ $(document).ready(function() {
 
   $('input[name=mode]').on("change", function() {
     var state = $("form input[name='mode']:checked").val();
-    console.log(state);
-    //api.device.executeAction(device.id, "setMode", [state])
+    //api.device.executeAction(device.id, "setMode(state)")
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
@@ -88,8 +87,7 @@ $(document).ready(function() {
 
   $('input[name=v-swing]').on("change", function() {
     var state = $("form input[name='v-swing']:checked").val();
-    console.log(state);
-    //api.device.executeAction(device.id, "setVerticalSwing", [state])
+    //api.device.executeAction(device.id, "setVerticalSwing(state)")
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
@@ -99,8 +97,7 @@ $(document).ready(function() {
 
   $('input[name=h-swing]').on("change", function() {
     var state = $("form input[name='h-swing']:checked").val();
-    console.log(state);
-    //api.device.executeAction(device.id, "setHorizontalSwing", [state])
+    //api.device.executeAction(device.id, "setHorizontalSwing(state)")
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
@@ -110,8 +107,7 @@ $(document).ready(function() {
 
   $('input[name=fan-speed]').on("change", function() {
     var state = $("form input[name='fan-speed']:checked").val();
-    console.log(state);
-    //api.device.executeAction(device.id, "setFanSpeed", [state])
+    //api.device.executeAction(device.id, "setFanSpeed(state)")
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {

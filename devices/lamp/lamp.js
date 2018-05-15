@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   //$(".title-text").text(device.name);
   var hexColor = $('#color :selected').val()
   $(".color-preview").css("background-color", "#" + hexColor);

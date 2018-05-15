@@ -1,13 +1,34 @@
 $(document).ready(function() {
-	
+
   //$(".title-text").text(device.name);
+
+  api.device.executeAction(device.id, "getState", [])
+    .done((data, textStatus, jqXHR) => {
+      if (data.result.status === "on") {
+        $("#on-status").text("On");
+        $("#on-switch").prop("checked", true);
+      } else {
+        $("#on-status").text("Off");
+      }
+      $(".color-preview").css("background-color", "#" + data.result.color);
+      $("#color").val(data.result.color);
+      $("#brightness").val(data.result.brightness);
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR.responseText);
+      $("#on-status").text("Off");
+      $(".color-preview").css("background-color", "#FFFFFF");
+      $("#color").val("FFFFFF");
+      $("#brightness").val(100)
+    })
+
   var hexColor = $('#color :selected').val()
   $(".color-preview").css("background-color", "#" + hexColor);
 
   $("#on-switch").on("click", function() {
     var status = $("#on-status").text()
     if(status === "On") {
-      //api.device.executeAction(device.id, "turnOff")
+      //api.device.executeAction(device.id, "turnOff", [])
       //.done((data, textStatus, jqXHR) => {
         $("#on-status").text("Off");
       //})
@@ -15,7 +36,7 @@ $(document).ready(function() {
       //  console.log(jqXHR.responseText);
       //})
     } else {
-      //api.device.executeAction(device.id, "turnOn")
+      //api.device.executeAction(device.id, "turnOn", [])
       //.done((data, textStatus, jqXHR) => {
         $("#on-status").text("On");
       //})
@@ -26,10 +47,10 @@ $(document).ready(function() {
   });
 
   $("#color").on("change", function() {
-    var hexColor = $('#color :selected').val()
-    //api.device.executeAction(device.id, "setColor("#" + hexColor)")
+    var hexColor = "#" +$('#color :selected').val()
+    //api.device.executeAction(device.id, "setColor", [hexColor])
     //.done((data, textStatus, jqXHR) => {
-      $(".color-preview").css("background-color", "#" + hexColor);
+      $(".color-preview").css("background-color", hexColor);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
@@ -37,8 +58,8 @@ $(document).ready(function() {
   });
 
   $("#brightness").on("mouseup", function() {
-    var brightness = $("#brightness").val();
-    //api.device.executeAction(device.id, "setBrightness", info)
+    var brightness = $("#brightness").val()
+    //api.device.executeAction(device.id, "setBrightness", [brightness])
     //.done((data, textStatus, jqXHR) => {
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {

@@ -6,6 +6,7 @@ $(document).ready(function() {
       var result = data.result;
       if (result.status === "on") {
         $("#on-status").text("On");
+        $("#on-switch").prop("checked", true);
       } else {
         $("#on-status").text("Off");
       }
@@ -26,9 +27,9 @@ $(document).ready(function() {
     })
 
   $("#on-switch").on("click", function() {
-    var status = $("#on-status").text()
+    var status = $("#on-status").text();
     if(status === "On") {
-      //api.device.executeAction(device.id, "turnOff")
+      //api.device.executeAction(device.id, "turnOff", [])
       //.done((data, textStatus, jqXHR) => {
         $("#on-status").text("Off");
       //})
@@ -36,7 +37,7 @@ $(document).ready(function() {
       //  console.log(jqXHR.responseText);
       //})
     } else {
-      //api.device.executeAction(device.id, "turnOn")
+      //api.device.executeAction(device.id, "turnOn", [])
       //.done((data, textStatus, jqXHR) => {
         $("#on-status").text("On");
       //})
@@ -51,7 +52,7 @@ $(document).ready(function() {
     if(temp > 18) {
       temp--;
     }
-    //api.device.executeAction(device.id, "setTemperature(temp)")
+    //api.device.executeAction(device.id, "setTemperature", [temp])
     //.done((data, textStatus, jqXHR) => {
        $('input[name=quantity]').val(temp);
     //})
@@ -65,7 +66,7 @@ $(document).ready(function() {
     if(temp < 38) {
       temp++;
     }
-    //api.device.executeAction(device.id, "setTemperature(temp)")
+    //api.device.executeAction(device.id, "setTemperature", [temp])
     //.done((data, textStatus, jqXHR) => {
        $('input[name=quantity]').val(temp);
     //})

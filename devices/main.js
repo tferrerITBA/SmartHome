@@ -1,4 +1,5 @@
 var device;
+var selectedDeviceId;
 
 $(document).ready(function() {
   api.device.getAll()

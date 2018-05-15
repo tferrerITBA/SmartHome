@@ -144,7 +144,8 @@
 .field-name {
 	align-items: center;
 	display: flex;
-	height: 25px;
+	font-size: 30px;
+	height: 35px;
 	margin-bottom: 5px;
 	margin-top: 20px;
 }
@@ -173,7 +174,6 @@
 .item-icon {
 	background-color: white;
 	border-radius: 20%;
-	padding: 5px;
 	height: 50px;
 	width: 50px;
 	margin: 0 10px;
@@ -218,15 +218,24 @@
 	margin-left: 15px;
 }
 
-.icon-selection {
+.radio-selection {
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
 }
 
-.icon-button {
+.radio-button {
 	display: flex;
 	align-items: center;
+	margin-right: 20px;
+}
+
+.radio-button-text {
+	align-items: center;
+	display: flex;
+	font-size: 25px;
+	height: 30px;
+	margin: 0 10px;
 }
 
 .device-selection {

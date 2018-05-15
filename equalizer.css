@@ -102,8 +102,14 @@ li {
   opacity: 1;
 }
 
-/* No se si esta mal esto aca */
 h3 {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px 0;
+}
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.3em;
 }

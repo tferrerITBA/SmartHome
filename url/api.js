@@ -148,14 +148,14 @@ api.device = class {
     });
   }
 
-  static executeAction(id, actionName) {
+  static executeAction(id, actionName, params) {
    return $.ajax({
       url: api.device.url + id + "/" + actionName,
       method: "PUT",
       dataType: "json",
       contentType: "application/json; charset=utf-8",
       timeout: api.timeout,
-      data: JSON.stringify(device)
+      data: JSON.stringify(params)
     });
   }
 }

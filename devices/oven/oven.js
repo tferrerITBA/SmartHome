@@ -2,30 +2,30 @@ $(document).ready(function() {
 
   //$(".title-text").text(device.name);
 
-  api.device.executeAction(device.id, "getState", [])
-    .done((data, textStatus, jqXHR) => {
-      var result = data.result;
-      if (result.status === "on") {
-        $("#on-status").text("On");
-        $("#on-switch").prop("checked", true);
-      } else {
-        $("#on-status").text("Off");
-      }
-      $('input[name=quantity]').val(result.temperature);
-      $("#" + result.mode).prop("checked", true);
-      $("#vSwing" + result.verticalSwing).prop("checked", true);
-      $("#hSwing" + result.horizontalSwing).prop("checked", true);
-      $("#fanSpeed" + result.fanSpeed).prop("checked", true);
-    })
-    .fail((jqXHR, textStatus, errorThrown) => {
-      console.log(jqXHR.responseText);
-      $("#on-status").text("Off");
-      $('input[name=quantity]').text("24");
-      $("#cool").prop("checked", true);
-      $("#vSwingauto").prop("checked", true);
-      $("#hSwingauto").prop("checked", true);
-      $("#fanSpeedauto").prop("checked", true);
-    })
+  // api.device.executeAction(device.id, "getState", [])
+  //   .done((data, textStatus, jqXHR) => {
+  //     var result = data.result;
+  //     if (result.status === "on") {
+  //       $("#on-status").text("On");
+  //       $("#on-switch").prop("checked", true);
+  //     } else {
+  //       $("#on-status").text("Off");
+  //     }
+  //     $('input[name=quantity]').val(result.temperature);
+  //     $("#" + result.mode).prop("checked", true);
+  //     $("#vSwing" + result.verticalSwing).prop("checked", true);
+  //     $("#hSwing" + result.horizontalSwing).prop("checked", true);
+  //     $("#fanSpeed" + result.fanSpeed).prop("checked", true);
+  //   })
+  //   .fail((jqXHR, textStatus, errorThrown) => {
+  //     console.log(jqXHR.responseText);
+  //     $("#on-status").text("Off");
+  //     $('input[name=quantity]').text("24");
+  //     $("#cool").prop("checked", true);
+  //     $("#vSwingauto").prop("checked", true);
+  //     $("#hSwingauto").prop("checked", true);
+  //     $("#fanSpeedauto").prop("checked", true);
+  //   })
     
 
   $("#on-switch").on("click", function() {
@@ -49,16 +49,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#temperature").on("mousedown", function() {
-    var temp = $("#temperature").val();
-    $("#heat-text").text(temp);
-  });
-
   $("#temperature").on("mouseup", function() {
     var temp = $("#temperature").val();
     //api.device.executeAction(device.id, "setTemperature", info)
     //.done((data, textStatus, jqXHR) => {
-      $("#heat-text").text(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
@@ -94,4 +88,21 @@ $(document).ready(function() {
     //  console.log(jqXHR.responseText);
     //})
   });
+
+  // Slider text update
+  var rangeSlider = function(){
+    var slider = $('.oven-heat'),
+        range = $('.slider'),
+        value = $('.oven-heat-text');
+    slider.each(function(){
+      value.each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html(value);
+      });
+      range.on('input', function(){
+        $(this).next(value).html(this.value);
+      });
+    });
+  };
+  rangeSlider();
 });

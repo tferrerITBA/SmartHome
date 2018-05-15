@@ -89,19 +89,26 @@
 
 .input-text {
 	border: 2px solid;
-	height: 29px;
+	height: 35px;
 	padding: 0 6px;
 	width: 300px;
+	font-size: 25px;
 }
 
 .select-input {
 	background: url(assets/ArrowDownIcon.png) no-repeat right center;
 	background-size: contain;
 	border: 2px solid;
-	height: 29px;
-	line-height: 22px;
+	font-size: 25px;
+	height: 35px;
+	line-height: 28px;
 	padding: 0 6px;
 	width:300px;
+}
+
+.select-option {
+	font-size: 25px;
+	height: 25px;
 }
 
 .option-button {

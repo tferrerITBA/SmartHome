@@ -1,4 +1,4 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
 
     $("#plus").click(function() {
         var currentVal = parseInt($('input[name=quantity]').val());

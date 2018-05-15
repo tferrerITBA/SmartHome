@@ -3,8 +3,13 @@
 	<head>
 		<title>Door - Smart Home</title>
 		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
 		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="door.js"></script>
+		<script src="../main.js"></script>
+		<script src="../../url/api.js"></script>
 	</head>
 	<body>
 		<div class="parent">
@@ -17,21 +22,21 @@
 					<a class="nav-link" href="../../routines.html">Routines</a>
 				</div>
 			</div>
-			<div class="title">
+			<div class="device-title">
 				<img class="device-icon" src="../../assets/DoorIcon.png">
 				<h1 class="title-text">Door</h1>
 			</div>
 			<div class="action">
-				<p class="action-text">Open</p>
+				<p class="action-text" id="open-status">Open</p>
 				<label class="switch">
-  					<input type="checkbox">
+  					<input type="checkbox" id="open-switch">
   					<span class="slider"></span>
 				</label>
 			</div>
 			<div class="action">
-				<p class="action-text">Lock</p>
+				<p class="action-text" id="lock-status">Unlocked</p>
 				<label class="switch">
-  					<input type="checkbox">
+  					<input type="checkbox" id="lock-switch">
   					<span class="slider"></span>
 				</label>
 			</div>

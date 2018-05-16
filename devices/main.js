@@ -7,19 +7,33 @@ var doorId = "lsf78ly0eqrjbz91";
 var refriId = "rnizejqr2di0okho";
 
 $(document).ready(function() {
-  //debugger;
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
       data.devices.forEach(function(device){
-        console.log(device.id);
+        var name = device.name;
+        var typeId = device.typeId;
+        var id = device.id;
+        if(typeId === acId) {
+          VueInstance.addDevice(name, "AIR CONDITIONER", "assets/ACIcon.png", id);
+        } else if(typeId === blindId) {
+          VueInstance.addDevice(name, "BLINDS", "assets/BlindsIcon.png", id);
+        } else if(typeId === doorId) {
+          VueInstance.addDevice(name, "DOOR", "assets/DoorIcon.png", id);
+        } else if(typeId === lampId) {
+          VueInstance.addDevice(name, "LAMP", "assets/LampIcon.png", id);
+        } else if(typeId === ovenId) {
+          VueInstance.addDevice(name, "OVEN", "assets/OvenIcon.png", id);
+        }  else if(typeId === refriId) {
+          VueInstance.addDevice(name, "REFRIGERATOR", "assets/RefrigeratorIcon.png", id);
+        }
       })
     })
     .fail((jqXHR, textStatus, errorThrown) => {
       console.log(jqXHR.responseText);
     })
 
-  $(function(){
-    $('button').click(function(){
+  
+    $("button").on("click", function() {
       console.log($(this).attr('id'));
       if (id  === undefined) {
         api.device.get($(this).attr('id'))
@@ -37,7 +51,6 @@ $(document).ready(function() {
         });
       }
     });
-  });
 
   $("#modifyDevice").on("click", function() {
     var name = $("#name").val();;

@@ -2,31 +2,29 @@ $(document).ready(function() {
 
   //$(".title-text").text(device.name);
 
-  // api.device.executeAction(device.id, "getState", [])
-  //   .done((data, textStatus, jqXHR) => {
-  //     var result = data.result;
-  //     if (result.status === "on") {
-  //       $("#on-status").text("On");
-  //       $("#on-switch").prop("checked", true);
-  //     } else {
-  //       $("#on-status").text("Off");
-  //     }
-  //     $('input[name=quantity]').val(result.temperature);
-  //     $("#" + result.mode).prop("checked", true);
-  //     $("#vSwing" + result.verticalSwing).prop("checked", true);
-  //     $("#hSwing" + result.horizontalSwing).prop("checked", true);
-  //     $("#fanSpeed" + result.fanSpeed).prop("checked", true);
-  //   })
-  //   .fail((jqXHR, textStatus, errorThrown) => {
-  //     console.log(jqXHR.responseText);
-  //     $("#on-status").text("Off");
-  //     $('input[name=quantity]').text("24");
-  //     $("#cool").prop("checked", true);
-  //     $("#vSwingauto").prop("checked", true);
-  //     $("#hSwingauto").prop("checked", true);
-  //     $("#fanSpeedauto").prop("checked", true);
-  //   })
-    
+  api.device.executeAction(device.id, "getState", [])
+    .done((data, textStatus, jqXHR) => {
+      var result = data.result;
+      if (result.status === "on") {
+        $("#on-status").text("On");
+        $("#on-switch").prop("checked", true);
+      } else {
+        $("#on-status").text("Off");
+      }
+      // Falta el value de la temp del slider
+      $("#heat" + result.heat).prop("checked", true);
+      $("#grill" + result.grill).prop("checked", true);
+      $("#conv" + result.convection).prop("checked", true);
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR.responseText);
+      $("#on-status").text("Off");
+      // Falta el value de la temp del slider
+      $("#heatconventional").prop("checked", true);
+      $("#grilloff").prop("checked", true);
+      $("#convoff").prop("checked", true);
+    })
+
 
   $("#on-switch").on("click", function() {
     var status = $("#on-status").text();

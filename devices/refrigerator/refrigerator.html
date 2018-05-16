@@ -10,6 +10,7 @@
 		<script src="refrigerator.js"></script>
 		<script src="../main.js"></script>
 		<script src="../../url/api.js"></script>
+		<script src="./refrigerator.js"></script>
 	</head>
 	<body>
 		<div class="parent">
@@ -54,15 +55,15 @@
 				<h3 class="action-text">Set mode</h3>
 				<form class="radio-selection">
 					<div class="radio-button">
-						<input type="radio" name="mode" value="default"/>
+						<input id="default" type="radio" name="mode" value="default"/>
 						<p class="radio-button-text">Default</p>
 					</div>
   				<div class="radio-button">
-  					<input type="radio" name="mode" value="vacation"/>
+  					<input id="vacation" type="radio" name="mode" value="vacation"/>
   					<p class="radio-button-text">Vacation</p>
   				</div>
   				<div class="radio-button">
-  					<input type="radio" name="mode" value="party"/>
+  					<input id="party" type="radio" name="mode" value="party"/>
   					<p class="radio-button-text">Party</p>
   				</div>
   			</form>

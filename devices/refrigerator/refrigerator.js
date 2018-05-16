@@ -2,14 +2,28 @@ $(document).ready(function() {
 
   //$(".title-text").text(device.name);
 
+  api.device.executeAction(device.id, "getState", [])
+    .done((data, textStatus, jqXHR) => {
+      var result = data.result;
+      $('input[name=quantity]').val(result.temperature);
+      $('input[name=freez-quantity]').val(result.freezerTemperature);
+      $("#" + result.mode).prop("checked", true);
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR.responseText);
+      $('input[name=quantity]').val(2);
+      $('input[name=freez-quantity]').val(-8);
+      $("#default").prop("checked", true);
+    })
+
   $("#minus").on("click", function() {
     var temp = parseInt($('input[name=quantity]').val());
     if(temp > 2) {
       temp--;
     }
+    $('input[name=quantity]').val(temp);
     //api.device.executeAction(device.id, "setTemperature(temp)")
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=quantity]').val(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
@@ -21,9 +35,9 @@ $(document).ready(function() {
     if(temp < 8) {
       temp++;
     }
+    $('input[name=quantity]').val(temp);
     //api.device.executeAction(device.id, "setTemperature(temp)")
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=quantity]').val(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
@@ -35,9 +49,9 @@ $(document).ready(function() {
     if(temp > -20) {
       temp--;
     }
+    $('input[name=freez-quantity]').val(temp);
     //api.device.executeAction(device.id, "setFreezerTemperature(temp)")
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=freez-quantity]').val(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);
@@ -49,9 +63,9 @@ $(document).ready(function() {
     if(temp < -8) {
       temp++;
     }
+    $('input[name=freez-quantity]').val(temp);
     //api.device.executeAction(device.id, "setFreezerTemperature(temp)")
     //.done((data, textStatus, jqXHR) => {
-       $('input[name=freez-quantity]').val(temp);
     //})
     //.fail((jqXHR, textStatus, errorThrown) => {
     //  console.log(jqXHR.responseText);

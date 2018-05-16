@@ -11,7 +11,7 @@ $(document).ready(function() {
       } else {
         $("#on-status").text("Off");
       }
-      // Falta el value de la temp del slider
+      $("#temperature").val(result.temperature);
       $("#heat" + result.heat).prop("checked", true);
       $("#grill" + result.grill).prop("checked", true);
       $("#conv" + result.convection).prop("checked", true);
@@ -19,7 +19,7 @@ $(document).ready(function() {
     .fail((jqXHR, textStatus, errorThrown) => {
       console.log(jqXHR.responseText);
       $("#on-status").text("Off");
-      // Falta el value de la temp del slider
+      $("#temperature").val(90);
       $("#heatconventional").prop("checked", true);
       $("#grilloff").prop("checked", true);
       $("#convoff").prop("checked", true);

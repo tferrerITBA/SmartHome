@@ -1,5 +1,10 @@
 var device;
 var acId = "li6cbv5sdlatti0j";
+var blindId = "eu0v2xgprrhhg41g";
+var lampId = "go46xmbqeomjrsjr";
+var ovenId = "im77xxyulpegfmv8";
+var doorId = "lsf78ly0eqrjbz91";
+var refriId = "rnizejqr2di0okho";
 
 $(document).ready(function() {
   //debugger;

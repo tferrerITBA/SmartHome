@@ -8,8 +8,6 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="lamp.js"></script>
-		
-		
 	</head>
 	<body>
 		<div class="parent">
@@ -23,38 +21,48 @@
 				</div>
 			</div>
 			<div class="device-title">
-				<img class="device-icon" src="../../assets/LampIcon.png">
-				<h1 class="title-text">Lamp</h1>
+				<img class="device-icon" src="../../assets/LampIcon.png"/>
+				<div class="border-title">
+          			<h1 class="title-text">Lamp</h1>
+          			<div class="option-icons">
+            			<img class="option-icon" id="edit" src="../../assets/Edit.png"/>
+            			<img class="option-icon" id="delete" src="../../assets/Bin.png"/>
+          			</div>
+        		</div>
 			</div>
 			<div class="action">
 				<h3 class="action-text" id="on-status">Off</h3>
 				<label class="switch">
-  					<input type="checkbox" id="on-switch">
+  					<input type="checkbox" id="on-switch"/>
   					<span class="switch-slider"></span>
 				</label>
 			</div>
-         <div class="action color">
-            <h3 class="action-text">Set color</h3>
-            <div class="color-selection">
-               <select id="color" class="color-select">
-                  <option value="FFFF00">Yellow</option>
-                  <option value="FFFFFF">White</option>
-                  <option value="FFA500">Orange</option>
-                  <option value="FF0000">Red</option>
-                  <option value="FF00FF">Magenta</option>
-                  <option value="0000FF">Blue</option>
-                  <option value="00FFFF">Cyan</option>
-                  <option value="00FF00">Lime</option> 
-               </select>
-               <div class="color-preview"></div>
-            </div>
-         </div>
-         <div class="action brightness">
-            <h3 class="action-text">Brightness</h3>
-            <div class="slider-container">
-               <input type="range" min="0" max="100" value="100" class="slider" id="brightness">
-            </div>
-         </div>
+        	<div class="action">
+            	<h3 class="action-text">Set color</h3>
+            	<div class="color-selection">
+               		<select id="color" class="color-select">
+                  		<option class="select-option" value="FFFF00">Yellow</option>
+                  		<option class="select-option" value="FFFFFF">White</option>
+                  		<option class="select-option" value="FFA500">Orange</option>
+                  		<option class="select-option" value="FF0000">Red</option>
+                  		<option class="select-option" value="FF00FF">Magenta</option>
+                  		<option class="select-option" value="0000FF">Blue</option>
+                  		<option class="select-option" value="00FFFF">Cyan</option>
+                  		<option class="select-option" value="00FF00">Lime</option> 
+               		</select>
+               		<div class="color-preview"></div>
+            	</div>
+        	</div>
+        	<div class="action">
+            	<h3 class="action-text">Set brightness</h3>
+            	<div class="brightness">
+            		<img class="small-icon" src="../../assets/BrightnessIcon.png"/>
+            		<div class="slider-container">
+               			<input type="range" min="0" max="100" value="100" class="slider" id="brightness"/>
+            		</div>
+            		<img class="large-icon" src="../../assets/BrightnessIcon.png"/>
+            	</div>
+			</div>
 		</div>
 	</body>
 </html>

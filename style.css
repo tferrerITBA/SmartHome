@@ -89,26 +89,33 @@
 
 .input-text {
 	border: 2px solid;
-	height: 29px;
+	height: 35px;
 	padding: 0 6px;
 	width: 300px;
+	font-size: 25px;
 }
 
 .select-input {
 	background: url(assets/ArrowDownIcon.png) no-repeat right center;
 	background-size: contain;
 	border: 2px solid;
-	height: 29px;
-	line-height: 22px;
+	font-size: 25px;
+	height: 35px;
+	line-height: 28px;
 	padding: 0 6px;
 	width:300px;
+}
+
+.select-option {
+	font-size: 25px;
+	height: 25px;
 }
 
 .option-button {
 	border: 2px solid;
 	border-radius: 50px;
 	color: white;
-	font-size: 24px;
+	font-size: 25px;
 	height: 50px;
 	position: fixed;
 	width: 150px;
@@ -121,7 +128,7 @@
 	background-color: #4CAF50;
 	border-color: #4CAF50;
 	bottom: 60px;
-	right: 60px;
+    right: 300px;
 }
 
 .create:hover {
@@ -132,8 +139,8 @@
 .cancel {
 	background-color: #F44336;
 	border-color: #F44336;
-	bottom: 60px;
-    right: 300px;
+    bottom: 60px;
+	right: 60px;
 }
 
 .cancel:hover {

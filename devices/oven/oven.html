@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oven - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
+		<link rel="stylesheet" type="text/css" href="../deviceStyle.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="oven.js"></script>
+		<script src="../main.js"></script>
+		<script src="../../url/api.js"></script>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="nav">
+				<a class="logo" href="home.html"></a>
+				<div>
+					<a class="nav-link" href="../../home.html">Home</a>
+					<a class="nav-link" href="../../devices.html">Devices</a>
+					<a class="nav-link" href="../../rooms.html">Rooms</a>
+					<a class="nav-link" href="../../routines.html">Routines</a>
+				</div>
+			</div>
+			<div class="device-title">
+				<img class="device-icon" src="../../assets/OvenIcon.png"/>
+				<div class="border-title">
+               <h1 class="title-text">Oven</h1>
+               <div class="option-icons">
+                  <img class="option-icon" id="edit" src="../../assets/Edit.png"/>
+                  <img class="option-icon" id="delete" src="../../assets/Bin.png"/>
+               </div>
+            </div>
+			</div>
+			<div class="action">
+				<h3 class="action-text" id="on-status">Off</h3>
+				<label class="switch">
+  					<input type="checkbox" id="on-switch"/>
+  					<span class="switch-slider"></span>
+				</label>
+			</div>
+			<div class="action">
+				<h3 class="action-text">Set temperature (<sup>o</sup>C)</h3>
+				<div class="oven-heat">
+               <input type="range" min="90" max="230" value="90" class="slider oven" id="temperature"/>
+ 					<p class="oven-heat-text" id="heat-text"></p>
+				</div>
+			</div>
+			<div class="action">
+				<h3 class="action-text">Set heat</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input id="heatconventional" type="radio" name="heat" value="conventional">
+						<p class="radio-button-text">Conventional</p>
+					</div>
+  				   <div class="radio-button">
+  					   <input id="heatbottom" type="radio" name="heat" value="bottom">
+  		            <p class="radio-button-text">Bottom</p>
+  				   </div>
+  				   <div class="radio-button">
+  					   <input id="heattop" type="radio" name="heat" value="top">
+  					   <p class="radio-button-text">Top</p>
+  				   </div>
+  			   </form>
+			</div>
+			<div class="action">
+				<h3 class="action-text">Set grill</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input id="grilllarge" type="radio" name="grill" value="large">
+						<p class="radio-button-text oven-align">Large</p>
+					</div>
+  				   <div class="radio-button">
+  					   <input id="grilleco" type="radio" name="grill" value="eco">
+      				<p class="radio-button-text oven-align">Eco</p>
+  				   </div>
+  				   <div class="radio-button">
+  					   <input id="grilloff" type="radio" name="grill" value="off">
+      				<p class="radio-button-text oven-align">Off</p>
+      			</div>
+      		</form>
+			</div>
+			<div class="action">
+				<h3 class="action-text">Set convection</h3>
+				<form class="radio-selection">
+					<div class="radio-button">
+						<input  id="convnormal" type="radio" name="convection" value="normal">
+						<p class="radio-button-text oven-align">Normal</p>
+					</div>
+  				   <div class="radio-button">
+  					   <input id="conveco" type="radio" name="convection" value="eco">
+      				<p class="radio-button-text oven-align">Eco</p>
+  				   </div>
+  				   <div class="radio-button">
+  					   <input id="convoff" type="radio" name="convection" value="off">
+      				<p class="radio-button-text oven-align">Off</p>
+  				   </div>
+  			   </form>
+         </div>
+		</div>
+	</body>
+</html>

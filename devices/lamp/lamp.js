@@ -2,25 +2,25 @@ $(document).ready(function() {
 
   //$(".title-text").text(device.name);
 
-  // api.device.executeAction(device.id, "getState", [])
-  //   .done((data, textStatus, jqXHR) => {
-  //     if (data.result.status === "on") {
-  //       $("#on-status").text("On");
-  //       $("#on-switch").prop("checked", true);
-  //     } else {
-  //       $("#on-status").text("Off");
-  //     }
-  //     $(".color-preview").css("background-color", "#" + data.result.color);
-  //     $("#color").val(data.result.color);
-  //     $("#brightness").val(data.result.brightness);
-  //   })
-  //   .fail((jqXHR, textStatus, errorThrown) => {
-  //     console.log(jqXHR.responseText);
-  //     $("#on-status").text("Off");
-  //     $(".color-preview").css("background-color", "#FFFFFF");
-  //     $("#color").val("FFFFFF");
-  //     $("#brightness").val(100)
-  //   })
+  api.device.executeAction(device.id, "getState", [])
+    .done((data, textStatus, jqXHR) => {
+      if (data.result.status === "on") {
+        $("#on-status").text("On");
+        $("#on-switch").prop("checked", true);
+      } else {
+        $("#on-status").text("Off");
+      }
+      $(".color-preview").css("background-color", "#" + data.result.color);
+      $("#color").val(data.result.color);
+      $("#brightness").val(data.result.brightness);
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR.responseText);
+      $("#on-status").text("Off");
+      $(".color-preview").css("background-color", "#FFFFFF");
+      $("#color").val("FFFFFF");
+      $("#brightness").val(100)
+    })
 
   var hexColor = $('#color :selected').val()
   $(".color-preview").css("background-color", "#" + hexColor);

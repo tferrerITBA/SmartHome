@@ -11,7 +11,7 @@ $(document).ready(function() {
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
       data.devices.forEach(function(device){
-        // console.log(device.id);
+        console.log(device.id);
       })
     })
     .fail((jqXHR, textStatus, errorThrown) => {

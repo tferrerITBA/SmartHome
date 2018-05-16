@@ -2,24 +2,24 @@
 <html>
 	<head>
 		<title>Create Room - Smart Home</title>
-		<link rel="stylesheet" type="text/css" href="equalizer.css">
-		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="./rooms/main.js"></script>
-		<script src="./url/api.js"></script>
-		<script src="./url/room.js"></script>
-		<script src="./createRoom/createRoom.js"></script>
+		<script src="../rooms/rooms.js"></script>
+		<script src="../url/api.js"></script>
+		<script src="../url/room.js"></script>
+		<script src="./createRoom.js"></script>
 	</head>
 	<body>
 		<div class="parent">
 			<div class="nav">
 				<a class="logo" href="home.html"></a>
 				<div>
-					<a class="nav-link" href="home.html">Home</a>
-					<a class="nav-link" href="devices.html">Devices</a>
-					<a class="nav-link" href="rooms.html">Rooms</a>
-					<a class="nav-link" href="routines.html">Routines</a>
+					<a class="nav-link" href="../home.html">Home</a>
+					<a class="nav-link" href="../devices.html">Devices</a>
+					<a class="nav-link" href="../rooms.html">Rooms</a>
+					<a class="nav-link" href="../routines.html">Routines</a>
 				</div>
 			</div>
 			<h1 class="title">Create Room</h1>
@@ -30,19 +30,19 @@
       	<form id="icons" class="radio-selection">
       		<div class="radio-button">
       			<input type="radio" name="icon" value="assets/BedroomIcon.png" checked />
-      			<img class="room-icon" src="assets/BedroomIcon.png" alt="Bedroom Icon" />
+      			<img class="room-icon" src="../assets/BedroomIcon.png" alt="Bedroom Icon" />
       		</div>
       		<div class="radio-button">
       			<input type="radio" name="icon" value="assets/LivingRoomIcon.svg" />
-      			<img class="room-icon" src="assets/LivingRoomIcon.svg" alt="Living Icon"/>
+      			<img class="room-icon" src="../assets/LivingRoomIcon.svg" alt="Living Icon"/>
       		</div>
       		<div class="radio-button">
       			<input type="radio" name="icon" value="assets/KitchenIcon.png" />
-      			<img class="room-icon" src="assets/KitchenIcon.png" alt="Kitchen Icon" />
+      			<img class="room-icon" src="../assets/KitchenIcon.png" alt="Kitchen Icon" />
       		</div>
       		<div class="radio-button">
       			<input type="radio" name="icon" value="assets/BathroomIcon.png" />
-      			<img class="room-icon" src="assets/BathroomIcon.png" alt="Bathroom Icon" />
+      			<img class="room-icon" src="../assets/BathroomIcon.png" alt="Bathroom Icon" />
       		</div>
       	</form>
 				<h3 class="field-name">Devices</h3>
@@ -61,7 +61,7 @@
 		      		</div>
 		      	</div>
 		    </div>
-		    <button class="option-button cancel" type="button" onclick="location.href='rooms.html';">Cancel</button>
+		    <button class="option-button cancel" type="button" onclick="location.href='../rooms.html';">Cancel</button>
 			<button id="createRoom" class="option-button create" type="button">Create</button>
 		</div>
 	</body>

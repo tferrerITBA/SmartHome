@@ -16,8 +16,7 @@ var vueInstance = new Vue({
 	}
 })
 
-$(devices.html).ready(function hola(){
-	var items = $('<p>safsdf</p>');
-	$('.instances').append(items);
-})
-
+// $(devices.html).ready(function hola(){
+// 	var items = $('<p>safsdf</p>');
+// 	$('.instances').append(items);
+// })

@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<title>Devices - Smart Home</title>
-		<div class="instances">
-			<styles></styles>
-			<ajaxapi></ajaxapi>
-		</div>
+		<link rel="stylesheet" type="text/css" href="equalizer.css"></link>
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="devices/main.js"></script>
 		<script src="url/api.js"></script>
 	</head>
@@ -32,15 +32,9 @@
 						<p>button.</p>
 					</div>
 				</div>
-				<button class="device" type="button" onclick=" ">
-					<div class="item-description">
-						<img class="item-icon" src="assets/LampIcon.png" alt="device"/>
-						<div class="item-text">
-							<p class="item-name">Bedroom Lamp</p>
-							<p class="item-subtext">LAMP</p>
-						</div>
-					</div>
-				</button>
+				<div class="instances">
+					<item name="Bedroom Lamp" subtext="LAMP" img="./assets/BedroomIcon.png" id=""></item>
+				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createDevice.html';">
 				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>

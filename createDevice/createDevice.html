@@ -2,11 +2,10 @@
 <html>
 	<head>
 		<title>Create Device - Smart Home</title>
-		<link rel="stylesheet" type="text/css" href="equalizer.css"></link>
-		<link rel="stylesheet" type="text/css" href="style.css"></link>
+		<link rel="stylesheet" type="text/css" href="../equalizer.css"></link>
+		<link rel="stylesheet" type="text/css" href="../style.css"></link>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/></link>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="./createDevice/main.js"></script>
 		<script src="../url/api.js"></script>
 		<script src="../url/device.js"></script>
 		<script src="./createDevice.js"></script>
@@ -16,10 +15,10 @@
 			<div class="nav">
 				<a class="logo" href="home.html"></a>
 				<div>
-					<a class="nav-link" href="home.html">Home</a>
-					<a class="nav-link" href="devices.html">Devices</a>
-					<a class="nav-link" href="rooms.html">Rooms</a>
-					<a class="nav-link" href="routines.html">Routines</a>
+					<a class="nav-link" href="../home.html">Home</a>
+					<a class="nav-link" href="../devices.html">Devices</a>
+					<a class="nav-link" href="../rooms.html">Rooms</a>
+					<a class="nav-link" href="../routines.html">Routines</a>
 				</div>
 			</div>
 			<h1 class="title">Create Device</h1>
@@ -36,7 +35,7 @@
 					<option value="refrigerator">Refrigerator</option>
 				</select>
 			</div>
-			<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
+			<button class="option-button cancel" type="button" onclick="location.href='../devices.html';">Cancel</button>
 			<button id="createDevice" class="option-button create" type="button" v-on:click="addDevice()">Create</button>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

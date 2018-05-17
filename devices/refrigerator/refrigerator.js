@@ -1,6 +1,30 @@
 $(document).ready(function() {
 
-  //$(".title-text").text(device.name);
+  var queryString = decodeURIComponent(window.location.search);
+  queryString = queryString.substring(1);
+  var queries = queryString.split("=");
+
+  api.device.get(queries[1])
+    .done(function(data, textStatus, jqXHR) {
+      device = data.device;
+      $(".title-text").text(device.name);
+      api.device.executeAction(device.id, "getState", [])
+        .done(function(data, textStatus, jqXHR) {
+          var result = data.result;
+          $('input[name=quantity]').val(result.temperature);
+          $('input[name=freez-quantity]').val(result.freezerTemperature);
+          $("#" + result.mode).prop("checked", true);
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR.responseText);
+          $('input[name=quantity]').val(2);
+          $('input[name=freez-quantity]').val(-8);
+          $("#default").prop("checked", true);
+        })
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      });
 
   $("#minus").on("click", function() {
     var temp = parseInt($('input[name=quantity]').val());

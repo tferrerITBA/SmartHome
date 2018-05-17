@@ -5,7 +5,7 @@ $(document).ready(function() {
     var deviceName = $("#deviceName").val();
     if (deviceName !== "") {
       api.deviceType.getTypes()
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           var deviceType = $("#deviceType").val();
           var deviceIdType = data.devices.filter(
             function(device){
@@ -13,17 +13,19 @@ $(document).ready(function() {
             })[0].id;
           device = new api.model.device(null, deviceIdType, deviceName, "{}");
           api.device.add(device)
-            .done((data, textStatus, jqXHR) => {
+            .done(function(data, textStatus, jqXHR) {
               device.id = data.device.id;
-              console.log(data);
+              window.location.href = "../devices.html";
             })
-            .fail((jqXHR, textStatus, errorThrown) => {
+            .fail(function(jqXHR, textStatus, errorThrown) {
               console.log(jqXHR.responseText);
             })
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);
         })
-      }
+    } else {
+      //TIRAR ERROR
+    }
   });
 });

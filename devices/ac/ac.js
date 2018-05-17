@@ -7,10 +7,9 @@ $(document).ready(function() {
   api.device.get(queries[1])
     .done(function(data, textStatus, jqXHR) {
       device = data.device;
-      console.log(device);
       $(".title-text").text(device.name);
       api.device.executeAction(device.id, "getState", [])
-        .done(function(data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           var result = data.result;
           if(result.status === "on") {
             $("#on-status").text("On");

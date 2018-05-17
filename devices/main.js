@@ -7,6 +7,7 @@ var doorId = "lsf78ly0eqrjbz91";
 var refriId = "rnizejqr2di0okho";
 
 $(document).ready(function() {
+  if(document.location.href.match(/[^\/]+$/)[0] === "devices.html") {
   api.device.getAll()
     .done((data, textStatus, jqXHR) => {
       data.devices.forEach(function(device){
@@ -31,25 +32,32 @@ $(document).ready(function() {
     .fail((jqXHR, textStatus, errorThrown) => {
       console.log(jqXHR.responseText);
     })
-
+  }
   
-    $("button").on("click", function() {
+    $(".instances").on("click", "button", function() {
       console.log($(this).attr('id'));
-      if (id  === undefined) {
+      var id = $(this).attr('id');
         api.device.get($(this).attr('id'))
         .done((data, textStatus, jqXHR) => {
           device = data.device;
-          console.log(data);
+          var queryString = "?id=" + device.id;
           if(device.typeId === acId) {
-            //redirigir a html de ac
-          } else if(false) {
-
+            window.location.href = "devices/ac/ac.html" + queryString;
+          } else if(device.typeId === blindId) {
+            window.location.href = "devices/blinds/blinds.html" + queryString;
+          } else if(device.typeId === doorId) {
+            window.location.href = "devices/door/door.html" + queryString;
+          } else if(device.typeId === lampId) {
+            window.location.href = "devices/lamp/lamp.html" + queryString;
+          } else if (device.typeId === ovenId) {
+            window.location.href = "devices/oven/oven.html" + queryString;
+          } else if (device.typeId === refriId) {
+            window.location.href = "devices/refrigerator/refrigerator.html" + queryString;
           }
         })
         .fail((jqXHR, textStatus, errorThrown) => {
           console.log(jqXHR.responseText);
         });
-      }
     });
 
   $("#modifyDevice").on("click", function() {
@@ -77,7 +85,7 @@ $(document).ready(function() {
   });
 
   $("#getDevice").on("click", function() {
-    debugger;
+    //debugger;
     api.device.get(device.id)
       .done((data, textStatus, jqXHR) => {
         console.log(data);

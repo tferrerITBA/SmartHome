@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/></link>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="url/api.js"></script>
+		<script src="devices/main.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
@@ -31,7 +32,7 @@
 						<p>button.</p>
 					</div>
 				</div>
-				<div>
+				<div class="instances">
 					<item v-for="device in deviceList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" :key="device.id"></item>
 				</div>
 			</div>
@@ -41,6 +42,5 @@
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="components.js"></script>
-		<script src="devices/main.js"></script>
 	</body>
 </html>

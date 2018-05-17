@@ -6,11 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="style.css"></link>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/></link>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="devices/main.js"></script>
 		<script src="url/api.js"></script>
+		<script src="devices/main.js"></script>
 	</head>
 	<body>
-		<div class="parent">
+		<div class="parent" id="app">
 			<div class="nav">
 				<a class="logo" href="home.html"></a>
 				<div>
@@ -22,7 +22,7 @@
 			</div>
 			<h1 class="title">Devices</h1>
 			<div class="margin-text">
-				<div v-show="deviceQty == 0">
+				<div v-if="!deviceList.length">
 					<h3><b>No devices found<b></h3>
 					<div class="wizard">
 						<p>If you want to add a device you should press the</p>
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="instances">
-					<item name="Bedroom Lamp" subtext="LAMP" img="./assets/LampIcon.png" id=""></item>
+					<item v-for="device in deviceList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" :key="device.id"></item>
 				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createDevice/createDevice.html';">

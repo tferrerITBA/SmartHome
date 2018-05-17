@@ -9,7 +9,7 @@ var refriId = "rnizejqr2di0okho";
 $(document).ready(function() {
   if(document.location.href.match(/[^\/]+$/)[0] === "devices.html") {
   api.device.getAll()
-    .done((data, textStatus, jqXHR) => {
+    .done(function(data, textStatus, jqXHR) {
       data.devices.forEach(function(device){
         var name = device.name;
         var typeId = device.typeId;
@@ -29,7 +29,7 @@ $(document).ready(function() {
         }
       })
     })
-    .fail((jqXHR, textStatus, errorThrown) => {
+    .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);
     })
   }
@@ -38,7 +38,7 @@ $(document).ready(function() {
       console.log($(this).attr('id'));
       var id = $(this).attr('id');
         api.device.get($(this).attr('id'))
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           device = data.device;
           var queryString = "?id=" + device.id;
           if(device.typeId === acId) {
@@ -55,44 +55,44 @@ $(document).ready(function() {
             window.location.href = "devices/refrigerator/refrigerator.html" + queryString;
           }
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);
         });
     });
 
-  $("#modifyDevice").on("click", function() {
-    var name = $("#name").val();;
-    if (name !== "") {
-      device.name = name;
-      api.device.modify(device)
-      .done((data, textStatus, jqXHR) => {
-        console.log(data);
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        console.log(jqXHR.responseText);
-      })
-    }
-  });
+  // $("#modifyDevice").on("click", function() {
+  //   var name = $("#name").val();;
+  //   if (name !== "") {
+  //     device.name = name;
+  //     api.device.modify(device)
+  //     .done((data, textStatus, jqXHR) => {
+  //       console.log(data);
+  //     })
+  //     .fail((jqXHR, textStatus, errorThrown) => {
+  //       console.log(jqXHR.responseText);
+  //     })
+  //   }
+  // });
 
-  $("#deleteDevice").on("click", function() {
-    api.device.delete(device.id)
-      .done((data, textStatus, jqXHR) => {
-        console.log(data);
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        console.log(jqXHR.responseText);
-      })
-  });
+  // $("#deleteDevice").on("click", function() {
+  //   api.device.delete(device.id)
+  //     .done((data, textStatus, jqXHR) => {
+  //       console.log(data);
+  //     })
+  //     .fail((jqXHR, textStatus, errorThrown) => {
+  //       console.log(jqXHR.responseText);
+  //     })
+  // });
 
-  $("#getDevice").on("click", function() {
-    //debugger;
-    api.device.get(device.id)
-      .done((data, textStatus, jqXHR) => {
-        console.log(data);
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        console.log(jqXHR.responseText);
-      })
-  });
+  // $("#getDevice").on("click", function() {
+  //   //debugger;
+  //   api.device.get(device.id)
+  //     .done((data, textStatus, jqXHR) => {
+  //       console.log(data);
+  //     })
+  //     .fail((jqXHR, textStatus, errorThrown) => {
+  //       console.log(jqXHR.responseText);
+  //     })
+  // });
 
 });

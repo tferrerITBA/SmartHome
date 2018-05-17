@@ -5,11 +5,11 @@ $(document).ready(function() {
   var queries = queryString.split("=");
 
   api.device.get(queries[1])
-    .done((data, textStatus, jqXHR) => {
+    .done(function(data, textStatus, jqXHR) {
       device = data.device;
       $(".title-text").text(device.name);
       api.device.executeAction(device.id, "getState", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           if (data.result.status === "on") {
             $("#on-status").text("On");
             $("#on-switch").prop("checked", true);
@@ -22,7 +22,7 @@ $(document).ready(function() {
           console.log(data.result.color);
           $("#brightness").val(data.result.brightness);
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);
           $("#on-status").text("Off");
           $(".color-preview").css("background-color", "#FFFFFF");
@@ -30,7 +30,7 @@ $(document).ready(function() {
           $("#brightness").val(100)
         })
     })
-    .fail((jqXHR, textStatus, errorThrown) => {
+    .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);
     });
 
@@ -38,18 +38,18 @@ $(document).ready(function() {
     var status = $("#on-status").text()
     if(status === "On") {
       api.device.executeAction(device.id, "turnOff", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           $("#on-status").text("Off");
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
          console.log(jqXHR.responseText);
         })
     } else {
       api.device.executeAction(device.id, "turnOn", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           $("#on-status").text("On");
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
          console.log(jqXHR.responseText);
         })
     }
@@ -58,10 +58,10 @@ $(document).ready(function() {
   $("#color").on("change", function() {
     var hexColor = $('#color :selected').val()
     api.device.executeAction(device.id, "setColor", [hexColor])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
         $(".color-preview").css("background-color", hexColor);
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -69,9 +69,9 @@ $(document).ready(function() {
   $("#brightness").on("mouseup", function() {
     var brightness = $("#brightness").val()
     api.device.executeAction(device.id, "setBrightness", [brightness])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });

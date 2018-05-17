@@ -5,12 +5,12 @@ $(document).ready(function() {
   var queries = queryString.split("=");
 
   api.device.get(queries[1])
-    .done((data, textStatus, jqXHR) => {
+    .done(function(data, textStatus, jqXHR) {
       device = data.device;
       console.log(device);
       $(".title-text").text(device.name);
       api.device.executeAction(device.id, "getState", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) => {
           var result = data.result;
           if(result.status === "on") {
             $("#on-status").text("On");
@@ -24,7 +24,7 @@ $(document).ready(function() {
             $("#hSwing" + result.horizontalSwing).prop("checked", true);
             $("#fanSpeed" + result.fanSpeed).prop("checked", true);
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);
           $("#on-status").text("Off");
           $('input[name=quantity]').text("24");
@@ -34,7 +34,7 @@ $(document).ready(function() {
           $("#fanSpeedauto").prop("checked", true);
         })
     })
-    .fail((jqXHR, textStatus, errorThrown) => {
+    .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);
     });
 
@@ -42,18 +42,18 @@ $(document).ready(function() {
     var status = $("#on-status").text();
     if(status === "On") {
       api.device.executeAction(device.id, "turnOff", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           $("#on-status").text("Off");
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
          console.log(jqXHR.responseText);
         })
     } else {
       api.device.executeAction(device.id, "turnOn", [])
-        .done((data, textStatus, jqXHR) => {
+        .done(function(data, textStatus, jqXHR) {
           $("#on-status").text("On");
         })
-        .fail((jqXHR, textStatus, errorThrown) => {
+        .fail(function(jqXHR, textStatus, errorThrown) {
          console.log(jqXHR.responseText);
         })
     }
@@ -65,10 +65,10 @@ $(document).ready(function() {
       temp--;
     }
     api.device.executeAction(device.id, "setTemperature", [temp])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
          $('input[name=quantity]').val(temp);
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -79,10 +79,10 @@ $(document).ready(function() {
       temp++;
     }
     api.device.executeAction(device.id, "setTemperature", [temp])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
          $('input[name=quantity]').val(temp);
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -90,9 +90,9 @@ $(document).ready(function() {
   $('input[name=mode]').on("change", function() {
     var state = $("form input[name='mode']:checked").val();
     api.device.executeAction(device.id, "setMode", [state])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -100,9 +100,9 @@ $(document).ready(function() {
   $('input[name=v-swing]').on("change", function() {
     var state = $("form input[name='v-swing']:checked").val();
     api.device.executeAction(device.id, "setVerticalSwing", [state])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -110,9 +110,9 @@ $(document).ready(function() {
   $('input[name=h-swing]').on("change", function() {
     var state = $("form input[name='h-swing']:checked").val();
     api.device.executeAction(device.id, "setHorizontalSwing", [state])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });
@@ -120,9 +120,9 @@ $(document).ready(function() {
   $('input[name=fan-speed]').on("change", function() {
     var state = $("form input[name='fan-speed']:checked").val();
     api.device.executeAction(device.id, "setFanSpeed", [state])
-      .done((data, textStatus, jqXHR) => {
+      .done(function(data, textStatus, jqXHR) {
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      .fail(function(jqXHR, textStatus, errorThrown) {
        console.log(jqXHR.responseText);
       })
   });

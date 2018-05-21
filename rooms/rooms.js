@@ -2,31 +2,21 @@ var room;
 
 $(document).ready(function() {
   api.room.getAll()
-      .done((data, textStatus, jqXHR) => {
-        var index;
-        for(index = 0; index < data.rooms.length; index++){
-          // mostrar rooms con el componente
-          console.log(data.rooms[index].id);
-        }
+    .done(function(data, textStatus, jqXHR) {
+      data.rooms.forEach(function(room){
+        var name = room.name;
+        var icon = room.meta.split(" ")[2];
+        var id = room.id;
+        VueInstance.addItem(name, "", icon, id);
       })
-      .fail((jqXHR, textStatus, errorThrown) => {
-        console.log(jqXHR.responseText);
-      })
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR.responseText);
+    })
 
-  $(function(){
-    $('button').click(function(){
-      console.log($(this).attr('id'));
-      if (id  === undefined) {
-        api.rooms.get($(this).attr('id'))
-        .done((data, textStatus, jqXHR) => {
-          room = data.room;
-          console.log(data);
-        })
-        .fail((jqXHR, textStatus, errorThrown) => {
-          console.log(jqXHR.responseText);
-        });
-      }
-    });
+  $(".instances").on("click", "button", function() {
+    var id = $(this).attr('id');
+    var queryString = "?id=" + id;
+    window.location.href = "rooms/room/room.html" + queryString;
   });
-
 });

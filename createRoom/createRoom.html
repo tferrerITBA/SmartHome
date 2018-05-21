@@ -17,44 +17,29 @@
 			<h1 class="title">Create Room</h1>
 			<div class="margin-text">
 				<h3 class="field-name">Name</h3>
-      	<input id="roomName" type="text" class="input-text"/>
-      	<h3 class="field-name">Icon</h3>
-      	<form id="icons" class="radio-selection">
-      		<div class="radio-button">
-      			<input type="radio" name="icon" value="assets/BedroomIcon.png" checked />
-      			<img class="room-icon" src="../assets/BedroomIcon.png" alt="Bedroom Icon" />
-      		</div>
-      		<div class="radio-button">
-      			<input type="radio" name="icon" value="assets/LivingRoomIcon.svg" />
-      			<img class="room-icon" src="../assets/LivingRoomIcon.svg" alt="Living Icon"/>
-      		</div>
-      		<div class="radio-button">
-      			<input type="radio" name="icon" value="assets/KitchenIcon.png" />
-      			<img class="room-icon" src="../assets/KitchenIcon.png" alt="Kitchen Icon" />
-      		</div>
-      		<div class="radio-button">
-      			<input type="radio" name="icon" value="assets/BathroomIcon.png" />
-      			<img class="room-icon" src="../assets/BathroomIcon.png" alt="Bathroom Icon" />
-      		</div>
-      	</form>
-				<h3 class="field-name">Devices</h3>
-		      	<div id="checkboxes" class="device-selection">
-		      		<div class="device-option">
-			      		<input type="checkbox" name="device"/>
-			      		<p class="device-option-text">Device 1</p>
-		      		</div>
-		      		<div class="device-option">
-		      			<input type="checkbox" name="device"/>
-		      			<p class="device-option-text">Device 2</p>
-		      		</div>
-		      		<div class="device-option">
-		      			<input type="checkbox" name="device"/>
-		      			<p class="device-option-text">Device 3</p>
-		      		</div>
-		      	</div>
-		    </div>
-		    <button class="option-button cancel" type="button" onclick="location.href='../rooms.html';">Cancel</button>
-			<button id="createRoom" class="option-button create" type="button">Create</button>
+      			<input id="roomName" type="text" class="input-text"/>
+      			<h3 class="field-name">Icon</h3>
+      			<form id="icons" class="radio-selection">
+      				<div class="radio-button">
+      					<input type="radio" name="icon" value="assets/BedroomIcon.png" checked />
+      					<img class="room-icon" src="../assets/BedroomIcon.png" alt="Bedroom Icon" />
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="icon" value="assets/LivingRoomIcon.svg" />
+      					<img class="room-icon" src="../assets/LivingRoomIcon.svg" alt="Living Icon"/>
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="icon" value="assets/KitchenIcon.png" />
+      					<img class="room-icon" src="../assets/KitchenIcon.png" alt="Kitchen Icon" />
+      				</div>
+      				<div class="radio-button">
+      					<input type="radio" name="icon" value="assets/BathroomIcon.png" />
+      					<img class="room-icon" src="../assets/BathroomIcon.png" alt="Bathroom Icon" />
+      				</div>
+      			</form>
+		    	<button class="option-button cancel" type="button" onclick="location.href='../rooms.html';">Cancel</button>
+				<button id="createRoom" class="option-button create" type="button">Create</button>
+			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="../components.js"></script>

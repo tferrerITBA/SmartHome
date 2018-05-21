@@ -15,9 +15,9 @@ $(document).ready(function() {
     .done(function(data, textStatus, jqXHR) {
       data.rooms.forEach(function(room){
         var name = room.name;
-        var icon = "../" + room.meta.icon;
+        var icon = "../" + room.meta.split(" ")[2];
         var id = room.id;
-        VueInstance.addDevice(name, "", icon, id);
+        VueInstance.addItem(name, "", icon, id);
       })
     })
     .fail(function(jqXHR, textStatus, errorThrown) {

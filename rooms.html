@@ -5,29 +5,28 @@
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="url/api.js"></script>
+		<script src="rooms/rooms.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
 			<app-header home="home.html" devices="devices.html" rooms="rooms.html" routines="routines.html"></app-header>
 			<h1 class="title">Rooms</h1>
 			<div class="margin-text">
-				<h3><b>No rooms found<b></h3>
-				<div class="wizard">
-					<p>If you want to add a room you should press the</p>
-					<div class="add-button orientative">
-						<img class="orientative-icon" src="assets/PlusButton.png" alt="add device icon"/>
-					</div>
-					<p>button.</p>
-				</div>
-				<button class="device" type="button" onclick=" ">
-					<div class="item-description">
-						<img class="room-icon" src="assets/LivingRoomIcon.svg" alt="room"/>
-						<div class="item-text">
-							<p class="item-name">Bedroom</p>
-							<p class="item-subtext">DEVICES: 0</p>
+				<div v-if="!itemList.length">
+					<h3><b>No rooms found<b></h3>
+					<div class="wizard">
+						<p>If you want to add a room you should press the</p>
+						<div class="add-button orientative">
+							<img class="orientative-icon" src="assets/PlusButton.png" alt="add device icon"/>
 						</div>
+						<p>button.</p>
 					</div>
-				</button>
+				</div>
+				<div class="instances">
+					<item v-for="room in itemList" v-bind:name="room.name" v-bind:subtext="room.subtext" v-bind:img="room.img" v-bind:id="room.id" :key="room.id"></item>
+				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createRoom/createRoom.html'">
 				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>

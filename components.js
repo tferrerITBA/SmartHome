@@ -26,12 +26,12 @@ template:
 var VueInstance = new Vue({
 	el: '#app',
 	data: {
-		deviceList: [],
+		itemList: [],
 		linkList: []
 	},
 	methods: {
-		addDevice: function(name, subtext, imgSrc, id) {
-			this.deviceList.push({ name: name, subtext: subtext, img: imgSrc, id: id });
+		addItem: function(name, subtext, imgSrc, id) {
+			this.itemList.push({ name: name, subtext: subtext, img: imgSrc, id: id });
 		},
 		addLink: function(home, devices, rooms, routines) {
 			this.linkList.push({ home: home, devices: devices, rooms: rooms, routines: routines });

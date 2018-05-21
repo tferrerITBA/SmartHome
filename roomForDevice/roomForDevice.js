@@ -1,4 +1,10 @@
 var device;
+var acId = "li6cbv5sdlatti0j";
+var blindId = "eu0v2xgprrhhg41g";
+var lampId = "go46xmbqeomjrsjr";
+var ovenId = "im77xxyulpegfmv8";
+var doorId = "lsf78ly0eqrjbz91";
+var refriId = "rnizejqr2di0okho";
 
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
@@ -9,7 +15,7 @@ $(document).ready(function() {
     .done(function(data, textStatus, jqXHR) {
       data.rooms.forEach(function(room){
         var name = room.name;
-        var icon = room.meta.icon;
+        var icon = "../" + room.meta.icon;
         var id = room.id;
         VueInstance.addDevice(name, "", icon, id);
       })

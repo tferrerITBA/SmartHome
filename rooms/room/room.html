@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AC - Smart Home</title>
+    <link rel="stylesheet" type="text/css" href="../../equalizer.css">
+		<link rel="stylesheet" type="text/css" href="../../style.css"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../url/api.js"></script>
+		<script src="room.js"></script>
+	</head>
+	<body>
+		<div class="parent" id="app">
+			<app-header home="../../home.html" devices="../../devices.html" rooms="../../rooms.html" routines="../../routines.html"></app-header>
+			<div class="device-title">
+				<img id="roomIcon" class="device-icon" src="../../assets/ACIcon.png"/>
+				<div class="border-title">
+          <h1 class="title-text">Air Conditioner</h1>
+          <div class="option-icons">
+            <button id="editDevice">
+              <img class="option-icon" src="../../assets/Edit.png"/>
+            </button>
+            <button id="deleteDevice">
+              <img class="option-icon" src="../../assets/Bin.png"/>
+            </button>
+          </div>
+        </div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="../../components.js"></script>
+	</body>
+</html>

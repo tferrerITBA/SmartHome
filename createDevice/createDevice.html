@@ -12,15 +12,7 @@
 	</head>
 	<body>
 		<div class="parent" id="app">
-			<div class="nav">
-				<a class="logo" href="../home.html"></a>
-				<div>
-					<a class="nav-link" href="../home.html">Home</a>
-					<a class="nav-link" href="../devices.html">Devices</a>
-					<a class="nav-link" href="../rooms.html">Rooms</a>
-					<a class="nav-link" href="../routines.html">Routines</a>
-				</div>
-			</div>
+			<app-header home="../home.html" devices="../devices.html" rooms="../rooms.html" routines="../routines.html"></app-header>
 			<h1 class="title">Create Device</h1>
 			<div class="margin-text">
 				<h3 class="field-name">Name</h3>
@@ -38,5 +30,7 @@
 			<button class="option-button cancel" type="button" onclick="location.href='../devices.html';">Cancel</button>
 			<button id="createDevice" class="option-button create" type="button">Create</button>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="../components.js"></script>
 	</body>
 </html>

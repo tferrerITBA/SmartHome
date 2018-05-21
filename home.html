@@ -7,16 +7,8 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 	</head>
 	<body>
-		<div class="parent">
-			<div class="nav">
-				<a class="logo" href="home.html"></a>
-				<div>
-					<a class="nav-link" href="home.html">Home</a>
-					<a class="nav-link" href="devices.html">Devices</a>
-					<a class="nav-link" href="rooms.html">Rooms</a>
-					<a class="nav-link" href="routines.html">Routines</a>
-				</div>
-			</div>
+		<div class="parent" id="app">
+			<app-header home="home.html" devices="devices.html" rooms="rooms.html" routines="routines.html"></app-header>
 			<h1 class="title">Home</h1>
 			<div class="welcome">
 				<h2 class="welcome-title">Welcome!</h2>
@@ -24,5 +16,7 @@
 				<img class="welcome-img" src="assets/WelcomeSplash.png" alt="Smart Home"/>
 			</div>
 		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="components.js"></script>
 	</body>
 </html>

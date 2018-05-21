@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rooms - Smart Home</title>
+    <link rel="stylesheet" type="text/css" href="../equalizer.css">
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="../url/api.js"></script>
+    <script src="../url/room.js"></script>
+    <script src="../url/device.js"></script>
+		<script src="roomForDevice.js"></script>
+  </head>
+  <body>
+    <div class="parent" id="app">
+      <app-header home="../home.html" devices="../devices.html" rooms="../rooms.html" routines="../routines.html"></app-header>
+      <h1 class="title">Select Room</h1>
+			<div class="margin-text instances">
+				<item v-for="room in deviceList" v-bind:name="room.name" v-bind:subtext="room.subtext" v-bind:img="room.img" v-bind:id="room.id" :key="room.id"></item>
+			</div>
+      <button id="cancel" class="option-button cancel" type="button">Cancel</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="../components.js"></script>
+  </body>
+</html>

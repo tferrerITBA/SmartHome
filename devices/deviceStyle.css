@@ -43,7 +43,7 @@
 	align-items: center;
 	margin-bottom: 5px;
 	margin-left: 60px;
-	width: 100%;
+	width: 80%;
 	height: 50px;
 	display: flex;
 	flex-direction: row;
@@ -255,4 +255,32 @@ input:checked + .switch-slider:before {
 
 .oven-align {
 	width: 85px;
+}
+
+.assign-room-button {
+	background-color: #FFAC00;
+	border: #CC8A00 2px solid;
+	border-radius: 50px;
+	color: white;
+	font-size: 25px;
+	height: 50px;
+	width: 195px;
+	bottom: 60px;
+	position: fixed;
+
+	-webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.assign-room-button:hover {
+	background-color: white;
+	color: #FFAC00;
+}
+
+.left-assign {
+	left: 60px;
+}
+
+.right-assign {
+	left: 310px;
 }

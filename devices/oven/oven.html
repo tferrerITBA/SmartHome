@@ -17,20 +17,20 @@
 			<div class="device-title">
 				<img class="device-icon" src="../../assets/OvenIcon.png"/>
 				<div class="border-title">
-               		<h1 class="title-text">Oven</h1>
-               		<div class="option-icons">
-                  		<button id="editDevice">
-              				<img class="option-icon" src="../../assets/Edit.png"/>
-            			</button>
-            			<button v-on:click="showModal = true">
-							<img class="option-icon" src="../../assets/Bin.png"/>  
+       		<h1 class="title-text">Oven</h1>
+       		<div class="option-icons">
+        		<button id="editDevice">
+      				<img class="option-icon" src="../../assets/Edit.png"/>
+    				</button>
+  					<button v-on:click="showModal = true">
+							<img class="option-icon" src="../../assets/Bin.png"/>
 						</button>
 						<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteIt();">
 							<h3 slot="header">Are you sure?</h3>
 							<p slot="body">This item will be permanently deleted.</p>
 						</modal>
-               		</div>
-            	</div>
+       		</div>
+      	</div>
 			</div>
 			<div class="action">
 				<h3 class="action-text" id="on-status">Off</h3>
@@ -87,19 +87,19 @@
 						<input  id="convnormal" type="radio" name="convection" value="normal">
 						<p class="radio-button-text oven-align">Normal</p>
 					</div>
-  				   <div class="radio-button">
-  					   <input id="conveco" type="radio" name="convection" value="eco">
-      				<p class="radio-button-text oven-align">Eco</p>
-  				   </div>
-  				   <div class="radio-button">
-  					   <input id="convoff" type="radio" name="convection" value="off">
-      				<p class="radio-button-text oven-align">Off</p>
-  				   </div>
-  			   </form>
-         	</div>
-         	<button id="selectRoom" class="assign-room-button left-assign" type="button">Select room</button>
-      		<button id="deselectRoom" class="assign-room-button right-assign" type="button">Deselect room</button>
-         	<button id="doneButton" class="option-button done" type="button" onclick="location.href='../../devices.html';">Done</button>
+			   <div class="radio-button">
+				   <input id="conveco" type="radio" name="convection" value="eco">
+  				<p class="radio-button-text oven-align">Eco</p>
+			   </div>
+			   <div class="radio-button">
+				   <input id="convoff" type="radio" name="convection" value="off">
+  				<p class="radio-button-text oven-align">Off</p>
+			   </div>
+		   </form>
+     	</div>
+     	<button id="selectRoom" class="assign-room-button left-assign" type="button">Select room</button>
+  		<button id="deselectRoom" class="assign-room-button right-assign" type="button">Deselect room</button>
+     	<button id="doneButton" class="option-button done" type="button" onclick="location.href='../../devices.html';">Done</button>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="../../components.js"></script>

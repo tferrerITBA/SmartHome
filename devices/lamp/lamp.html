@@ -17,20 +17,20 @@
 			<div class="device-title">
 				<img class="device-icon" src="../../assets/LampIcon.png"/>
 				<div class="border-title">
-          			<h1 class="title-text">Lamp</h1>
-          			<div class="option-icons">
-            			<button id="editDevice">
-                    		<img class="option-icon" src="../../assets/Edit.png"/>
-                  		</button>
-                  		<button v-on:click="showModal = true">
-                    		<img class="option-icon" src="../../assets/Bin.png"/>  
+    			<h1 class="title-text">Lamp</h1>
+    			<div class="option-icons">
+      			<button id="editDevice">
+          		<img class="option-icon" src="../../assets/Edit.png"/>
+        		</button>
+        		<button v-on:click="showModal = true">
+          		<img class="option-icon" src="../../assets/Bin.png"/>
 						</button>
-				  		<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteIt();">
+			  		<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteIt();">
 							<h3 slot="header">Are you sure?</h3>
 							<p slot="body">This item will be permanently deleted.</p>
 						</modal>
-          			</div>
-        		</div>
+    			</div>
+    		</div>
 			</div>
 			<div class="action">
 				<h3 class="action-text" id="on-status">Off</h3>
@@ -39,31 +39,31 @@
   					<span class="switch-slider"></span>
 				</label>
 			</div>
-        	<div class="action">
-            	<h3 class="action-text">Set color</h3>
-            	<div class="color-selection">
-               		<select id="color" class="color-select">
-                      <option class="select-option" value="#FFFFFF">White</option>
-                  		<option class="select-option" value="#FFFF00">Yellow</option>
-                  		<option class="select-option" value="#FFA500">Orange</option>
-                  		<option class="select-option" value="#FF0000">Red</option>
-                  		<option class="select-option" value="#FF00FF">Magenta</option>
-                  		<option class="select-option" value="#0000FF">Blue</option>
-                  		<option class="select-option" value="#00FFFF">Cyan</option>
-                  		<option class="select-option" value="#00FF00">Lime</option> 
-               		</select>
-               		<div class="color-preview"></div>
-            	</div>
+    	<div class="action">
+        	<h3 class="action-text">Set color</h3>
+        	<div class="color-selection">
+           		<select id="color" class="color-select">
+                  <option class="select-option" value="#FFFFFF">White</option>
+              		<option class="select-option" value="#FFFF00">Yellow</option>
+              		<option class="select-option" value="#FFA500">Orange</option>
+              		<option class="select-option" value="#FF0000">Red</option>
+              		<option class="select-option" value="#FF00FF">Magenta</option>
+              		<option class="select-option" value="#0000FF">Blue</option>
+              		<option class="select-option" value="#00FFFF">Cyan</option>
+              		<option class="select-option" value="#00FF00">Lime</option>
+           		</select>
+           		<div class="color-preview"></div>
         	</div>
-        	<div class="action">
-            	<h3 class="action-text">Set brightness</h3>
-            	<div class="brightness">
-            		<img class="small-icon" src="../../assets/BrightnessIcon.png"/>
-            		<div class="slider-container">
-               			<input type="range" min="0" max="100" value="100" class="slider" id="brightness"/>
-            		</div>
-            		<img class="large-icon" src="../../assets/BrightnessIcon.png"/>
-            	</div>
+    	</div>
+    	<div class="action">
+        	<h3 class="action-text">Set brightness</h3>
+        	<div class="brightness">
+        		<img class="small-icon" src="../../assets/BrightnessIcon.png"/>
+        		<div class="slider-container">
+           			<input type="range" min="0" max="100" value="100" class="slider" id="brightness"/>
+        		</div>
+        		<img class="large-icon" src="../../assets/BrightnessIcon.png"/>
+        	</div>
 			</div>
       <button id="selectRoom" class="assign-room-button left-assign" type="button">Select room</button>
       <button id="deselectRoom" class="assign-room-button right-assign" type="button">Deselect room</button>

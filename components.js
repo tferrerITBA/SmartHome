@@ -56,7 +56,7 @@ Vue.component('modal', {props: [],
 		  </div>
 		</div>
 	  </transition>`
-  })
+})
 
 var VueInstance = new Vue({
 	el: '#app',

@@ -60,4 +60,9 @@ $(document).ready(function() {
           console.log(jqXHR.responseText);
         });
   });
+
+  $("#cancel").on("click", function() {
+    
+  });
+  
 });

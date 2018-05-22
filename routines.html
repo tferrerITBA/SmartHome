@@ -10,8 +10,23 @@
 		<div class="parent" id="app">
 			<app-header home="home.html" devices="devices.html" rooms="rooms.html" routines="routines.html"></app-header>
 			<h1 class="title">Routines</h1>
+			<div class="margin-text">
+				<div v-if="!itemList.length">
+					<h3><b>No routines found<b></h3>
+					<div class="wizard">
+						<p>If you want to add a routine you should press the</p>
+						<div class="add-button orientative">
+							<img class="orientative-icon" src="assets/PlusButton.png" alt="add routine icon"/>
+						</div>
+						<p>button.</p>
+					</div>
+				</div>
+				<div class="instances">
+					<item v-for="routine in itemList" v-bind:name="routine.name" v-bind:subtext="routine.subtext" v-bind:img="routine.img" v-bind:id="routine.id" itemtype="routine" :key="routine.id"></item>
+				</div>
+			</div>
 			<button class="add-button" type="button" onclick="location.href='createRoutine.html'">
-				<img class="add-button-icon" src="assets/PlusButton.png" alt="add device"/>
+				<img class="add-button-icon" src="assets/PlusButton.png" alt="add routine"/>
 			</button>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

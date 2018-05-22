@@ -9,15 +9,7 @@ $(document).ready(function() {
     api.room.add(room)
       .done((data, textStatus, jqXHR) => {
         room.id = data.room.id;
-        $("#checkboxes").children("input:checked").forEach(function() {
-          api.device.addDeviceToRoom(this.id, room.id)
-            .done((data, textStatus, jqXHR) => {
-              console.log("Device added");
-            })
-            .fail((jqXHR, textStatus, errorThrown) => {
-              console.log(jqXHR.responseText);
-            })
-        });
+        window.location.href = "../rooms.html";
       })
       .fail((jqXHR, textStatus, errorThrown) => {
         console.log(jqXHR.responseText);

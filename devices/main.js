@@ -34,66 +34,31 @@ $(document).ready(function() {
     })
   }
 
-    $(".instances").on("click", "button", function() {
-      console.log($(this).attr('id'));
-      var id = $(this).attr('id');
-        api.device.get($(this).attr('id'))
-        .done(function(data, textStatus, jqXHR) {
-          device = data.device;
-          var queryString = "?id=" + device.id;
-          if(device.typeId === acId) {
-            window.location.href = "devices/ac/ac.html" + queryString;
-          } else if(device.typeId === blindId) {
-            window.location.href = "devices/blinds/blinds.html" + queryString;
-          } else if(device.typeId === doorId) {
-            window.location.href = "devices/door/door.html" + queryString;
-          } else if(device.typeId === lampId) {
-            window.location.href = "devices/lamp/lamp.html" + queryString;
-          } else if (device.typeId === ovenId) {
-            window.location.href = "devices/oven/oven.html" + queryString;
-          } else if (device.typeId === refriId) {
-            window.location.href = "devices/refrigerator/refrigerator.html" + queryString;
-          }
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR.responseText);
-        });
-    });
-
-  // $("#modifyDevice").on("click", function() {
-  //   var name = $("#name").val();;
-  //   if (name !== "") {
-  //     device.name = name;
-  //     api.device.modify(device)
-  //     .done((data, textStatus, jqXHR) => {
-  //       console.log(data);
-  //     })
-  //     .fail((jqXHR, textStatus, errorThrown) => {
-  //       console.log(jqXHR.responseText);
-  //     })
-  //   }
-  // });
-
-  // $("#deleteDevice").on("click", function() {
-  //   api.device.delete(device.id)
-  //     .done((data, textStatus, jqXHR) => {
-  //       console.log(data);
-  //     })
-  //     .fail((jqXHR, textStatus, errorThrown) => {
-  //       console.log(jqXHR.responseText);
-  //     })
-  // });
-
-  // $("#getDevice").on("click", function() {
-  //   //debugger;
-  //   api.device.get(device.id)
-  //     .done((data, textStatus, jqXHR) => {
-  //       console.log(data);
-  //     })
-  //     .fail((jqXHR, textStatus, errorThrown) => {
-  //       console.log(jqXHR.responseText);
-  //     })
-  // });
+  $(".instances").on("click", "button", function() {
+    console.log($(this).attr('id'));
+    var id = $(this).attr('id');
+      api.device.get($(this).attr('id'))
+      .done(function(data, textStatus, jqXHR) {
+        device = data.device;
+        var queryString = "?id=" + device.id;
+        if(device.typeId === acId) {
+          window.location.href = "devices/ac/ac.html" + queryString;
+        } else if(device.typeId === blindId) {
+          window.location.href = "devices/blinds/blinds.html" + queryString;
+        } else if(device.typeId === doorId) {
+          window.location.href = "devices/door/door.html" + queryString;
+        } else if(device.typeId === lampId) {
+          window.location.href = "devices/lamp/lamp.html" + queryString;
+        } else if (device.typeId === ovenId) {
+          window.location.href = "devices/oven/oven.html" + queryString;
+        } else if (device.typeId === refriId) {
+          window.location.href = "devices/refrigerator/refrigerator.html" + queryString;
+        }
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      });
+  });
 
   $("#editDevice").on("click", function() {
     var queryString = "?id=" + device.id;
@@ -117,7 +82,21 @@ $(document).ready(function() {
   });
 
   $("#deselectRoom").on("click", function() {
-    //DESASIGNAR ROOM
+    api.device.deleteDeviceFromRoom(device.id)
+      .done(function(data, textStatus, jqXHR) {
+        device.meta = "{ hasRoom: false }";
+        api.device.modify(device, device.id)
+          .done(function(data, textStatus, jqXHR) {
+            $("#selectRoom").prop("disabled", false);
+            $("#deselectRoom").prop("disabled", true);
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+              console.log(jqXHR.responseText);
+          })
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      });
   });
 
 });

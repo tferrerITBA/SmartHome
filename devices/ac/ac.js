@@ -17,11 +17,20 @@ $(document).ready(function() {
           } else {
             $("#on-status").text("Off");
           }
-            $('input[name=quantity]').val(result.temperature);
-            $("#" + result.mode).prop("checked", true);
-            $("#vSwing" + result.verticalSwing).prop("checked", true);
-            $("#hSwing" + result.horizontalSwing).prop("checked", true);
-            $("#fanSpeed" + result.fanSpeed).prop("checked", true);
+          $('input[name=quantity]').val(result.temperature);
+          $("#" + result.mode).prop("checked", true);
+          $("#vSwing" + result.verticalSwing).prop("checked", true);
+          $("#hSwing" + result.horizontalSwing).prop("checked", true);
+          $("#fanSpeed" + result.fanSpeed).prop("checked", true);
+          
+          var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
+          if(hasRoom === "false") {
+            $("#selectRoom").prop("disabled", false);
+            $("#deselectRoom").prop("disabled", true);
+          } else {
+            $("#selectRoom").prop("disabled", true);
+            $("#deselectRoom").prop("disabled", false);
+          }
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);

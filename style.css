@@ -201,7 +201,7 @@
 .room {
 	height: 70px;
 	width: 60%;
-	background-color: #FFFFFF;
+	background-color: #EFEFEF;
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;

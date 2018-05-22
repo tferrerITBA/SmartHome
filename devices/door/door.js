@@ -22,6 +22,15 @@ $(document).ready(function() {
           } else {
             $("#lock-status").text("Unlocked");
           }
+          
+          var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
+          if(hasRoom === "false") {
+            $("#selectRoom").prop("disabled", false);
+            $("#deselectRoom").prop("disabled", true);
+          } else {
+            $("#selectRoom").prop("disabled", true);
+            $("#deselectRoom").prop("disabled", false);
+          }
         })
         .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);

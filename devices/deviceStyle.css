@@ -297,3 +297,7 @@ input:checked + .switch-slider:before {
 	color: #FFAC00;
 	border: #FFAC00 2px solid;
 }
+
+.assign-room-button:disabled {
+	background-color: #888888;
+}

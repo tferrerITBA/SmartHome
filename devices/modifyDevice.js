@@ -47,7 +47,6 @@ $(document).ready(function() {
       				device.name = name;
       				api.device.modify(device, device.id)
       					.done(function(data, textStatus, jqXHR) {
-      						console.log("OK");
         					var queryString = "?id=" + device.id;
 				          	if(device.typeId === acId) {
 				            	window.location.href = "ac/ac.html" + queryString;
@@ -64,7 +63,6 @@ $(document).ready(function() {
 				          	}
 	        			})
 	        			.fail(function(jqXHR, textStatus, errorThrown) {
-	        				console.log("FALLA");
 	          				console.log(jqXHR.responseText);
 	        			})
       			} else {

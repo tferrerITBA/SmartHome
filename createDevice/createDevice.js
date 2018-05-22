@@ -10,7 +10,8 @@ $(document).ready(function() {
           function(device){
             return device.name === deviceType;
           })[0].id;
-        device = new api.model.device(null, deviceIdType, deviceName, "{}");
+        var meta = "{ hasRoom: " + false + " }";
+        device = new api.model.device(null, deviceIdType, deviceName, meta);
         api.device.add(device)
           .done(function(data, textStatus, jqXHR) {
             device.id = data.device.id;

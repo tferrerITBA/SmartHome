@@ -188,6 +188,23 @@
 	background-color: #D6D6D6;
 }
 
+.room {
+	height: 70px;
+	width: 60%;
+	background-color: #6381d2;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+	border: 2px #333333 solid;
+	border-radius: 15px;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.room:hover {
+	background-color: #707070;
+}
+
 .item-description {
 	display: flex;
 }

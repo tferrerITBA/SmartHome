@@ -1,8 +1,8 @@
-Vue.component('item', {props: ['name', 'subtext', 'img', 'id'],
+Vue.component('item', {props: ['name', 'subtext', 'img', 'id', 'itemtype'],
 template:
-	`<button v-bind:id="id" class="device" type="button">
+	`<button v-bind:id="id" v-bind:class="itemtype" type="button">
 					<div class="item-description">
-						<img class="item-icon" v-bind:src="img" alt="device"/>
+						<img class="item-icon" v-bind:src="img" v-bind:alt="itemtype"/>
 						<div class="item-text">
 							<p class="item-name">{{name}}</p>
 							<p class="item-subtext">{{subtext}}</p>

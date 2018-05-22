@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="instances">
-					<item v-for="room in itemList" v-bind:name="room.name" v-bind:subtext="room.subtext" v-bind:img="room.img" v-bind:id="room.id" :key="room.id"></item>
+					<item v-for="room in itemList" v-bind:name="room.name" v-bind:subtext="room.subtext" v-bind:img="room.img" v-bind:id="room.id" itemtype="room" :key="room.id"></item>
 				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createRoom/createRoom.html'">

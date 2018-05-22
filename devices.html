@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="instances">
-					<item v-for="device in itemList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" :key="device.id"></item>
+					<item v-for="device in itemList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" itemtype="device" :key="device.id"></item>
 				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createDevice/createDevice.html';">

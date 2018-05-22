@@ -111,4 +111,13 @@ $(document).ready(function() {
         })
   });
 
+  $("#selectRoom").on("click", function() {
+    var queryString = "?id=" + device.id;
+    window.location.href = "../../roomForDevice/roomForDevice.html" + queryString;
+  });
+
+  $("#deselectRoom").on("click", function() {
+    //DESASIGNAR ROOM
+  });
+
 });

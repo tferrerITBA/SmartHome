@@ -43,7 +43,7 @@
 	align-items: center;
 	margin-bottom: 5px;
 	margin-left: 60px;
-	width: 80%;
+	width: 90%;
 	height: 50px;
 	display: flex;
 	flex-direction: row;
@@ -259,7 +259,6 @@ input:checked + .switch-slider:before {
 
 .assign-room-button {
 	background-color: #FFAC00;
-	border: #CC8A00 2px solid;
 	border-radius: 50px;
 	color: white;
 	font-size: 25px;
@@ -275,6 +274,7 @@ input:checked + .switch-slider:before {
 .assign-room-button:hover {
 	background-color: white;
 	color: #FFAC00;
+	border: #FFAC00 2px solid;
 }
 
 .left-assign {

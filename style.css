@@ -69,6 +69,10 @@
 	text-decoration: none;
 }
 
+.nav-link:focus {
+	color: white;
+}
+
 .nav-link:hover {
 	color: white;
 }
@@ -148,6 +152,12 @@
 	color: #F44336;
 }
 
+.cancel-fixed {
+	position: fixed;
+	right: 60px;
+	bottom: 60px;
+}
+
 .done {
 	background-color: #4CAF50;
   border-color: #4CAF50;
@@ -191,7 +201,7 @@
 .room {
 	height: 70px;
 	width: 60%;
-	background-color: #6381d2;
+	background-color: #FFFFFF;
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
@@ -202,7 +212,7 @@
 }
 
 .room:hover {
-	background-color: #707070;
+	background-color: #D6D6D6;
 }
 
 .item-description {

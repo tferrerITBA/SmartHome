@@ -17,16 +17,20 @@
 			<div class="device-title">
 				<img class="device-icon" src="../../assets/OvenIcon.png"/>
 				<div class="border-title">
-               		<h1 class="title-text">Oven</h1>
-               		<div class="option-icons">
-                  		<button id="editDevice">
-              				<img class="option-icon" src="../../assets/Edit.png"/>
-            			</button>
-            			<button id="deleteDevice">
-              				<img class="option-icon" src="../../assets/Bin.png"/>
-            			</button>
-               		</div>
-            	</div>
+       		<h1 class="title-text">Oven</h1>
+       		<div class="option-icons">
+        		<button id="editDevice">
+      				<img class="option-icon" src="../../assets/Edit.png"/>
+    				</button>
+  					<button v-on:click="showModal = true">
+							<img class="option-icon" src="../../assets/Bin.png"/>
+						</button>
+						<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteIt();">
+							<h3 slot="header">Are you sure?</h3>
+							<p slot="body">This item will be permanently deleted.</p>
+						</modal>
+       		</div>
+      	</div>
 			</div>
 			<div class="action">
 				<h3 class="action-text" id="on-status">Off</h3>

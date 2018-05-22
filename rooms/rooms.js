@@ -7,7 +7,7 @@ $(document).ready(function() {
             var name = room.name;
             var icon = room.meta.split(" ")[2];
             var id = room.id;
-            VueInstance.addItem(name, "Devices: " + data.devices.length , icon, id);
+            VueInstance.addItem(name, "DEVICES: " + data.devices.length , icon, id);
           })
           .fail(function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR.responseText);

@@ -44,11 +44,11 @@ Vue.component('modal', {props: [],
 	
 			  <div class="modal-footer">
 				<slot name="footer">
-				  <button class="modal-default-button" @click="$emit('close')">
-					Yes
+				  <button id="deleteDevice" class="modal-default-button" @click="$emit('delete')">
+					<p class="modal-confirm">Yes</p>
 				  </button>
-				  <button id="deleteDevice" class="modal-default-button" @click="$emit('close')">
-				  	No
+				  <button class="modal-default-button" @click="$emit('close')">
+				  	<p class="modal-cancel">No</p>
 				  </button>
 				</slot>
 			  </div>
@@ -74,6 +74,15 @@ var VueInstance = new Vue({
 		},
 		changeModalState: function() {
 			this.showModal = !this.showModal;
+		},
+		deleteIt() {
+			api.device.delete(device.id)
+        	.done(function(data, textStatus, jqXHR) {
+          		window.location.href = "../../devices.html";
+        	})
+        	.fail(function(jqXHR, textStatus, errorThrown) {
+          		console.log(jqXHR.responseText);
+        	})
 		}
-	},
+	}
 })

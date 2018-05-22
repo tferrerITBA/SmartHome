@@ -14,8 +14,10 @@
 				<h3 class="field-name">Name</h3>
 				<input id="name" type="text" class="input-text" />
 			</div>
-			<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
-			<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
+			<div class="option-buttons">
+				<button class="option-button create" type="button" v-on:click="addDevice()" onclick="location.href='devices.html';">Create</button>
+				<button class="option-button cancel" type="button" onclick="location.href='devices.html';">Cancel</button>
+			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="components.js"></script>

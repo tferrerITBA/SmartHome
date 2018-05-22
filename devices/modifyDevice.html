@@ -14,12 +14,16 @@
 		<div class="parent" id="app">
 			<app-header home="../home.html" devices="../devices.html" rooms="../rooms.html" routines="../routines.html"></app-header>
 			<h1 class="title">Modify Device: </h1>
-			<div class="margin-text">
-				<h3 class="field-name">Name</h3>
-				<input id="name" type="text" class="input-text" />
+			<div class="modify-settings">
+				<div class="margin-text">
+					<h3 class="field-name">Name</h3>
+					<input id="name" type="text" class="input-text" />
+				</div>
 			</div>
-			<button class="option-button create" id="saveModify" type="button">Save</button>
-			<button class="option-button cancel" id="cancelModify" type="button">Cancel</button>
+			<div class="option-buttons">
+				<button class="option-button create" id="saveModify" type="button">Save</button>
+				<button class="option-button cancel" id="cancelModify" type="button">Cancel</button>
+			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="../components.js"></script>

@@ -27,7 +27,7 @@
 	height: 72px;
 	justify-content: center;
 	right: 60px;
-	position: absolute;
+	position: fixed;
 	width: 72px;
 }
 
@@ -117,7 +117,7 @@
 	color: white;
 	font-size: 25px;
 	height: 50px;
-	position: fixed;
+	margin: 0 20px;
 	width: 150px;
 
 	-webkit-transition-duration: 0.4s;
@@ -127,8 +127,8 @@
 .create {
 	background-color: #4CAF50;
 	border-color: #4CAF50;
-	bottom: 60px;
-    right: 300px;
+	/*bottom: 60px;
+    right: 300px;*/
 }
 
 .create:hover {
@@ -139,8 +139,8 @@
 .cancel {
 	background-color: #F44336;
 	border-color: #F44336;
-    bottom: 60px;
-	right: 60px;
+    /*bottom: 60px;
+	right: 60px;*/
 }
 
 .cancel:hover {
@@ -150,10 +150,11 @@
 
 .done {
 	background-color: #4CAF50;
-	border-color: #4CAF50;
+  border-color: #4CAF50;
+  /*
 	bottom: 60px;
 	right: 60px;
-	position: fixed;
+	position: fixed;*/
 }
 
 .done:hover {
@@ -189,6 +190,17 @@
 
 .item-description {
 	display: flex;
+}
+
+.option-buttons {
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	margin: 20px 60px;
+}
+
+.modify-settings {
+	height: 325px;
 }
 
 .item-icon {

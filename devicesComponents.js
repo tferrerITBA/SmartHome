@@ -173,7 +173,7 @@ template:
               <option class="select-option" value="#00FFFF">Cyan</option>
               <option class="select-option" value="#00FF00">Lime</option>
           </select>
-          <div class="color-preview"></div>
+          <div v-bind:id="'colorPreview' + id" class="color-preview"></div>
       </div>
   </div>
   <div class="action">
@@ -193,7 +193,7 @@ Vue.component('Oven', {props: ['id'],
 template:
 `<div v-bind:id="id">
   <div class="action">
-    <h3 class="action-text" id="on-status">Off</h3>
+    <h3 class="action-text" v-bind:id="'on-status' + id">Off</h3>
     <label class="switch">
         <input type="checkbox" id="on-switch"/>
         <span class="switch-slider"></span>
@@ -213,15 +213,15 @@ template:
         <input id="heatconventional" type="radio" name="heat" value="conventional">
         <p class="radio-button-text">Conventional</p>
       </div>
-         <div class="radio-button" v-bind:id="id">
-           <input id="heatbottom" type="radio" name="heat" value="bottom">
-              <p class="radio-button-text">Bottom</p>
-         </div>
-         <div class="radio-button" v-bind:id="id">
-           <input id="heattop" type="radio" name="heat" value="top">
-           <p class="radio-button-text">Top</p>
-         </div>
-       </form>
+       <div class="radio-button" v-bind:id="id">
+         <input id="heatbottom" type="radio" name="heat" value="bottom">
+            <p class="radio-button-text">Bottom</p>
+       </div>
+       <div class="radio-button" v-bind:id="id">
+         <input id="heattop" type="radio" name="heat" value="top">
+         <p class="radio-button-text">Top</p>
+       </div>
+     </form>
   </div>
   <div class="action">
     <h3 class="action-text">Set grill</h3>

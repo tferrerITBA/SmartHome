@@ -299,5 +299,12 @@ input:checked + .switch-slider:before {
 }
 
 .assign-room-button:disabled {
-	background-color: #888888;
+	opacity: 0.5;
+}
+
+.assign-room-button:disabled:hover{
+	background-color: #FFAC00;
+	border: #FFAC00 2px solid;
+	color: white;
+	transition:none;
 }

@@ -78,6 +78,7 @@ $(document).ready(function() {
           .done(function(data, textStatus, jqXHR) {
             $("#selectRoom").prop("disabled", false);
             $("#deselectRoom").prop("disabled", true);
+            window.location.reload();
           })
           .fail(function(jqXHR, textStatus, errorThrown) {
               console.log(jqXHR.responseText);

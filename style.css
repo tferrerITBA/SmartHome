@@ -1,3 +1,20 @@
+.noscript {
+	background-color: #FFFFFF;
+    height: 100%;
+    left: 0px;
+    padding-top: 20px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 3000;
+}
+
+.noscript-link {
+	color: blue;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
 .parent {
 	display: flex;
 	flex-direction: column;
@@ -16,7 +33,7 @@
 .wizard {
 	align-items: center;
 	display: flex;
-	flex-flow: row nowrap;
+	flex-direction: row;
 }
 
 .add-button {
@@ -281,7 +298,7 @@
 
 .radio-selection {
 	display: flex;
-	flex-flow: row no-wrap;
+	flex-flow: row nowrap;
 	align-content: center;
 }
 
@@ -425,6 +442,7 @@
 
 .input-error {
 	color: red;
+	margin-top: 10px;
 }
 
 .routine-device-select {
@@ -481,7 +499,6 @@
 
 .routine-action-text {
 	display: flex;
-	flex-wrap: no-wrap;
 	align-items: center;
 	height: 35px;
 	font-size: 30px;
@@ -490,7 +507,7 @@
 }
 
 .blinds {
-	height: 110px;	
+	height: 110px;
 }
 
 .door {

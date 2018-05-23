@@ -11,7 +11,8 @@ var prevDeviceButton;
 var prevDevice;
 
 $(document).ready(function() {
-
+  $("#routineName").focus();
+  
   api.device.getAll()
     .done(function(data, textStatus, jqXHR) {
         data.devices.forEach(function(device) {
@@ -114,7 +115,7 @@ $(document).ready(function() {
       .fail(function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR.responseText);
       });
-    
+
   })
 
   $("#createRoutine").on("click", function() {

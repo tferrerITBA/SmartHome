@@ -1,7 +1,8 @@
 var room;
 
 $(document).ready(function() {
-
+	$("#name").focus();
+	
 	var queryString = decodeURIComponent(window.location.search);
   	queryString = queryString.substring(1);
   	var queries = queryString.split("=");
@@ -49,6 +50,6 @@ $(document).ready(function() {
 				else
 					$("#input-error").text(str);
 			})
-	})          	
+	})
 
 });

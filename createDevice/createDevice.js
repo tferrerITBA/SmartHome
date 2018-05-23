@@ -1,6 +1,8 @@
 var device;
 
 $(document).ready(function() {
+  $("#deviceName").focus();
+  
   $("#createDevice").on("click", function() {
     var deviceName = $("#deviceName").val();
     api.deviceType.getTypes()

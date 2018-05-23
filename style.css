@@ -2,6 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	font-family: 'Ubuntu', sans-serif;
+	height: auto;
+	overflow-x: auto;
 }
 
 .logo {
@@ -227,7 +229,7 @@
 }
 
 .modify-settings {
-	height: 325px;
+	min-height: 200px;
 }
 
 .item-icon {
@@ -279,7 +281,7 @@
 
 .radio-selection {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row no-wrap;
 	align-content: center;
 }
 
@@ -294,7 +296,7 @@
 	display: flex;
 	font-size: 25px;
 	height: 30px;
-	margin: 0 10px;
+	margin: 5px 10px;
 }
 
 .device-selection {

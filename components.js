@@ -58,6 +58,39 @@ Vue.component('modal', {props: [],
 	  </transition>`
 })
 
+Vue.component('blinds', {props: [],
+template:
+  	`<div id="" name="blinds" class="device-action-display blinds">
+  		<div class="routine-action">
+    		<h3 class="routine-action-text" id="" name="open-text">Closed</h3>
+    		<label class="switch" id="">
+        		<input type="checkbox" id="open-switch">
+        		<span class="switch-slider"></span>
+    		</label>
+  		</div>
+  	</div>`
+})
+
+Vue.component('door', {props: [],
+template:
+	`<div id="" name="door" class="device-action-display door">
+	  <div class="routine-action">
+	    <h3 class="routine-action-text" id="" name="open-text">Closed</h3>
+	    <label class="switch" id="">
+	        <input type="checkbox" id="open-switch">
+	        <span class="switch-slider"></span>
+	    </label>
+	  </div>
+	  <div class="routine-action">
+	    <h3 class="routine-action-text" id="" name="lock-text">Unlocked</h3>
+	    <label class="switch" id="">
+	        <input type="checkbox" id="lock-switch">
+	        <span class="switch-slider"></span>
+	    </label>
+	  </div>
+	</div>`
+})
+
 var VueInstance = new Vue({
 	el: '#app',
 	data: {

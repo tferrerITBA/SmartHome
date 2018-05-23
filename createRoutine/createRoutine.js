@@ -1,11 +1,14 @@
 var routine;
 var actions = [];
+var device;
 var acId = "li6cbv5sdlatti0j";
 var blindId = "eu0v2xgprrhhg41g";
 var lampId = "go46xmbqeomjrsjr";
 var ovenId = "im77xxyulpegfmv8";
 var doorId = "lsf78ly0eqrjbz91";
 var refriId = "rnizejqr2di0okho";
+var prevDeviceButton;
+var prevDevice;
 
 $(document).ready(function() {
 
@@ -34,8 +37,59 @@ $(document).ready(function() {
         console.log(jqXHR.responseText);
       })
 
+  $(".instances").on("click", "button", function() {
+    if(device !== undefined) {
+      $(prevDeviceButton).css("background-color", "#C1C1C1");
+      if(device.typeId === acId) {
+        ////////
+      } else if(device.typeId === blindId) {
+        $("div[name='blinds']").css("display", "none");
+      } else if(device.typeId === doorId) {
+        $("div[name='door']").css("display", "none");
+      } else if(device.typeId === lampId) {
+        ////////
+      } else if(device.typeId === ovenId) {
+        ////////
+      } else if(device.typeId === refriId) {
+        ////////
+      }
+    }
+    $(this).css("background-color", "#D6D6D6");
+    prevDevice = device;
+    prevDeviceButton = this;
+    api.device.get($(this).attr('id'))
+      .done(function(data, textStatus, jqXHR) {
+        device = data.device;
+        if(device.typeId === acId) {
+          ////////
+        } else if(device.typeId === blindId) {
+          $("div[name='blinds']").attr("id", device.id);
+          $("div[name='blinds']").css("display", "flex");
+          $("div[name='blinds']").find("h3[name='open-text']").attr("id", 'open-status' + device.id);
+          $("div[name='blinds']").find(".switch").attr("id", device.id);
+        } else if(device.typeId === doorId) {
+          $("div[name='door']").attr("id", device.id);
+          $("div[name='door']").css("display", "flex");
+          $("div[name='door']").find("h3[name='open-text']").attr("id", 'open-status' + device.id);
+          $("div[name='door']").find("h3[name='lock-text']").attr("id", 'lock-status' + device.id);
+          $("div[name='door']").find(".switch").attr("id", device.id);
+        } else if(device.typeId === lampId) {
+          ////////
+        } else if(device.typeId === ovenId) {
+          ////////
+        } else if(device.typeId === refriId) {
+          ////////
+        }
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      });
+    
+  })
+
   $("#createRoutine").on("click", function() {
     var name = $("#routineName").val();
+    var meta = "{}";
     routine = new api.model.room(null, name, actions, meta);
     api.routine.add(routine)
       .done((data, textStatus, jqXHR) => {

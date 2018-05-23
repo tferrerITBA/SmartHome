@@ -1,6 +1,6 @@
-Vue.component('AirConditioner', {props: ['id'],
+Vue.component('ac', {props: ['id'],
 template:
-	`<div>
+	`<div id="airConditioner">
     <div class="action">
       <h3 class="action-text" v-bind:id="'on-status' + id">Off</h3>
       <label class="switch" v-bind:id="id">
@@ -119,35 +119,35 @@ template:
   </div>`})
 
 
-  Vue.component('Blinds', {props: ['id'],
-  template:
-  	`<div class="action">
-    <h3 class="action-text" v-bind:id="'open-status' + id">Closed</h3>
-    <label class="switch" v-bind:id="id">
-        <input type="checkbox" id="open-switch">
-        <span class="switch-slider"></span>
-    </label>
-  </div>`})
+  // Vue.component('blinds', {props: ['id'],
+  // template:
+  // 	`<div class="action">
+  //   <h3 class="action-text" v-bind:id="'open-status' + id">Closed</h3>
+  //   <label class="switch" v-bind:id="id">
+  //       <input type="checkbox" id="open-switch">
+  //       <span class="switch-slider"></span>
+  //   </label>
+  // </div>`})
 
 
-Vue.component('Door', {props: ['id'],
-template:
-`<div>
-  <div class="action">
-    <h3 class="action-text" v-bind:id="'open-status' + id">Closed</h3>
-    <label class="switch" v-bind:id="id">
-        <input type="checkbox" id="open-switch">
-        <span class="switch-slider"></span>
-    </label>
-  </div>
-  <div class="action">
-    <h3 class="action-text" v-bind:id="'lock-status' + id">Unlocked</h3>
-    <label class="switch" v-bind:id="id">
-        <input type="checkbox" id="lock-switch">
-        <span class="switch-slider"></span>
-    </label>
-  </div>
-</div>`})
+// Vue.component('Door', {props: ['id'],
+// template:
+// `<div>
+//   <div class="action">
+//     <h3 class="action-text" v-bind:id="'open-status' + id">Closed</h3>
+//     <label class="switch" v-bind:id="id">
+//         <input type="checkbox" id="open-switch">
+//         <span class="switch-slider"></span>
+//     </label>
+//   </div>
+//   <div class="action">
+//     <h3 class="action-text" v-bind:id="'lock-status' + id">Unlocked</h3>
+//     <label class="switch" v-bind:id="id">
+//         <input type="checkbox" id="lock-switch">
+//         <span class="switch-slider"></span>
+//     </label>
+//   </div>
+// </div>`})
 
 
 Vue.component('Lamp', {props: ['id'],

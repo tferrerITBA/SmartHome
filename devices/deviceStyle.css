@@ -41,11 +41,9 @@
 .action-collection {
 	display: flex;
 	flex-flow: column wrap;
-	flex-grow: 1;
-	flex-basis: auto;
-	flex-shrink: 1;
-	overflow: auto;
-	/*height: 325px;*/
+	flex: 1 1 auto;
+	margin: auto 0;
+	min-height: 200px;
 }
 
 .action {
@@ -57,12 +55,12 @@
 	height: 50px;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: no-wrap;
 }
 
 .action-text {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: no-wrap;
 	align-items: center;
 	height: 35px;
 	font-size: 30px;
@@ -270,6 +268,7 @@ input:checked + .switch-slider:before {
 .item-buttons {
 	align-items: center;
 	display: flex;
+	flex: 0 1 auto;
 	justify-content: space-between;
 	margin: 20px 20px;
 }

@@ -21,7 +21,14 @@ $(document).ready(function() {
           $(".color-preview").css("background-color", data.result.color);
           $("#brightness").val(data.result.brightness);
           
-          var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
+          var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+          if(fav === "false") {
+            $("#favorite").children().css("background-color", "white");
+          } else {
+            $("#favorite").children().css("background-color", "#FEA500");
+          }
+          
+          var hasRoom = device.meta.split("hasRoom: ")[1].split(",")[0];
           if(hasRoom === "false") {
             $("#selectRoom").prop("disabled", false);
             $("#deselectRoom").prop("disabled", true);

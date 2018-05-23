@@ -5,15 +5,26 @@
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="url/api.js"></script>
+		<script src="home.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
 			<app-header home="home.html" devices="devices.html" rooms="rooms.html" routines="routines.html"></app-header>
-			<h1 class="title">Home</h1>
+			<img class="welcome-img" src="assets/HomeImage.png" alt="Smart Home"/>
 			<div class="welcome">
 				<h2 class="welcome-title">Welcome!</h2>
 				<p class="welcome-comment">Smart Home is a friendly and reliable platform to manage your home's favorite devices. To get started, go to devices and add one.</p>
-				<img class="welcome-img" src="assets/WelcomeSplash.png" alt="Smart Home"/>
+			</div>
+			<div class="welcome">
+				<h3 class="favorite-title">Your favorite devices:</h3>
+				<div class="favorite-wizard" v-if="!itemList.length">
+					<p>You have no favorites!</p>
+				</div>				
+				<div class="instances">
+					<item v-for="device in itemList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" itemtype="device" :key="device.id"></item>
+				</div>
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

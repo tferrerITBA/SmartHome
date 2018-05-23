@@ -11,6 +11,7 @@ $(document).ready(function() {
   api.device.getAll()
     .done(function(data, textStatus, jqXHR) {
       data.devices.forEach(function(device){
+        console.log(device);
         var name = device.name;
         var typeId = device.typeId;
         var id = device.id;
@@ -35,9 +36,7 @@ $(document).ready(function() {
   }
 
   $(".instances").on("click", "button", function() {
-    console.log($(this).attr('id'));
-    var id = $(this).attr('id');
-      api.device.get($(this).attr('id'))
+    api.device.get($(this).attr('id'))
       .done(function(data, textStatus, jqXHR) {
         device = data.device;
         var queryString = "?id=" + device.id;
@@ -60,6 +59,27 @@ $(document).ready(function() {
       });
   });
 
+  $("#favorite").on("click", function() {
+    var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+    var hasRoom = device.meta.split("hasRoom: ")[1].split(",")[0];
+    if(fav === "false") {
+      device.meta = "{ hasRoom: " + hasRoom + ", favorite: " + true + " }";
+    } else {
+      device.meta = "{ hasRoom: " + hasRoom + ", favorite: " + false + " }";
+    }
+    api.device.modify(device, device.id)
+      .done(function(data, textStatus, jqXHR) {
+        if(fav === "false") {
+          $("#favorite").children().css("background-color", "#FEA500");
+        } else {
+          $("#favorite").children().css("background-color", "white");
+        }
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText);
+      })
+  });
+
   $("#editDevice").on("click", function() {
     var queryString = "?id=" + device.id;
     window.location.href = "../modifyDevice.html" + queryString;
@@ -73,7 +93,8 @@ $(document).ready(function() {
   $("#deselectRoom").on("click", function() {
     api.device.deleteDeviceFromRoom(device.id)
       .done(function(data, textStatus, jqXHR) {
-        device.meta = "{ hasRoom: false }";
+        var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+        device.meta = "{ hasRoom: false, favorite: " + fav + " }";
         api.device.modify(device, device.id)
           .done(function(data, textStatus, jqXHR) {
             $("#selectRoom").prop("disabled", false);

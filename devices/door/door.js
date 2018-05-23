@@ -8,6 +8,7 @@ $(document).ready(function() {
     .done(function(data, textStatus, jqXHR) {
       device = data.device;
       $(".title-text").text(device.name);
+      document.title = device.name + " - Smart Home";
       api.device.executeAction(device.id, "getState", [])
         .done(function(data, textStatus, jqXHR) {
           if (data.result.status === "opened" || data.result.status === "opening") {

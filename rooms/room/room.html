@@ -13,17 +13,21 @@
 	<body>
 		<div class="parent" id="app">
 			<app-header home="../../home.html" devices="../../devices.html" rooms="../../rooms.html" routines="../../routines.html"></app-header>
-			<div class="device-title">
-				<img id="roomIcon" class="device-icon"/>
+			<div class="room-title">
+				<img id="roomIcon" class="room-icon"/>
 				<div class="border-title">
           			<h1 class="title-text">Room</h1>
           			<div class="option-icons">
-            			<button id="editDevice">
+            			<button id="editRoom">
               				<img class="option-icon" src="../../assets/Edit.png"/>
             			</button>
-            			<button id="deleteDevice">
+            			<button v-on:click="showModal = true">
               				<img class="option-icon" src="../../assets/Bin.png"/>
             			</button>
+            			<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteRoom();">
+							<h3 slot="header">Are you sure?</h3>
+							<p slot="body">This item will be permanently deleted.</p>
+						</modal>
           			</div>
         		</div>
 			</div>

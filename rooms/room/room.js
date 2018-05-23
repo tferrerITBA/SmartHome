@@ -12,34 +12,21 @@ $(document).ready(function() {
       $(".title-text").text(room.name);
       $("#roomIcon").attr("src", icon);
       document.title = room.name + " - Smart Home";
+      api.room.getDevices(room.id)
+        .done(function(data, textStatus, jqXHR) {
+          
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR.responseText);
+        });
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);
     });
 
-  // $("#put").on("click", function() {
-  //   // get icon
-  //   var icon;
-  //   var name;
-  //   room.name = name;
-  //   room.meta = "{ icon: " + icon + " }";
-  //   api.room.modify(room)
-  //     .done((data, textStatus, jqXHR) => {
-  //       // devolverlo a la room cambiada.
-  //     })
-  //     .fail((jqXHR, textStatus, errorThrown) => {
-  //       console.log(jqXHR.responseText);
-  //     })
-  // });
-  //
-  // $("#delete").on("click", function() {
-  //   api.room.delete(room.id)
-  //     .done((data, textStatus, jqXHR) => {
-  //       console.log(data);
-  //     })
-  //     .fail((jqXHR, textStatus, errorThrown) => {
-  //       console.log(jqXHR.responseText);
-  //     })
-  // });
+  $("#editRoom").on("click", function() {
+    var queryString = "?id=" + room.id;
+    window.location.href = "../modifyRoom.html" + queryString;
+  });
 
 });

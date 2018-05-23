@@ -75,10 +75,19 @@ var VueInstance = new Vue({
 		changeModalState: function() {
 			this.showModal = !this.showModal;
 		},
-		deleteIt() {
+		deleteDevice() {
 			api.device.delete(device.id)
         	.done(function(data, textStatus, jqXHR) {
           		window.location.href = "../../devices.html";
+        	})
+        	.fail(function(jqXHR, textStatus, errorThrown) {
+          		console.log(jqXHR.responseText);
+        	})
+		},
+		deleteRoom() {
+			api.room.delete(room.id)
+        	.done(function(data, textStatus, jqXHR) {
+          		window.location.href = "../../rooms.html";
         	})
         	.fail(function(jqXHR, textStatus, errorThrown) {
           		console.log(jqXHR.responseText);

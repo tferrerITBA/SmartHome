@@ -8,6 +8,7 @@ $(document).ready(function() {
     .done(function(data, textStatus, jqXHR) {
       device = data.device;
       $(".title-text").text(device.name);
+      document.title = device.name + " - Smart Home";
       api.device.executeAction(device.id, "getState", [])
         .done(function(data, textStatus, jqXHR) {
           var result = data.result;
@@ -26,9 +27,11 @@ $(document).ready(function() {
           var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
           if(hasRoom === "false") {
             $("#selectRoom").prop("disabled", false);
+            $("#deselectRoom").css("cursor", "default");
             $("#deselectRoom").prop("disabled", true);
           } else {
             $("#selectRoom").prop("disabled", true);
+            $("#selectRoom").css("cursor", "default");
             $("#deselectRoom").prop("disabled", false);
           }
         })

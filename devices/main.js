@@ -65,17 +65,6 @@ $(document).ready(function() {
     window.location.href = "../modifyDevice.html" + queryString;
   });
 
-  $("#deleteDevice").on("click", function() {
-    //ALERT DE DELETE
-      api.device.delete(device.id)
-        .done(function(data, textStatus, jqXHR) {
-          window.location.href = "../../devices.html";
-        })
-        .fail(function(jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR.responseText);
-        })
-  });
-
   $("#selectRoom").on("click", function() {
     var queryString = "?id=" + device.id;
     window.location.href = "../../roomForDevice/roomForDevice.html" + queryString;

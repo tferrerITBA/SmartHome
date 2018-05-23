@@ -25,7 +25,7 @@
   					<button v-on:click="showModal = true">
 							<img class="option-icon" src="../../assets/Bin.png"/>
 						</button>
-						<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteIt();">
+						<modal v-if="showModal" v-on:close="showModal = false" v-on:delete="deleteDevice();">
 							<h3 slot="header">Are you sure?</h3>
 							<p slot="body">This item will be permanently deleted.</p>
 						</modal>

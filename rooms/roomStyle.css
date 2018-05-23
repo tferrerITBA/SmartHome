@@ -1,13 +1,14 @@
-.device-title {
+.room-title {
 	display: flex;
 	align-items: center;
-	margin-top: 15px;
-	margin-bottom: 15px;
+	margin: 25px 0;
 }
 
-.device-icon {
-	height: 120px;
-	width: 120px;
+.room-icon {
+	border-radius: 15%;
+	height: 100px;
+	width: 100px;
+	margin: 0 20px;
 }
 
 .border-title {
@@ -16,7 +17,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin-right: 35px;
-	width: 100%;
+	width: 90%;
 }
 
 .title-text {

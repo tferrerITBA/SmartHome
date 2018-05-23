@@ -25,7 +25,7 @@
 	background-color: #4CAF50;
 	border-radius: 50%;
 	bottom: 60px;
-	display: -webkit-flex;
+	display: flex;
 	height: 72px;
 	justify-content: center;
 	right: 60px;
@@ -126,7 +126,7 @@
 	margin: 0 20px;
 	width: 150px;
 
-	-webkit-transition-duration: 0.4s;
+	/*-webkit-transition-duration: 0.4s;*/
     transition-duration: 0.4s;
 }
 
@@ -162,7 +162,7 @@
 
 .done {
 	background-color: #4CAF50;
-  border-color: #4CAF50;
+    border-color: #4CAF50;
   /*
 	bottom: 60px;
 	right: 60px;
@@ -419,7 +419,7 @@
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
+  /*-webkit-transform: scale(1.1);*/
   transform: scale(1.1);
 }
 

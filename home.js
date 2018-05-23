@@ -43,17 +43,17 @@ $(document).ready(function() {
         device = data.device;
         queryString = "?id=" + device.id;
         if(device.typeId === acId) {
-          window.location.href = "../../devices/ac/ac.html" + queryString;
+          window.location.href = "devices/ac/ac.html" + queryString;
         } else if(device.typeId === blindId) {
-          window.location.href = "../../devices/blinds/blinds.html" + queryString;
+          window.location.href = "devices/blinds/blinds.html" + queryString;
         } else if(device.typeId === doorId) {
-          window.location.href = "../../devices/door/door.html" + queryString;
+          window.location.href = "devices/door/door.html" + queryString;
         } else if(device.typeId === lampId) {
-          window.location.href = "../../devices/lamp/lamp.html" + queryString;
+          window.location.href = "devices/lamp/lamp.html" + queryString;
         } else if (device.typeId === ovenId) {
-          window.location.href = "../../devices/oven/oven.html" + queryString;
+          window.location.href = "devices/oven/oven.html" + queryString;
         } else if (device.typeId === refriId) {
-          window.location.href = "../../devices/refrigerator/refrigerator.html" + queryString;
+          window.location.href = "devices/refrigerator/refrigerator.html" + queryString;
         }
       })
       .fail(function(jqXHR, textStatus, errorThrown) {

@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="equalizer.css">
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="parent" id="app">
@@ -25,12 +26,13 @@
 					<item v-for="routine in itemList" v-bind:name="routine.name" v-bind:subtext="routine.subtext" v-bind:img="routine.img" v-bind:id="routine.id" itemtype="routine" :key="routine.id"></item>
 				</div>
 			</div>
-			<button class="add-button" type="button" onclick="location.href='createRoutine.html'">
+			<button class="add-button" type="button" onclick="location.href='createRoutine/createRoutine.html'">
 				<img class="add-button-icon" src="assets/PlusButton.png" alt="add routine"/>
 			</button>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<script src="components.js"></script>
 		<script src="devicesComponents.js"></script>
+		<script>$('a[class="nav-link"][href="routines.html"]').css("color", "white");</script>
 	</body>
 </html>

@@ -10,7 +10,7 @@ $(document).ready(function() {
   if(document.location.href.match(/[^\/]+$/)[0] === "devices.html") {
   api.device.getAll()
     .done(function(data, textStatus, jqXHR) {
-      data.devices.forEach(function(device){
+      data.devices.forEach(function(device) {
         console.log(device);
         var name = device.name;
         var typeId = device.typeId;

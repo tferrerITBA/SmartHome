@@ -15,7 +15,7 @@ $(document).ready(function() {
       api.room.getDevices(room.id)
         .done(function(data, textStatus, jqXHR) {
           
-        }
+        })
         .fail(function(jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.responseText);
         });

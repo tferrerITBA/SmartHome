@@ -15,7 +15,6 @@ api.room = class {
   }
 
   static add(room) {
-
    return $.ajax({
       url: api.room.url,
       method: "POST",

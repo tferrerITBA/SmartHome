@@ -12,6 +12,13 @@ $(document).ready(function() {
       $(".title-text").text(room.name);
       $("#roomIcon").attr("src", icon);
       document.title = room.name + " - Smart Home";
+      api.room.getDevices(room.id)
+        .done(function(data, textStatus, jqXHR) {
+          
+        }
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR.responseText);
+        });
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);

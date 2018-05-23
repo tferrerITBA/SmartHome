@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Routine - Smart Home</title>
+		<link rel="stylesheet" type="text/css" href="../equalizer.css"></link>
+		<link rel="stylesheet" type="text/css" href="../style.css"></link>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="../url/api.js"></script>
+		<script src="../url/device.js"></script>
+		<script src="../url/routines.js"></script>
+		<script src="./createRoutine.js"></script>
+	</head>
+	<body>
+		<div class="parent" id="app">
+			<app-header home="../home.html" devices="../devices.html" rooms="../rooms.html" routines="../routines.html"></app-header>
+			<h1 class="title">Create Routine</h1>
+			<div class="margin-text">
+				<h3 class="field-name">Name</h3>
+				<input id="deviceName" type="text" class="input-text"/>
+				<p class="input-error" id="input-error"></p>
+				<h3 class="field-name">Devices</h3>
+				<div class="instances">
+					<item v-for="device in itemList" v-bind:name="device.name" v-bind:subtext="device.subtext" v-bind:img="device.img" v-bind:id="device.id" itemtype="device create-routine-devices" :key="device.id"></item>
+				</div>
+			</div>
+			<div class="option-buttons">
+				<button id="createRoutine" class="option-button create" type="button">Create</button>
+				<button class="option-button cancel" type="button" onclick="location.href='../routines.html';">Cancel</button>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<script src="../components.js"></script>
+		<script src="../devicesComponents.js"></script>
+	</body>
+</html>

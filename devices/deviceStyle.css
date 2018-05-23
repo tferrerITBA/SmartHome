@@ -55,12 +55,10 @@
 	height: 50px;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: no-wrap;
 }
 
 .action-text {
 	display: flex;
-	flex-wrap: no-wrap;
 	align-items: center;
 	height: 35px;
 	font-size: 30px;

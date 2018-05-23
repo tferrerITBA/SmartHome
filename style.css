@@ -33,7 +33,7 @@
 .wizard {
 	align-items: center;
 	display: flex;
-	flex-flow: row nowrap;
+	flex-direction: row;
 }
 
 .add-button {
@@ -298,7 +298,7 @@
 
 .radio-selection {
 	display: flex;
-	flex-flow: row no-wrap;
+	flex-flow: row nowrap;
 	align-content: center;
 }
 
@@ -499,7 +499,6 @@
 
 .routine-action-text {
 	display: flex;
-	flex-wrap: no-wrap;
 	align-items: center;
 	height: 35px;
 	font-size: 30px;

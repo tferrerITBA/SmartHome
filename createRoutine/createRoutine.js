@@ -41,17 +41,17 @@ $(document).ready(function() {
     if(device !== undefined) {
       $(prevDeviceButton).css("background-color", "#C1C1C1");
       if(device.typeId === acId) {
-        ////////
+        $("div[name='ac']").css("display", "none");
       } else if(device.typeId === blindId) {
         $("div[name='blinds']").css("display", "none");
       } else if(device.typeId === doorId) {
         $("div[name='door']").css("display", "none");
       } else if(device.typeId === lampId) {
-        ////////
+        $("div[name='lamp']").css("display", "none");
       } else if(device.typeId === ovenId) {
-        ////////
+        $("div[name='oven']").css("display", "none");
       } else if(device.typeId === refriId) {
-        ////////
+        $("div[name='refrigerator']").css("display", "none");
       }
     }
     $(this).css("background-color", "#D6D6D6");
@@ -61,7 +61,17 @@ $(document).ready(function() {
       .done(function(data, textStatus, jqXHR) {
         device = data.device;
         if(device.typeId === acId) {
-          ////////
+          $("div[name='ac']").attr("id", device.id);
+          $("div[name='ac']").css("display", "flex");
+          $("div[name='ac']").find("h3[name='on-text']").attr("id", 'on-status' + device.id);
+          $("div[name='ac']").find(".switch").attr("id", device.id);
+          $("div[name='ac']").find(".counter").attr("id", device.id);
+          $("div[name='ac']").find("input[name='quantity']").attr("id", 'temp' + device.id);
+          $("div[name='ac']").find("form[name='mode-form']").attr("id", 'mode' + device.id);
+          $("div[name='ac']").find(".radio-button").attr("id", device.id);
+          $("div[name='ac']").find("form[name='v-swing-form']").attr("id", 'vswing' + device.id);
+          $("div[name='ac']").find("form[name='h-swing-form']").attr("id", 'hswing' + device.id);
+          $("div[name='ac']").find("form[name='fspeed']").attr("id", 'fanspeed' + device.id);
         } else if(device.typeId === blindId) {
           $("div[name='blinds']").attr("id", device.id);
           $("div[name='blinds']").css("display", "flex");
@@ -74,11 +84,31 @@ $(document).ready(function() {
           $("div[name='door']").find("h3[name='lock-text']").attr("id", 'lock-status' + device.id);
           $("div[name='door']").find(".switch").attr("id", device.id);
         } else if(device.typeId === lampId) {
-          ////////
+          $("div[name='lamp']").attr("id", device.id);
+          $("div[name='lamp']").css("display", "flex");
+          $("div[name='lamp']").find("h3[name='on-text']").attr("id", 'on-status' + device.id);
+          $("div[name='lamp']").find(".switch").attr("id", device.id);
+          $("div[name='lamp']").find(".color-selection").attr("id", device.id);
+          $("div[name='lamp']").find(".color-preview").attr("id", 'colorPreview' + device.id);
+          $("div[name='lamp']").find(".slider-container").attr("id", device.id);
         } else if(device.typeId === ovenId) {
-          ////////
+          $("div[name='oven']").attr("id", device.id);
+          $("div[name='oven']").css("display", "flex");
+          $("div[name='oven']").find("h3[name='on-text']").attr("id", 'on-status' + device.id);
+          $("div[name='oven']").find(".switch").attr("id", device.id);
+          $("div[name='oven']").find(".oven-heat").attr("id", device.id);
+          $("div[name='oven']").find("form[name='heat-form']").attr("id", 'heat' + device.id);
+          $("div[name='oven']").find(".radio-button").attr("id", device.id);
+          $("div[name='oven']").find("form[name='grill-form']").attr("id", 'grill' + device.id);
+          $("div[name='oven']").find("form[name='conv-form']").attr("id", 'conv' + device.id);
         } else if(device.typeId === refriId) {
-          ////////
+          $("div[name='refrigerator']").attr("id", device.id);
+          $("div[name='refrigerator']").css("display", "flex");
+          $("div[name='refrigerator']").find(".counter").attr("id", device.id);
+          $("div[name='refrigerator']").find("input[name='quantity']").attr("id", 'temp' + device.id);
+          $("div[name='refrigerator']").find("input[name='freez-quantity']").attr("id", 'freez' + device.id);
+          $("div[name='refrigerator']").find(".radio-button").attr("id", device.id);
+          $("div[name='refrigerator']").find("form[name='mode-form']").attr("id", 'mode' + device.id);
         }
       })
       .fail(function(jqXHR, textStatus, errorThrown) {

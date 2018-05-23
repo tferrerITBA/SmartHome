@@ -38,7 +38,8 @@ $(document).ready(function() {
           api.device.get(queries[1])
             .done(function(data, textStatus, jqXHR) {
               device = data.device;
-              device.meta = "{ hasRoom: true }";
+              var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+              device.meta = "{ hasRoom: true, favorite: " + fav + " }";
               api.device.modify(device, device.id)
                 .done(function(data, textStatus, jqXHR) {
                   queryString = "?id=" + device.id;

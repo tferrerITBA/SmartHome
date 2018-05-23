@@ -85,13 +85,31 @@ var VueInstance = new Vue({
         	})
 		},
 		deleteRoom() {
-			api.room.delete(room.id)
-        	.done(function(data, textStatus, jqXHR) {
-          		window.location.href = "../../rooms.html";
-        	})
-        	.fail(function(jqXHR, textStatus, errorThrown) {
-          		console.log(jqXHR.responseText);
-        	})
+			api.room.getDevices(room.id)
+		        .done(function(data, textStatus, jqXHR) {
+		          	var roomDevices = data.devices;
+		          	api.room.delete(room.id)
+        				.done(function(data, textStatus, jqXHR) {
+        					roomDevices.forEach(function(device) {
+					            var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+					            device.meta = "{ hasRoom: false, favorite: " + fav + "}";
+					            api.device.modify(device, device.id)
+					                .done(function(data, textStatus, jqXHR) {
+					                  	
+					                })
+					                .fail(function(jqXHR, textStatus, errorThrown) {
+					                    console.log(jqXHR.responseText);
+					                })
+		        			})
+		        			window.location.href = "../../rooms.html";
+        				})
+			        	.fail(function(jqXHR, textStatus, errorThrown) {
+			          		console.log(jqXHR.responseText);
+			        	})
+		        })
+		        .fail(function(jqXHR, textStatus, errorThrown) {
+		          	console.log(jqXHR.responseText);
+		        });
 		}
 	}
 })

@@ -10,7 +10,7 @@ $(document).ready(function() {
           function(device){
             return device.name === deviceType;
           })[0].id;
-        var meta = "{ hasRoom: " + false + " }";
+        var meta = "{ hasRoom: " + false + ", favorite: " + false + " }";
         device = new api.model.device(null, deviceIdType, deviceName, meta);
         api.device.add(device)
           .done(function(data, textStatus, jqXHR) {

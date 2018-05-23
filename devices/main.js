@@ -35,7 +35,6 @@ $(document).ready(function() {
   }
 
   $(".instances").on("click", "button", function() {
-    console.log($(this).attr('id'));
     var id = $(this).attr('id');
       api.device.get($(this).attr('id'))
       .done(function(data, textStatus, jqXHR) {
@@ -73,7 +72,8 @@ $(document).ready(function() {
   $("#deselectRoom").on("click", function() {
     api.device.deleteDeviceFromRoom(device.id)
       .done(function(data, textStatus, jqXHR) {
-        device.meta = "{ hasRoom: false }";
+        var fav = device.meta.split("favorite: ")[1].split(" }")[0];
+        device.meta = "{ hasRoom: false, favorite: " + fav + " }";
         api.device.modify(device, device.id)
           .done(function(data, textStatus, jqXHR) {
             $("#selectRoom").prop("disabled", false);

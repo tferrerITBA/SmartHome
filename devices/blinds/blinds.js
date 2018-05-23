@@ -18,7 +18,7 @@ $(document).ready(function() {
             $("#open-status").text("Closed");
           }
           
-          var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
+          var hasRoom = device.meta.split("hasRoom: ")[1].split(",")[0];
           if(hasRoom === "false") {
             $("#selectRoom").prop("disabled", false);
             $("#deselectRoom").prop("disabled", true);

@@ -16,7 +16,7 @@ $(document).ready(function() {
           $('input[name=freez-quantity]').val(result.freezerTemperature);
           $("#" + result.mode).prop("checked", true);
 
-          var hasRoom = device.meta.split("hasRoom: ")[1].split(" }")[0];
+          var hasRoom = device.meta.split("hasRoom: ")[1].split(",")[0];
           if(hasRoom === "false") {
             $("#selectRoom").prop("disabled", false);
             $("#deselectRoom").prop("disabled", true);

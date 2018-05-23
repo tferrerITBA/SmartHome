@@ -1,6 +1,8 @@
 var room;
 
 $(document).ready(function() {
+  $("#roomName").focus();
+
   $("#createRoom").on("click", function() {
     var name = $("#roomName").val();
     var icon = $('input[name="icon"]:checked').val();

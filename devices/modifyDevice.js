@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$("#name").focus();
 
 	var queryString = decodeURIComponent(window.location.search);
   	queryString = queryString.substring(1);
@@ -84,6 +85,6 @@ $(document).ready(function() {
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
 				console.log(jqXHR.responseText);
-			})	          	
+			})
     });
 });

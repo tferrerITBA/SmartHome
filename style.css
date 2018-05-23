@@ -425,6 +425,7 @@
 
 .input-error {
 	color: red;
+	margin-top: 10px;
 }
 
 .routine-device-select {
@@ -490,7 +491,7 @@
 }
 
 .blinds {
-	height: 110px;	
+	height: 110px;
 }
 
 .door {

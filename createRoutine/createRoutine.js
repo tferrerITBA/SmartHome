@@ -1,0 +1,196 @@
+var routine;
+var actions = [];
+
+$(document).ready(function() {
+
+  $("#createRoutine").on("click", function() {
+    var name = $("#routineName").val();
+    routine = new api.model.room(null, name, actions, meta);
+    api.routine.add(routine)
+      .done((data, textStatus, jqXHR) => {
+        routine.id = data.routine.id;
+        window.location.href = "../routines.html";
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR.responseText);
+      });
+  });
+
+  $("#open-switch").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var status = $("#open-status" + id).text();
+    var data;
+    if(status === "Open") {
+      data = { deviceId: id, actionName: "close", params: [], meta: {}};
+      $("#open-status" + id).text("Closed");
+    } else {
+      data = { deviceId: id, actionName: "open", params: [], meta: {}};
+      $("#open-status" + id).text("Open");
+    }
+    actions.push(data);
+  });
+
+  $("#lock-switch").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var status = $("#lock-status" + id).text();
+    var data;
+    if(status === "Locked") {
+      data = { deviceId: id, actionName: "unlock", params: [], meta: {}};
+      $("#lock-status" + id).text("Unlocked");
+    } else {
+      data = { deviceId: id, actionName: "lock", params: [], meta: {}};
+      $("#lock-status" + id).text("Locked");
+    }
+    actions.push(data);
+  });
+
+
+  $("#minus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#temp' + id).val());
+    if(temp > 2) {
+      temp--;
+      $('#temp' + id).val(temp);
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
+
+  $("#plus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#temp' + id).val());
+    if(temp < 8) {
+      temp++;
+      $('#temp' + id).val(temp);
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
+
+  $("#freezMinus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#freez' + id).val());
+    if(temp > -20) {
+      temp--;
+      $('#freez' + id).val(temp);
+      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
+
+  $("#freezPlus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#freez' + id).val());
+    if(temp < -8) {
+      temp++;
+      $('#freez' + id).val(temp);
+      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
+
+  $('input[name=mode]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $('input[name=mode]:checked', '#mode' + id).val();
+    var data = { deviceId: id, actionName: "setMode", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  $("#on-switch").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var status = $("#on-status" + id).text();
+    var data;
+    if(status === "On") {
+      $("#on-status" + id).text("Off");
+      data = { deviceId: id, actionName: "turnOff", params: [], meta: {}};
+    } else {
+      $("#on-status" + id).text("On");
+      data = { deviceId: id, actionName: "turnOn", params: [], meta: {}};
+    }
+    actions.push(data);
+  });
+
+
+  $("#color").on("change", function() {
+    var id = $(this).parent().attr('id');
+    var hexColor = $('#color :selected').val()
+    var data = { deviceId: id, actionName: "setColor", params: [hexColor], meta: {}};
+    $("#colorPreview" + id).css("background-color", hexColor);
+    actions.push(data);
+  });
+
+  $("#brightness").on("mouseup", function() {
+    var id = $(this).parent().attr('id');
+    var brightness = $("#brightness").val()
+    var data = { deviceId: id, actionName: "setBrightness", params: [brightness], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=v-swing]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='v-swing']:checked").val();
+    var data = { deviceId: id, actionName: "setVerticalSwing", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=h-swing]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='h-swing']:checked").val();
+    var data = { deviceId: id, actionName: "setHorizontalSwing", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=fan-speed]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='fan-speed']:checked").val();
+    var data = { deviceId: id, actionName: "setFanSpeed", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+
+  $("#temperature").on("mouseup", function() {
+    var id = $(this).parent().attr('id');
+    var temp = $("#temperature").val();
+    var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=heat]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='heat']:checked").val();
+    var data = { deviceId: id, actionName: "setHeat", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=grill]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='grill']:checked").val();
+    var data = { deviceId: id, actionName: "setGrillHeat", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  $('input[name=convection]').on("change", function() {
+    var id = $(this).parent().attr('id');
+    var state = $("form input[name='convection']:checked").val();
+    var data = { deviceId: id, actionName: "setConvection", params: [state], meta: {}};
+    actions.push(data);
+  });
+
+  // Slider text update
+  var rangeSlider = function(){
+    var slider = $('.oven-heat'),
+        range = $('.slider'),
+        value = $('.oven-heat-text');
+    slider.each(function(){
+      value.each(function(){
+        var value = $(this).prev().attr('value');
+        $(this).html(value);
+      });
+      range.on('input', function(){
+        $(this).next(value).html(this.value);
+      });
+    });
+  };
+  rangeSlider();
+
+});

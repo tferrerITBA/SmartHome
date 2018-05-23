@@ -347,9 +347,14 @@
 	font-size: 30px;
 }
 
+.favorite-wizard {
+	font-size: 25px;
+	margin: 20px 0;
+}
+
 .instances {
 	width: 100%;
-	height: 400px;
+	flex: 1 1 auto;
 }
 
 .modal-mask {

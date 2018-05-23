@@ -46,7 +46,6 @@ $(document).ready(function() {
 				device.name = name;
 				api.device.modify(device, device.id)
 					.done(function(data, textStatus, jqXHR) {
-						console.log("OK");
 						var queryString = "?id=" + device.id;
 						if(device.typeId === acId) {
 							window.location.href = "ac/ac.html" + queryString;
@@ -69,22 +68,22 @@ $(document).ready(function() {
 						str = str.replace(/(?:\\[rn])+/g, "");
 						str = str.replace(/[^\w\s]/gi, '');
 						if(str.indexOf('name is required') >= 0) {
-						errorMessage = errorMessage.concat("A name is required; ");
+							errorMessage = errorMessage.concat("A name is required; ");
 						}
 						if(str.indexOf('fails to match the required pattern') >= 0) {
-						errorMessage = errorMessage.concat("Enter alphanumeric characters only; ");
+							errorMessage = errorMessage.concat("Enter alphanumeric characters only; ");
 						}
 						if(str.indexOf('length must be') >= 0) {
-						errorMessage = errorMessage.concat("Please enter between 3 and 60 characters; ");
+							errorMessage = errorMessage.concat("Please enter between 3 and 60 characters; ");
 						}
 						if(errorMessage != "")
 							$("#input-error").text(errorMessage);
 						else
 							$("#input-error").text(str);
-									})
-						})
-				.fail(function(jqXHR, textStatus, errorThrown) {
-					console.log(jqXHR.responseText);
-				})	          	
+					})
+			})
+			.fail(function(jqXHR, textStatus, errorThrown) {
+				console.log(jqXHR.responseText);
+			})	          	
     });
 });

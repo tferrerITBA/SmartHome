@@ -64,7 +64,7 @@ template:
 	    <div class="routine-action">
 	      <h3 class="routine-action-text" id="" name="on-text">Off</h3>
 	      <label class="switch" id="">
-	          <input type="checkbox" id="on-switch"/>
+	          <input type="checkbox" name="on-switch"/>
 	          <span class="switch-slider"></span>
 	      </label>
 	    </div>
@@ -185,7 +185,7 @@ template:
   		<div class="routine-action">
     		<h3 class="routine-action-text" id="" name="open-text">Closed</h3>
     		<label class="switch" id="">
-        		<input type="checkbox" id="open-switch">
+        		<input type="checkbox" name="open-switch">
         		<span class="switch-slider"></span>
     		</label>
   		</div>
@@ -198,7 +198,7 @@ template:
 	  <div class="routine-action">
 	    <h3 class="routine-action-text" id="" name="open-text">Closed</h3>
 	    <label class="switch" id="">
-	        <input type="checkbox" id="open-switch">
+	        <input type="checkbox" name="open-switch">
 	        <span class="switch-slider"></span>
 	    </label>
 	  </div>
@@ -218,7 +218,7 @@ template:
 	  <div class="routine-action">
 	    <h3 class="routine-action-text" id="" name="on-text">Off</h3>
 	    <label class="switch" id="">
-	        <input type="checkbox" id="on-switch"/>
+	        <input type="checkbox" name="on-switch"/>
 	        <span class="switch-slider"></span>
 	    </label>
 	  </div>
@@ -257,7 +257,7 @@ template:
 	  <div class="routine-action">
 	    <h3 class="routine-action-text" id="" name="on-text">Off</h3>
 	    <label class="switch" id="">
-	        <input type="checkbox" id="on-switch"/>
+	        <input type="checkbox" name="on-switch"/>
 	        <span class="switch-slider"></span>
 	    </label>
 	  </div>

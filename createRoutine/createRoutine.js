@@ -132,8 +132,7 @@ $(document).ready(function() {
       });
   });
 
-  $("#open-switch").on("click", function() {
-    debugger;
+  $("input[name='open-switch']").on("click", function() {
     var id = $(this).parent().attr('id');
     var status = $("#open-status" + id).text();
     var data;
@@ -144,12 +143,10 @@ $(document).ready(function() {
       data = { deviceId: id, actionName: "open", params: [], meta: "{}"};
       $("#open-status" + id).text("Open");
     }
-    console.log(data);
     actions.push(data);
   });
 
   $("#lock-switch").on("click", function() {
-    debugger;
     var id = $(this).parent().attr('id');
     var status = $("#lock-status" + id).text();
     var data;
@@ -230,13 +227,14 @@ $(document).ready(function() {
   });
 
   $('input[name=mode]').on("change", function() {
+    debugger;
     var id = $(this).parent().attr('id');
     var state = $('input[name=mode]:checked', '#mode' + id).val();
     var data = { deviceId: id, actionName: "setMode", params: [state], meta: "{}"};
     actions.push(data);
   });
 
-  $("#on-switch").on("click", function() {
+  $("input[name='on-switch']").on("click", function() {
     var id = $(this).parent().attr('id');
     var status = $("#on-status" + id).text();
     var data;
@@ -247,7 +245,6 @@ $(document).ready(function() {
       $("#on-status" + id).text("On");
       data = { deviceId: id, actionName: "turnOn", params: [], meta: "{}"};
     }
-    console.log(data);
     actions.push(data);
   });
 

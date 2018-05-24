@@ -11,7 +11,6 @@ $(document).ready(function() {
   api.device.getAll()
     .done(function(data, textStatus, jqXHR) {
       data.devices.forEach(function(device) {
-        console.log(device);
         var name = device.name;
         var typeId = device.typeId;
         var id = device.id;

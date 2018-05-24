@@ -32,7 +32,7 @@ $(document).ready(function() {
       devicesActions.forEach(function(device) {
         api.device.get(device.deviceId)
           .done(function(data, textStatus, jqXHR) {
-            $("#deviceActions").append("<p>" + data.device.name + "</p>")
+            $("#deviceActions").append("<p class=rout-device-name>" + data.device.name + "</p>")
             device.actions.forEach(function(action) {
               if (action.actionName === "turnOn") {
                 $("#deviceActions").append("<p class=action-item>Turn On</p>")

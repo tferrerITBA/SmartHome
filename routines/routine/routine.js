@@ -39,7 +39,41 @@ $(document).ready(function() {
           .done(function(data, textStatus, jqXHR) {
             $("#deviceActions").append("<p>" + data.device.name + "</p>")
             device.actions.forEach(function(action) {
-              $("#deviceActions").append("<p>" + action.actionName + "</p>")
+              if (action.actionName === "turnOn") {
+                $("#deviceActions").append("<p class=action-item>Turn On</p>")
+              } else if (action.actionName === "turnOff") {
+                $("#deviceActions").append("<p class=action-item>Turn Off</p>")
+              } else if (action.actionName === "lock") {
+                $("#deviceActions").append("<p class=action-item>Lock</p>")
+              } else if (action.actionName === "unlock") {
+                $("#deviceActions").append("<p class=action-item>Unlock</p>")
+              } else if (action.actionName === "open" || action.actionName === "up") {
+                $("#deviceActions").append("<p class=action-item>Open</p>")
+              } else if (action.actionName === "close" || action.actionName === "down") {
+                $("#deviceActions").append("<p class=action-item>Close</p>")
+              } else if (action.actionName === "setTemperature") {
+                $("#deviceActions").append("<p class=action-item>Set Temperature: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setMode") {
+                $("#deviceActions").append("<p class=action-item>Set Mode: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setVerticalSwing") {
+                $("#deviceActions").append("<p class=action-item>Set Vertical Swing: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setHorizontalSwing") {
+                $("#deviceActions").append("<p class=action-item>Set Horizontal Swing: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setFanSpeed") {
+                $("#deviceActions").append("<p class=action-item>Set Fan Speed: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setColor") {
+                $("#deviceActions").append("<p class=action-item>Set Color: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setBrightness") {
+                $("#deviceActions").append("<p class=action-item>Set Brightness: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setHeat") {
+                $("#deviceActions").append("<p class=action-item>Set Heat: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setGrill") {
+                $("#deviceActions").append("<p class=action-item>Set Grill: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setConvection") {
+                $("#deviceActions").append("<p class=action-item>Set Convection: " + action.params[0] + "</p>")
+              } else if (action.actionName === "setFreezerTemperature") {
+                $("#deviceActions").append("<p class=action-item>Set Freezer Temperature" + action.params[0] + "</p>")
+              }
             })
           })
           .fail(function(jqXHR, textStatus, errorThrown) {
@@ -50,4 +84,15 @@ $(document).ready(function() {
     .fail(function(jqXHR, textStatus, errorThrown) {
       console.log(jqXHR.responseText);
     });
+
+    $("#executeRoutine").on("click", function() {
+      debugger;
+      api.routine.execute(routine.id)
+        .done(function(data, textStatus, jqXHR) {
+          console.log("Executed!");
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR.responseText);
+        });
+    })
 });

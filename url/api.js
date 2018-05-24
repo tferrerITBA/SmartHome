@@ -168,7 +168,7 @@ api.routine = class {
 
   static add(routine) {
    return $.ajax({
-      url: api.device.url,
+      url: api.routine.url,
       method: "POST",
       dataType: "json",
       contentType: "application/json; charset=utf-8",

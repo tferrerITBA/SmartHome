@@ -12,7 +12,7 @@ var prevDevice;
 
 $(document).ready(function() {
   $("#routineName").focus();
-  
+
   api.device.getAll()
     .done(function(data, textStatus, jqXHR) {
         data.devices.forEach(function(device) {
@@ -121,7 +121,7 @@ $(document).ready(function() {
   $("#createRoutine").on("click", function() {
     var name = $("#routineName").val();
     var meta = "{}";
-    routine = new api.model.room(null, name, actions, meta);
+    routine = new api.model.routine(null, name, actions, meta);
     api.routine.add(routine)
       .done((data, textStatus, jqXHR) => {
         routine.id = data.routine.id;
@@ -133,28 +133,30 @@ $(document).ready(function() {
   });
 
   $("#open-switch").on("click", function() {
+    debugger;
     var id = $(this).parent().attr('id');
     var status = $("#open-status" + id).text();
     var data;
     if(status === "Open") {
-      data = { deviceId: id, actionName: "close", params: [], meta: {}};
+      data = { deviceId: id, actionName: "close", params: [], meta: "{}"};
       $("#open-status" + id).text("Closed");
     } else {
-      data = { deviceId: id, actionName: "open", params: [], meta: {}};
+      data = { deviceId: id, actionName: "open", params: [], meta: "{}"};
       $("#open-status" + id).text("Open");
     }
     actions.push(data);
   });
 
   $("#lock-switch").on("click", function() {
+    debugger;
     var id = $(this).parent().attr('id');
     var status = $("#lock-status" + id).text();
     var data;
     if(status === "Locked") {
-      data = { deviceId: id, actionName: "unlock", params: [], meta: {}};
+      data = { deviceId: id, actionName: "unlock", params: [], meta: "{}"};
       $("#lock-status" + id).text("Unlocked");
     } else {
-      data = { deviceId: id, actionName: "lock", params: [], meta: {}};
+      data = { deviceId: id, actionName: "lock", params: [], meta: "{}"};
       $("#lock-status" + id).text("Locked");
     }
     actions.push(data);
@@ -167,7 +169,7 @@ $(document).ready(function() {
     if(temp > 2) {
       temp--;
       $('#temp' + id).val(temp);
-      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -178,7 +180,7 @@ $(document).ready(function() {
     if(temp < 8) {
       temp++;
       $('#temp' + id).val(temp);
-      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -189,7 +191,7 @@ $(document).ready(function() {
     if(temp > -20) {
       temp--;
       $('#freez' + id).val(temp);
-      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -200,7 +202,7 @@ $(document).ready(function() {
     if(temp < -8) {
       temp++;
       $('#freez' + id).val(temp);
-      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setFreezerTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -208,7 +210,7 @@ $(document).ready(function() {
   $('input[name=mode]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $('input[name=mode]:checked', '#mode' + id).val();
-    var data = { deviceId: id, actionName: "setMode", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setMode", params: [state], meta: "{}"};
     actions.push(data);
   });
 
@@ -218,10 +220,10 @@ $(document).ready(function() {
     var data;
     if(status === "On") {
       $("#on-status" + id).text("Off");
-      data = { deviceId: id, actionName: "turnOff", params: [], meta: {}};
+      data = { deviceId: id, actionName: "turnOff", params: [], meta: "{}"};
     } else {
       $("#on-status" + id).text("On");
-      data = { deviceId: id, actionName: "turnOn", params: [], meta: {}};
+      data = { deviceId: id, actionName: "turnOn", params: [], meta: "{}"};
     }
     actions.push(data);
   });
@@ -230,7 +232,7 @@ $(document).ready(function() {
   $("#color").on("change", function() {
     var id = $(this).parent().attr('id');
     var hexColor = $('#color :selected').val()
-    var data = { deviceId: id, actionName: "setColor", params: [hexColor], meta: {}};
+    var data = { deviceId: id, actionName: "setColor", params: [hexColor], meta: "{}"};
     $("#colorPreview" + id).css("background-color", hexColor);
     actions.push(data);
   });
@@ -238,28 +240,28 @@ $(document).ready(function() {
   $("#brightness").on("mouseup", function() {
     var id = $(this).parent().attr('id');
     var brightness = $("#brightness").val()
-    var data = { deviceId: id, actionName: "setBrightness", params: [brightness], meta: {}};
+    var data = { deviceId: id, actionName: "setBrightness", params: [brightness], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=v-swing]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='v-swing']:checked").val();
-    var data = { deviceId: id, actionName: "setVerticalSwing", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setVerticalSwing", params: [state], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=h-swing]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='h-swing']:checked").val();
-    var data = { deviceId: id, actionName: "setHorizontalSwing", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setHorizontalSwing", params: [state], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=fan-speed]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='fan-speed']:checked").val();
-    var data = { deviceId: id, actionName: "setFanSpeed", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setFanSpeed", params: [state], meta: "{}"};
     actions.push(data);
   });
 
@@ -267,28 +269,28 @@ $(document).ready(function() {
   $("#temperature").on("mouseup", function() {
     var id = $(this).parent().attr('id');
     var temp = $("#temperature").val();
-    var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+    var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=heat]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='heat']:checked").val();
-    var data = { deviceId: id, actionName: "setHeat", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setHeat", params: [state], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=grill]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='grill']:checked").val();
-    var data = { deviceId: id, actionName: "setGrillHeat", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setGrillHeat", params: [state], meta: "{}"};
     actions.push(data);
   });
 
   $('input[name=convection]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='convection']:checked").val();
-    var data = { deviceId: id, actionName: "setConvection", params: [state], meta: {}};
+    var data = { deviceId: id, actionName: "setConvection", params: [state], meta: "{}"};
     actions.push(data);
   });
 

@@ -166,7 +166,7 @@ $(document).ready(function() {
     if(temp > 18) {
       temp--;
       $('#temp' + id).val(temp);
-      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -177,7 +177,7 @@ $(document).ready(function() {
     if(temp < 38) {
       temp++;
       $('#temp' + id).val(temp);
-      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: "{}"};
       actions.push(data);
     }
   });
@@ -227,7 +227,6 @@ $(document).ready(function() {
   });
 
   $('input[name=mode]').on("change", function() {
-    debugger;
     var id = $(this).parent().attr('id');
     var state = $('input[name=mode]:checked', '#mode' + id).val();
     var data = { deviceId: id, actionName: "setMode", params: [state], meta: "{}"};

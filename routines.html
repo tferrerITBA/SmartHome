@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="url/api.js"></script>
+		<script src="routines/routines.js"></script>
 	</head>
 	<body>
 		<noscript>
@@ -28,7 +30,7 @@
 					</div>
 				</div>
 				<div class="instances">
-					<item v-for="routine in itemList" v-bind:name="routine.name" v-bind:subtext="routine.subtext" v-bind:img="routine.img" v-bind:id="routine.id" itemtype="routine" :key="routine.id"></item>
+					<item v-for="routine in itemList" v-bind:name="routine.name" v-bind:subtext="routine.subtext" v-bind:img="routine.img" v-bind:id="routine.id" itemtype="room" :key="routine.id"></item>
 				</div>
 			</div>
 			<button class="add-button" type="button" onclick="location.href='createRoutine/createRoutine.html'">

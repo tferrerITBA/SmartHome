@@ -406,7 +406,7 @@ var VueInstance = new Vue({
 					            device.meta = "{ hasRoom: false, favorite: " + fav + "}";
 					            api.device.modify(device, device.id)
 					                .done(function(data, textStatus, jqXHR) {
-					                  	
+
 					                })
 					                .fail(function(jqXHR, textStatus, errorThrown) {
 					                    console.log(jqXHR.responseText);
@@ -421,6 +421,15 @@ var VueInstance = new Vue({
 		        .fail(function(jqXHR, textStatus, errorThrown) {
 		          	console.log(jqXHR.responseText);
 		        });
-		}
+		},
+		deleteRoutine() {
+			api.routine.delete(routine.id)
+        	.done(function(data, textStatus, jqXHR) {
+          		window.location.href = "../../routines.html";
+        	})
+        	.fail(function(jqXHR, textStatus, errorThrown) {
+          		console.log(jqXHR.responseText);
+        	})
+		},
 	}
 })

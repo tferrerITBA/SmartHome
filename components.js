@@ -71,11 +71,11 @@ template:
 	    <div class="routine-action">
 	      <h3 class="routine-action-text">Set temperature (<sup>o</sup>C)</h3>
 	      <div class="counter" id="">
-	          <button class="counter-button" type="button" id="minus">
+	          <button class="counter-button" type="button" id="acminus">
 	            <img class="counter-button-icon" src="../assets/MinusButton.png" alt="increment"/>
 	          </button>
 	        	<input id="" class="counter-input" name="quantity" value="25" readonly>
-	          <button class="counter-button" type="button" id="plus">
+	          <button class="counter-button" type="button" id="acplus">
 	            <img class="counter-button-icon" src="../assets/PlusButton.png" alt="decrement"/>
 	          </button>
 	      </div>

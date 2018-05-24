@@ -144,6 +144,7 @@ $(document).ready(function() {
       data = { deviceId: id, actionName: "open", params: [], meta: "{}"};
       $("#open-status" + id).text("Open");
     }
+    console.log(data);
     actions.push(data);
   });
 
@@ -162,6 +163,27 @@ $(document).ready(function() {
     actions.push(data);
   });
 
+  $("#acminus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#temp' + id).val());
+    if(temp > 18) {
+      temp--;
+      $('#temp' + id).val(temp);
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
+
+  $("#acplus").on("click", function() {
+    var id = $(this).parent().attr('id');
+    var temp = parseInt($('#temp' + id).val());
+    if(temp < 38) {
+      temp++;
+      $('#temp' + id).val(temp);
+      var data = { deviceId: id, actionName: "setTemperature", params: [temp], meta: {}};
+      actions.push(data);
+    }
+  });
 
   $("#minus").on("click", function() {
     var id = $(this).parent().attr('id');
@@ -225,6 +247,7 @@ $(document).ready(function() {
       $("#on-status" + id).text("On");
       data = { deviceId: id, actionName: "turnOn", params: [], meta: "{}"};
     }
+    console.log(data);
     actions.push(data);
   });
 

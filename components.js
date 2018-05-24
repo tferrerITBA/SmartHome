@@ -429,7 +429,7 @@ var VueInstance = new Vue({
         	})
         	.fail(function(jqXHR, textStatus, errorThrown) {
           		console.log(jqXHR.responseText);
-        	})
-		},
+        	});
+		}
 	}
 })

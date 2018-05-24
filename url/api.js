@@ -215,7 +215,7 @@ api.routine = class {
     });
   }
 
-  static execute(routineId) {
+  static execute(id) {
    return $.ajax({
       url: api.routine.url + id + "/execute",
       method: "PUT",

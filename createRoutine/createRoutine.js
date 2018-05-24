@@ -303,7 +303,7 @@ $(document).ready(function() {
   $('input[name=grill]').on("change", function() {
     var id = $(this).parent().attr('id');
     var state = $("form input[name='grill']:checked").val();
-    var data = { deviceId: id, actionName: "setGrillHeat", params: [state], meta: "{}"};
+    var data = { deviceId: id, actionName: "setGrill", params: [state], meta: "{}"};
     actions.push(data);
   });
 

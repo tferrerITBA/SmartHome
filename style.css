@@ -138,8 +138,9 @@
 	border: 2px solid;
 	border-radius: 50px;
 	color: white;
-	font-size: 25px;
+	font-size: 24px;
 	height: 50px;
+	line-height: 24px;
 	margin: 0 20px;
 	width: 150px;
 
@@ -533,4 +534,31 @@
 
 .lamp {
 	flex-flow: column wrap;
+}
+
+.action-item {
+	color: gray;
+	display: flex;
+	margin: 30px 50px;
+}
+
+.rout-device-name {
+	display: flex;
+	font-size: 30px;
+	margin: 30px 0;
+}
+
+.deviceActions {
+	display: flex;
+	flex-direction: column;
+}
+
+.routine-buttons {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 60px 20px 0;
+}
+
+.routine-subtitle {
+	font-size: 35px;
 }

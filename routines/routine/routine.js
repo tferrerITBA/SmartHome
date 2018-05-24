@@ -1,10 +1,5 @@
 var routine;
-var acId = "li6cbv5sdlatti0j";
-var blindId = "eu0v2xgprrhhg41g";
-var lampId = "go46xmbqeomjrsjr";
-var ovenId = "im77xxyulpegfmv8";
-var doorId = "lsf78ly0eqrjbz91";
-var refriId = "rnizejqr2di0okho";
+var colors = { "#FFFFFF": "White", "#FFFF00": "Yellow", "#FFA500": "Orange", "#FF0000": "Red", "#FF00FF": "Magenta", "#0000FF": "Blue", "#00FFFF": "Cyan", "#00FF00": "Lime"}
 
 $(document).ready(function() {
   var queryString = decodeURIComponent(window.location.search);
@@ -37,7 +32,7 @@ $(document).ready(function() {
       devicesActions.forEach(function(device) {
         api.device.get(device.deviceId)
           .done(function(data, textStatus, jqXHR) {
-            $("#deviceActions").append("<p>" + data.device.name + "</p>")
+            $("#deviceActions").append("<p class=rout-device-name>" + data.device.name + "</p>")
             device.actions.forEach(function(action) {
               if (action.actionName === "turnOn") {
                 $("#deviceActions").append("<p class=action-item>Turn On</p>")
@@ -62,7 +57,7 @@ $(document).ready(function() {
               } else if (action.actionName === "setFanSpeed") {
                 $("#deviceActions").append("<p class=action-item>Set Fan Speed: " + action.params[0] + "</p>")
               } else if (action.actionName === "setColor") {
-                $("#deviceActions").append("<p class=action-item>Set Color: " + action.params[0] + "</p>")
+                $("#deviceActions").append("<p class=action-item>Set Color: " + colors[action.params[0]] + "</p>")
               } else if (action.actionName === "setBrightness") {
                 $("#deviceActions").append("<p class=action-item>Set Brightness: " + action.params[0] + "</p>")
               } else if (action.actionName === "setHeat") {
@@ -86,7 +81,6 @@ $(document).ready(function() {
     });
 
     $("#executeRoutine").on("click", function() {
-      debugger;
       api.routine.execute(routine.id)
         .done(function(data, textStatus, jqXHR) {
           console.log("Executed!");
